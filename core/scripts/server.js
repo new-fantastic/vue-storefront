@@ -7,10 +7,12 @@ let config = require('config')
 const TagCache = require('redis-tag-cache').default
 const utils = require('./server/utils')
 const compile = require('lodash.template')
+
 const compileOptions = {
   escape: /{{([^{][\s\S]+?[^}])}}/g,
   interpolate: /{{{([\s\S]+?)}}}/g
 }
+
 const isProd = process.env.NODE_ENV === 'production'
 process.noDeprecation = true
 
@@ -18,11 +20,15 @@ const app = express()
 
 let cache
 if (config.server.useOutputCache) {
+  const cacheKey = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'build', 'cache-version.json')) || '')
+  const redisConfig = Object.assign(config.redis, { keyPrefix: cacheKey })
+
   cache = new TagCache({
-    redis: config.redis,
-    defaultTimeout: config.server.outputCacheDefaultTtl // Expire records after a day (even if they weren't invalidated)
+    redis: redisConfig,
+    defaultTimeout: config.server.outputCacheDefaultTtl
   })
-  console.log('Redis cache set', config.redis)
+
+  console.log('Redis cache set', redisConfig)
 }
 
 const templatesCache = {}
@@ -65,22 +71,7 @@ function createRenderer (bundle, clientManifest, template) {
   })
 }
 
-const serve = (path, cache, options) => express.static(resolve(path), Object.assign({
-  maxAge: cache && isProd ? 60 * 60 * 24 * 30 : 0
-}, options))
-
-const themeRoot = require('../build/theme-path')
-
-app.use('/dist', serve('dist', true))
-app.use('/assets', serve(themeRoot + '/assets', true))
-app.use('/service-worker.js', serve('dist/service-worker.js', {
-  setHeaders: {'Content-Type': 'text/javascript; charset=UTF-8'}
-}))
-
-const serverExtensions = require(resolve('src/server'))
-serverExtensions.registerUserServerRoutes(app)
-
-app.get('/invalidate', (req, res) => {
+function invalidateCache (req, res) {
   if (config.server.useOutputCache) {
     if (req.query.tag && req.query.key) { // clear cache pages for specific query tag
       if (req.query.key !== config.server.invalidateCacheKey) {
@@ -120,7 +111,26 @@ app.get('/invalidate', (req, res) => {
   } else {
     utils.apiStatus(res, 'Cache invalidation is not required, output cache is disabled', 200)
   }
-})
+}
+
+const serve = (path, cache, options) => express.static(resolve(path), Object.assign({
+  maxAge: cache && isProd ? 60 * 60 * 24 * 30 : 0
+}, options))
+
+const themeRoot = require('../build/theme-path')
+
+app.use('/dist', serve('dist', true))
+app.use('/assets', serve(themeRoot + '/assets', true))
+app.use('/service-worker.js', serve('dist/service-worker.js', {
+  setHeaders: {'Content-Type': 'text/javascript; charset=UTF-8'}
+}))
+
+const serverExtensions = require(resolve('src/server'))
+serverExtensions.registerUserServerRoutes(app)
+
+app.post('/invalidate', invalidateCache)
+
+app.get('/invalidate', invalidateCache)
 
 app.get('*', (req, res, next) => {
   const s = Date.now()
