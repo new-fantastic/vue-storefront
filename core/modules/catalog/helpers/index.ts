@@ -586,6 +586,16 @@ export function attributeImages(product) {
             }
         }
     }
+    if (product.media_gallery) {
+      for (let mediaItem of product.media_gallery) {
+          if (mediaItem.image) {
+              attributeImages.push({
+                  'src': getThumbnailPath(mediaItem.image, rootStore.state.config.products.gallery.width, rootStore.state.config.products.gallery.height),
+                  'loading': getThumbnailPath(product.image, 310, 300)
+              })
+          }
+      }
+    }
     return attributeImages
 }
 
