@@ -3,5 +3,5 @@
  * Keep in mind that extensions will be depreciated in next versions of Vue Storefront and replaced by modules
  */
 export const registerExtensions = [
-  require('theme/extensions/vsf-external-checkout/index.js')
+  require('src/extensions/vsf-external-checkout/index.js')
 ]
