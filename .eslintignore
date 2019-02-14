@@ -1,4 +1,12 @@
 core/build/*.js
 node_modules
 core/modules/**/tests
+src/themes/colorshake-theme/App.vue
+src/themes/colorshake-theme/components/core/AddToCart.vue
+src/themes/colorshake-theme/pages/Product.vue
+src/themes/colorshake-theme/pages/ThankYou.vue
+src/themes/colorshake-theme/pages/Home.vue
+src/themes/colorshake-theme/components/core/blocks/Microcart/Microcart.vue
 src/themes/colorshake-theme/components/core/blocks/MainSlider/MainSlider.vue
+src/themes/colorshake-theme/components/core/ProductsSlider.vue
+src/themes/colorshake-theme/components/core/ProductGalleryZoom.vue
