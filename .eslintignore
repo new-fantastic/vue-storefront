@@ -10,3 +10,4 @@ src/themes/colorshake-theme/components/core/blocks/Microcart/Microcart.vue
 src/themes/colorshake-theme/components/core/blocks/MainSlider/MainSlider.vue
 src/themes/colorshake-theme/components/core/ProductsSlider.vue
 src/themes/colorshake-theme/components/core/ProductGalleryZoom.vue
+src/themes/colorshake-theme/components/core/blocks/Product/RelatedProductListing.vue
