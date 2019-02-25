@@ -5,6 +5,10 @@ src/themes/colorshake-theme/App.vue
 src/themes/colorshake-theme/components/core/AddToCart.vue
 src/themes/colorshake-theme/pages/Product.vue
 src/themes/colorshake-theme/pages/ThankYou.vue
+src/themes/colorshake-theme/pages/TermsAndConditions.vue
+src/themes/colorshake-theme/pages/ShippingInfo.vue
+src/themes/colorshake-theme/pages/PaymentInfo.vue
+src/themes/colorshake-theme/pages/About.vue
 src/themes/colorshake-theme/pages/Home.vue
 src/themes/colorshake-theme/components/core/blocks/Microcart/Microcart.vue
 src/themes/colorshake-theme/components/core/blocks/MainSlider/MainSlider.vue
