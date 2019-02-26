@@ -8,6 +8,7 @@ src/themes/colorshake-theme/pages/ThankYou.vue
 src/themes/colorshake-theme/pages/TermsAndConditions.vue
 src/themes/colorshake-theme/pages/ShippingInfo.vue
 src/themes/colorshake-theme/pages/PaymentInfo.vue
+src/themes/colorshake-theme/pages/ReturnsAndExchanges.vue
 src/themes/colorshake-theme/pages/About.vue
 src/themes/colorshake-theme/pages/Home.vue
 src/themes/colorshake-theme/components/core/blocks/Microcart/Microcart.vue
