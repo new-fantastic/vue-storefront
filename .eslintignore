@@ -17,3 +17,5 @@ src/themes/colorshake-theme/components/core/ProductsSlider.vue
 src/themes/colorshake-theme/components/core/ProductGalleryZoom.vue
 src/themes/colorshake-theme/components/core/blocks/Product/RelatedProductListing.vue
 src/themes/colorshake-theme/components/core/blocks/Auth/Register.vue
+src/themes/colorshake-theme/layouts/Default.vue
+src/themes/colorshake-theme/components/core/blocks/Header/Header.vue
