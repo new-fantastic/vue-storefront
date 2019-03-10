@@ -16,6 +16,7 @@ export const AddToWishlist = {
   },
   methods: {
     addToWishlist (product: Product) {
+      product.sku = product.parentSku
       return this.$store.state['wishlist'] ? this.$store.dispatch('wishlist/addItem', product) : false
     }
   }

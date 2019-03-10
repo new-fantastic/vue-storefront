@@ -14,6 +14,7 @@ export const RemoveFromWishlist = {
   methods: {
     removeFromWishlist (product: Product) {
       WishlistModule.register()
+      product.sku = product.parentSku
       this.$store.dispatch('wishlist/removeItem', product)
     }
   }
