@@ -1,3 +1,15 @@
 core/build/*.js
 node_modules
-core/modules/**/tests
+core/modules/**/test
+src/themes/dwshop-theme/pages/TermsConditions.vue
+src/themes/dwshop-theme/pages/Category.vue
+src/themes/dwshop-theme/components/core/blocks/Switcher/Language.vue
+src/themes/dwshop-theme/components/theme/blocks/Collection/Collection.vue
+src/themes/dwshop-theme/components/core/blocks/MainSlider/MainSlider.vue
+src/themes/dwshop-theme/pages/Home.vue
+src/themes/dwshop-theme/App.vue
+src/themes/dwshop-theme/components/core/AddToCart.vue
+src/themes/dwshop-theme/pages/Product.vue
+src/themes/dwshop-theme/pages/ThankYou.vue
+src/themes/dwshop-theme/components/core/blocks/Microcart/Microcart.vue
+src/themes/dwshop-theme/resource

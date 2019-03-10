@@ -2320,6 +2320,13 @@ bodybuilder@2.2.13:
   dependencies:
     lodash "^4.9.0"
 
+bodybuilder@^2.2.7:
+  version "2.2.16"
+  resolved "https://registry.yarnpkg.com/bodybuilder/-/bodybuilder-2.2.16.tgz#402edda3882d3540caa90f091f10b94179d2fd95"
+  integrity sha512-MmxsIQclZqry/HRqlGbXZEXDuOQ93XjEEsNzprunD3+B1pg8sG4Ms0SYYLhrGf9tx8dtCEbtfPzIYvSV0xAF7Q==
+  dependencies:
+    lodash "^4.9.0"
+
 boolbase@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
@@ -8545,6 +8552,13 @@ quick-lru@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/quick-lru/-/quick-lru-1.1.0.tgz#4360b17c61136ad38078397ff11416e186dcfbb8"
 
+raf@^3.4.0:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/raf/-/raf-3.4.1.tgz#0742e99a4a6552f445d73e3ee0328af0ff1ede39"
+  integrity sha512-Sq4CW4QhwOHE8ucn6J34MqtZCeWFP2aQSmrlroYgqAV1PjStIhJXxYuTgUIfkEk7zTLjmIjLmU5q+fbD1NnOJA==
+  dependencies:
+    performance-now "^2.1.0"
+
 ramda@0.24.1:
   version "0.24.1"
   resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.24.1.tgz#c3b7755197f35b8dc3502228262c4c91ddb6b857"
@@ -9994,6 +10008,11 @@ timers-browserify@^2.0.4:
   dependencies:
     setimmediate "^1.0.4"
 
+tiny-cookie@^2.1.2:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/tiny-cookie/-/tiny-cookie-2.3.1.tgz#f0ea9fa194f2aed631dcd5e69ac0d6587be928c8"
+  integrity sha512-C4x1e8dHfKf03ewuN9aIZzzOfN2a6QKhYlnHdzJxmmjMTLqcskI20F+EplszjODQ4SHmIGFJrvUUnBMS/bJbOA==
+
 tiny-emitter@^2.0.0:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/tiny-emitter/-/tiny-emitter-2.0.2.tgz#82d27468aca5ade8e5fd1e6d22b57dd43ebdfb7c"
@@ -10444,6 +10463,11 @@ void-elements@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/void-elements/-/void-elements-2.0.1.tgz#c066afb582bb1cb4128d60ea92392e94d5e9dbec"
 
+vue-analytics-facebook-pixel@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/vue-analytics-facebook-pixel/-/vue-analytics-facebook-pixel-1.0.1.tgz#a49cf55108792eedd1072b1a6123af95baa2f58a"
+  integrity sha1-pJz1UQh5Lu3RBysaYSOvlbqi9Yo=
+
 vue-analytics@^5.16.1:
   version "5.16.1"
   resolved "https://registry.yarnpkg.com/vue-analytics/-/vue-analytics-5.16.1.tgz#2fa909a245e1cee9993a69f0b72caf1dd6126c10"
@@ -10459,6 +10483,13 @@ vue-carousel@^0.6.9:
   version "0.6.15"
   resolved "https://registry.yarnpkg.com/vue-carousel/-/vue-carousel-0.6.15.tgz#7446e3cb2762d58175d52c83c4052a1aeeae91ea"
 
+vue-cookie-accept-decline@^2.0.1:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/vue-cookie-accept-decline/-/vue-cookie-accept-decline-2.0.2.tgz#d5582951642dd64ac74816bd7e1755aeb034d9f2"
+  integrity sha512-A9vlfkf82MXXTluVKqW02645LBZIw+2OeKmMaVqFIxdhL+fbYhGecKxZF/odMLpVpnVsR1fJmmjcKgD/VRlGTA==
+  dependencies:
+    tiny-cookie "^2.1.2"
+
 vue-eslint-parser@^2.0.3:
   version "2.0.3"
   resolved "http://registry.npmjs.org/vue-eslint-parser/-/vue-eslint-parser-2.0.3.tgz#c268c96c6d94cfe3d938a5f7593959b0ca3360d1"
@@ -10469,6 +10500,13 @@ vue-eslint-parser@^2.0.3:
     espree "^3.5.2"
     esquery "^1.0.0"
     lodash "^4.17.4"
+
+vue-headroom@^0.8.1:
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/vue-headroom/-/vue-headroom-0.8.1.tgz#6a47219829f8268391a25d59a7e9af8c39ef7772"
+  integrity sha512-x4cNTZ0IdQgfSm0xCdpIEAHakwWbf5yY6wzUFbYKpTT6xif6RrbYotd93We5K6Fs+dylYxH8aT+FtSm49NRiPg==
+  dependencies:
+    raf "^3.4.0"
 
 vue-hot-reload-api@^2.3.0:
   version "2.3.1"
@@ -10509,6 +10547,11 @@ vue-meta@^1.5.3:
     deepmerge "^2.2.1"
     lodash.isplainobject "^4.0.6"
     object-assign "^4.1.1"
+
+vue-multianalytics@^1.9.8:
+  version "1.11.2"
+  resolved "https://registry.yarnpkg.com/vue-multianalytics/-/vue-multianalytics-1.11.2.tgz#999cc670705926871bf14420dff69d42be66527d"
+  integrity sha512-G1RpZWNr2HZlkvVpGoy83EoWVUNcN0yzgM51mIept5YQ7Z5uC7iYwo65ysH1PlaWZace9MkEi3qPqu/+r6lzMA==
 
 vue-no-ssr@^0.2.2:
   version "0.2.2"
@@ -10568,11 +10611,21 @@ vue-template-es2015-compiler@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.6.0.tgz#dc42697133302ce3017524356a6c61b7b69b4a18"
 
+vue2-collapse@^1.0.15:
+  version "1.0.15"
+  resolved "https://registry.yarnpkg.com/vue2-collapse/-/vue2-collapse-1.0.15.tgz#d80c242f7ba2f5c70515e00dfcfc298f5137cbea"
+  integrity sha512-XLzUxkYKVZqmHRSdirgqXyUYeytsAKNJSjP1dLcVtEIhgP4xUHSbzU7ycuQm/egRgjMCsDzILv5wr0uhS9cXvQ==
+
+vue@^2.5.13:
+  version "2.6.8"
+  resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.8.tgz#f21cbc536bfc14f7d1d792a137bb12f69e60ea91"
+  integrity sha512-+vp9lEC2Kt3yom673pzg1J7T1NVGuGzO9j8Wxno+rQN2WYVBX2pyo/RGQ3fXCLh2Pk76Skw/laAPCuBuEQ4diw==
+
 vue@^2.5.16, vue@^2.5.17:
   version "2.5.17"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.17.tgz#0f8789ad718be68ca1872629832ed533589c6ada"
 
-vuelidate@^0.6.2:
+vuelidate@^0.6.1, vuelidate@^0.6.2:
   version "0.6.2"
   resolved "https://registry.yarnpkg.com/vuelidate/-/vuelidate-0.6.2.tgz#b417f5367407b047a2548119b25db56fe2bd5753"
 
