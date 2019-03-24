@@ -1,4 +1,4 @@
-import rootStore from '@vue-storefront/store'
+// import rootStore from '@vue-storefront/store'
 
 const EXTENSION_KEY = 'external-checkout'
 
@@ -7,7 +7,7 @@ export default function (app, router, store, config, root, state) {
 
   router.beforeEach((to, from, next) => {
     if (to.name.includes('checkout')) {
-      window.location.replace(cmsUrl + rootStore.state.storeView.url + '/vue/cart/sync/token/' + store.state.user.token + '/cart/' + store.state.cart.cartServerToken)
+      window.location.replace(cmsUrl + '/vue/cart/sync/token/' + store.state.user.token + '/cart/' + store.state.cart.cartServerToken)
     } else {
       next()
     }
