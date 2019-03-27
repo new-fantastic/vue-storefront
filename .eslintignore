@@ -1,3 +1,12 @@
 core/build/*.js
 node_modules
 core/modules/**/tests
+src/themes/flyn-theme/components/core/blocks/MainSlider/MainSlider.vue
+src/themes/flyn-theme/App.vue
+src/themes/flyn-theme/components/core/AddToCart.vue
+src/themes/flyn-theme/pages/Product.vue
+src/themes/flyn-theme/pages/ThankYou.vue
+src/themes/flyn-theme/components/core/blocks/Microcart/Microcart.vue
+src/themes/flyn-theme/components/core/ProductGalleryZoom.vue
+src/themes/flyn-theme/components/theme/MessengerChat.vue
+src/themes/flyn-theme/layouts/Default.vue
