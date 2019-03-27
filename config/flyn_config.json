@@ -34,7 +34,7 @@
   },
   "elasticsearch": {
     "httpAuth": "",
-    "host": "https://api.flynwetsuits.com/api/catalog",
+    "host": "https://api.pln.flynwetsuits.com/api/catalog",
     "index": "vue_storefront_catalog",
     "min_score": 0.02,
     "csrTimeout": 5000,
@@ -91,7 +91,7 @@
       "name": "German Store",
       "url": "/de",
       "elasticsearch": {
-        "host": "https://api.flynwetsuits.com/api/catalog",
+        "host": "https://api.pln.flynwetsuits.com/api/catalog",
         "index": "vue_storefront_catalog_de"
       },
       "tax": {
@@ -118,7 +118,7 @@
       "name": "Italian Store",
       "url": "/it",
       "elasticsearch": {
-        "host": "https://api.flynwetsuits.com/api/catalog",
+        "host": "https://api.pln.flynwetsuits.com/api/catalog",
         "index": "vue_storefront_catalog_it"
       },
       "tax": {
@@ -235,17 +235,17 @@
     "setConfigurableProductOptions": true,
     "askBeforeRemoveProduct": true,
     "displayItemDiscounts": true,
-    "create_endpoint": "https://api.flynwetsuits.com/api/cart/create?token={{token}}",
-    "updateitem_endpoint": "https://api.flynwetsuits.com/api/cart/update?token={{token}}&cartId={{cartId}}",
-    "deleteitem_endpoint": "https://api.flynwetsuits.com/api/cart/delete?token={{token}}&cartId={{cartId}}",
-    "pull_endpoint": "https://api.flynwetsuits.com/api/cart/pull?token={{token}}&cartId={{cartId}}",
-    "totals_endpoint": "https://api.flynwetsuits.com/api/cart/totals?token={{token}}&cartId={{cartId}}",
-    "paymentmethods_endpoint": "https://api.flynwetsuits.com/api/cart/payment-methods?token={{token}}&cartId={{cartId}}",
-    "shippingmethods_endpoint": "https://api.flynwetsuits.com/api/cart/shipping-methods?token={{token}}&cartId={{cartId}}",
-    "shippinginfo_endpoint": "https://api.flynwetsuits.com/api/cart/shipping-information?token={{token}}&cartId={{cartId}}",
-    "collecttotals_endpoint": "https://api.flynwetsuits.com/api/cart/collect-totals?token={{token}}&cartId={{cartId}}",
-    "deletecoupon_endpoint": "https://api.flynwetsuits.com/api/cart/delete-coupon?token={{token}}&cartId={{cartId}}",
-    "applycoupon_endpoint": "https://api.flynwetsuits.com/api/cart/apply-coupon?token={{token}}&cartId={{cartId}}&coupon={{coupon}}"
+    "create_endpoint": "https://api.pln.flynwetsuits.com/api/cart/create?token={{token}}",
+    "updateitem_endpoint": "https://api.pln.flynwetsuits.com/api/cart/update?token={{token}}&cartId={{cartId}}",
+    "deleteitem_endpoint": "https://api.pln.flynwetsuits.com/api/cart/delete?token={{token}}&cartId={{cartId}}",
+    "pull_endpoint": "https://api.pln.flynwetsuits.com/api/cart/pull?token={{token}}&cartId={{cartId}}",
+    "totals_endpoint": "https://api.pln.flynwetsuits.com/api/cart/totals?token={{token}}&cartId={{cartId}}",
+    "paymentmethods_endpoint": "https://api.pln.flynwetsuits.com/api/cart/payment-methods?token={{token}}&cartId={{cartId}}",
+    "shippingmethods_endpoint": "https://api.pln.flynwetsuits.com/api/cart/shipping-methods?token={{token}}&cartId={{cartId}}",
+    "shippinginfo_endpoint": "https://api.pln.flynwetsuits.com/api/cart/shipping-information?token={{token}}&cartId={{cartId}}",
+    "collecttotals_endpoint": "https://api.pln.flynwetsuits.com/api/cart/collect-totals?token={{token}}&cartId={{cartId}}",
+    "deletecoupon_endpoint": "https://api.pln.flynwetsuits.com/api/cart/delete-coupon?token={{token}}&cartId={{cartId}}",
+    "applycoupon_endpoint": "https://api.pln.flynwetsuits.com/api/cart/apply-coupon?token={{token}}&cartId={{cartId}}&coupon={{coupon}}"
   },
   "products": {
     "useShortCatalogUrls": false,
@@ -261,7 +261,7 @@
     "clearPricesBeforePlatformSync": false,
     "waitForPlatformSync": false,
     "setupVariantByAttributeCode": true,
-    "endpoint": "https://api.flynwetsuits.com/api/product",
+    "endpoint": "https://api.pln.flynwetsuits.com/api/product",
     "defaultFilters": ["color", "size", "price", "erin_recommends"],
     "filterFieldMapping": {
       "category.name": "category.name.keyword"
@@ -289,7 +289,7 @@
   },
   "orders": {
     "directBackendSync": true,
-    "endpoint": "https://api.flynwetsuits.com/api/order",
+    "endpoint": "https://api.pln.flynwetsuits.com/api/order",
     "payment_methods_mapping": {
     },
     "offline_orders": {
@@ -321,27 +321,27 @@
     }
   },
   "reviews": {
-    "create_endpoint": "https://api.flynwetsuits.com/api/review/create"
+    "create_endpoint": "https://api.pln.flynwetsuits.com/api/review/create"
   },
   "users": {
     "autoRefreshTokens": true,
-    "endpoint": "https://api.flynwetsuits.com/api/user",
-    "history_endpoint": "https://api.flynwetsuits.com/api/user/order-history?token={{token}}",
-    "resetPassword_endpoint": "https://api.flynwetsuits.com/api/user/reset-password",
-    "changePassword_endpoint": "https://api.flynwetsuits.com/api/user/change-password?token={{token}}",
-    "login_endpoint": "https://api.flynwetsuits.com/api/user/login",
-    "create_endpoint": "https://api.flynwetsuits.com/api/user/create",
-    "me_endpoint": "https://api.flynwetsuits.com/api/user/me?token={{token}}",
-    "refresh_endpoint": "https://api.flynwetsuits.com/api/user/refresh"
+    "endpoint": "https://api.pln.flynwetsuits.com/api/user",
+    "history_endpoint": "https://api.pln.flynwetsuits.com/api/user/order-history?token={{token}}",
+    "resetPassword_endpoint": "https://api.pln.flynwetsuits.com/api/user/reset-password",
+    "changePassword_endpoint": "https://api.pln.flynwetsuits.com/api/user/change-password?token={{token}}",
+    "login_endpoint": "https://api.pln.flynwetsuits.com/api/user/login",
+    "create_endpoint": "https://api.pln.flynwetsuits.com/api/user/create",
+    "me_endpoint": "https://api.pln.flynwetsuits.com/api/user/me?token={{token}}",
+    "refresh_endpoint": "https://api.pln.flynwetsuits.com/api/user/refresh"
   },
   "stock": {
     "synchronize": true,
     "allowOutOfStockInCart": true,
-    "endpoint": "https://api.flynwetsuits.com/api/stock"
+    "endpoint": "https://api.pln.flynwetsuits.com/api/stock"
   },
   "images": {
     "useExactUrlsNoProxy": false,
-    "baseUrl": "https://demo.vuestorefront.io/img/",
+    "baseUrl": "https://api.pln.flynwetsuits.com/img/",
     "productPlaceholder": "/assets/placeholder.jpg"
   },
   "install": {
@@ -382,17 +382,17 @@
     "bundleAllStoreviewLanguages": true
   },
   "mailchimp": {
-    "endpoint": "https://api.flynwetsuits.com/api/ext/mailchimp-subscribe/subscribe"
+    "endpoint": "https://api.pln.flynwetsuits.com/api/ext/mailchimp-subscribe/subscribe"
   },
   "mailer": {
     "endpoint": {
-      "send": "https://api.flynwetsuits.com/api/ext/mail-service/send-email",
-      "token": "https://api.flynwetsuits.com/api/ext/mail-service/get-token"
+      "send": "https://api.pln.flynwetsuits.com/api/ext/mail-service/send-email",
+      "token": "https://api.pln.flynwetsuits.com/api/ext/mail-service/get-token"
     },
     "contactAddress": "contributors@vuestorefront.io",
     "sendConfirmation": true
   },
-  "theme": "@vue-storefront/theme-default",
+  "theme": "flyn-theme",
   "externalCheckout": {
     "cmsUrl" : "https://checkout.flynwetsuits.com"
   },
@@ -403,8 +403,8 @@
     "id": false
   },
   "cms": {
-    "endpoint": "https://api.flynwetsuits.com/api/ext/cms-data/cms{{type}}/{{cmsId}}",
-    "endpointIdentifier": "https://api.flynwetsuits.com/api/ext/cms-data/cms{{type}}Identifier/{{cmsIdentifier}}/storeId/{{storeId}}"
+    "endpoint": "https://api.pln.flynwetsuits.com/api/ext/cms-data/cms{{type}}/{{cmsId}}",
+    "endpointIdentifier": "https://api.pln.flynwetsuits.com/api/ext/cms-data/cms{{type}}Identifier/{{cmsIdentifier}}/storeId/{{storeId}}"
   },
   "cms_block": {
     "max_count": 500
@@ -448,6 +448,4 @@
       ]
     }
   }
-
 }
-
