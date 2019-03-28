@@ -123,8 +123,8 @@
       "name": "Local Heroes Europe",
       "url": "/eur",
       "elasticsearch": {
-        "host": "https://api.pln.localheroesstore.com/api/catalog",
-        "index": "vue_storefront_catalog_eur"
+        "host": "https://api.eur.localheroesstore.com/api/catalog",
+        "index": "vue_storefront_catalog"
       },
       "tax": {
         "defaultCountry": "PL",
@@ -150,8 +150,8 @@
       "name": "Local Heroes USA",
       "url": "/usd",
       "elasticsearch": {
-        "host": "https://api.pln.localheroesstore.com/api/catalog",
-        "index": "vue_storefront_catalog_usd"
+        "host": "https://api.usd.localheroesstore.com/api/catalog",
+        "index": "vue_storefront_catalog"
       },
       "tax": {
         "defaultCountry": "USA",
@@ -177,8 +177,8 @@
       "name": "Local Heroes UK",
       "url": "/gbp",
       "elasticsearch": {
-        "host": "https://api.pln.localheroesstore.com/api/catalog",
-        "index": "vue_storefront_catalog_gbp"
+        "host": "https://api.gbp.localheroesstore.com/api/catalog",
+        "index": "vue_storefront_catalog"
       },
       "tax": {
         "defaultCountry": "UK",
