@@ -123,7 +123,7 @@
       "url": "/eur",
       "elasticsearch": {
         "host": "https://api.eur.colorshakestore.com/api/catalog",
-        "index": "vue_storefront_catalog"
+        "index": "vue_storefront_catalog_eur"
       },
       "tax": {
         "sourcePriceIncludesTax": true,
