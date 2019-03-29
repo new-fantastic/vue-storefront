@@ -54,13 +54,13 @@ export default function (app, router, store, config, root, state) {
       if(to.name.substr(0, 3) === prefix) {
         next()
       } else {
-        next({
-          ...to,
-          path: null,
-          name: `${prefix}-${to.name}`
-        })
-        // const tmpRoute = Object.assign({}, to);
-        // next(localizedRoute(tmpRoute, prefix))
+        // next({
+        //   ...to,
+        //   path: null,
+        //   name: `${prefix}-${to.name}`
+        // })
+        const tmpRoute = Object.assign({}, to);
+        next(localizedRoute(tmpRoute, prefix))
       }
       
     } else {
