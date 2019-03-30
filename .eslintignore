@@ -9,3 +9,16 @@ src/themes/localheroes-theme/pages/ThankYou.vue
 src/themes/localheroes-theme/components/core/blocks/Microcart/Microcart.vue
 src/themes/localheroes-theme/components/core/ProductsSlider.vue
 src/themes/localheroes-theme/components/core/ProductGalleryZoom.vue
+src/themes/localheroes-theme/pages/TermsAndConditions.vue
+src/themes/localheroes-theme/pages/ShippingInfo.vue
+src/themes/localheroes-theme/pages/PaymentInfo.vue
+src/themes/localheroes-theme/pages/ReturnsAndExchanges.vue
+src/themes/localheroes-theme/pages/About.vue
+src/themes/localheroes-theme/pages/Home.vue
+src/themes/localheroes-theme/components/core/blocks/MainSlider/MainSlider.vue
+src/themes/localheroes-theme/components/core/blocks/Product/RelatedProductListing.vue
+src/themes/localheroes-theme/components/core/blocks/Auth/Register.vue
+src/themes/localheroes-theme/layouts/Default.vue
+src/themes/localheroes-theme/components/core/blocks/Header/Header.vue
+src/themes/localheroes-theme/components/core/blocks/Blog
+src/themes/localheroes-theme/pages/Blog.vue
