@@ -1,3 +1,4 @@
 export const state = {
-  content: null
+  content: null,
+  layout: null
 }
