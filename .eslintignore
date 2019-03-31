@@ -22,3 +22,4 @@ src/themes/localheroes-theme/layouts/Default.vue
 src/themes/localheroes-theme/components/core/blocks/Header/Header.vue
 src/themes/localheroes-theme/components/core/blocks/Blog
 src/themes/localheroes-theme/pages/Blog.vue
+*/*
