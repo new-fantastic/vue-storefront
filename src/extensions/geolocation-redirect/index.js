@@ -52,11 +52,22 @@ export default function (app, router, store, config, root, state) {
       if(to.name.substr(0, 3) === prefix) {
         next()
       } else {
-        next({
-          ...to,
-          path: null,
-          name: `${prefix}-${to.name}`
-        })
+        //shop/carts/current-cart
+        const tmpRoute = Object.assign({}, to);
+        if(prefix === 'pln') {
+          next()
+        } else {
+          next(localizedRoute(tmpRoute, prefix))
+        }
+        
+        //next()
+        // try {
+        //   // Okay, I have access to window, I'm in user's browser
+        //   const newPath = `${window.location.origin}/${prefix}${window.location.pathname}`
+        //   window.location.replace(newPath)
+        // } catch(e) {
+        //   // I am on server, nothing to do
+        // }
       }
       
     } else {
