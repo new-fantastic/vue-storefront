@@ -106,6 +106,8 @@ export default {
 </script>
 
 <style lang="scss" src="theme/css/main.scss"></style>
+<style lang="scss" src="theme/css/kubota/main.scss"></style>
+
 <style lang="scss" scoped>
   .slide-left-enter-active,
   .slide-left-leave-active,
