@@ -50,6 +50,7 @@
     "apollo-client": "^2.3.5",
     "apollo-link": "^1.2.2",
     "apollo-link-http": "^1.5.4",
+    "axios": "^0.18.0",
     "bodybuilder": "2.2.13",
     "config": "^1.30.0",
     "es6-promise": "^4.2.4",

@@ -352,7 +352,7 @@
   "tax": {
     "defaultCountry": "PL",
     "defaultRegion": "",
-    "sourcePriceIncludesTax": false,
+    "sourcePriceIncludesTax": true,
     "calculateServerSide": true
   },
   "shipping": {
@@ -395,6 +395,9 @@
   "theme": "flyn-theme",
   "externalCheckout": {
     "cmsUrl" : "https://checkout.flynwetsuits.com"
+  },
+  "wordpressCms": {
+    "url": "https://wordpress.flynwetsuits.com"
   },
   "analytics": {
     "id": "UA-129589807-1"
