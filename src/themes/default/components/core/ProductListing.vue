@@ -1,9 +1,9 @@
 <template>
-  <div class="product-listing row m0 center-xs start-md">
+  <div class="product-listing">
     <div
       v-for="(product, key) in products"
       :key="product.id"
-      class="col-sm-6 flex"
+      class="product-listing__single"
       :class="['col-md-' + (12/columns)%10, wide(product.sale, product.new, key)]"
     >
       <product-tile :product="product"/>
