@@ -445,12 +445,15 @@
       ]
     }
   },
+  "checkout": {
+    "url": "https://checkout.kubotastore.pl"
+  },
   "wordpressCms": {
     "url": "https://wp.kubotastore.pl",
     "pages": {
-      "home": "30",
-      "category": "58",
-      "configurable-product": "61"
+      "home": "strona-domowa",
+      "category": "kategoria",
+      "configurable-product": "produkt"
     }
   }
 }
