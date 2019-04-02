@@ -372,6 +372,9 @@
   "hotjar": {
     "id": false
   },
+  "externalCheckout": {
+    "cmsUrl" : "https://checkout.maanu.pl"
+  },
   "wordpressCms" : {
     "url": "https://wp.maanu.pl/"
   },
