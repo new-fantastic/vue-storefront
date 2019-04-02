@@ -5,6 +5,7 @@ export function afterRegistration ({ Vue, store, isServer }) {
     execute: async () => {
       await store.dispatch('wp_rest_content/loadTopNav')
       await store.dispatch('wp_rest_content/loadBottomNav')
+      await store.dispatch('wp_rest_content/loadTopAlert')
 
       return null
     }

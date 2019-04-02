@@ -1,5 +1,6 @@
 export const state = {
   content: null,
   topNav: null,
-  bottomNav: null
+  bottomNav: null,
+  topAlert: null
 }
