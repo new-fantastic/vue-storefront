@@ -2,6 +2,7 @@ import Vue from 'vue'
 
 export const mutations = {
   setContent (state, payload) {
+    console.log('SET WP DATA')
     Vue.set(state, 'content', Array.isArray(payload) ? payload[0] : {})
   },
   setTopNav (state, payload) {

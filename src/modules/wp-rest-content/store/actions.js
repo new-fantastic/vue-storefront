@@ -4,7 +4,6 @@ import config from 'config'
 export const actions = {
   async loadContent ({commit}, {slug, lang}) {
     const baseUrl = `${config.wordpressCms.url}/${lang}/wp-json/wp/v2`
-    console.log(`CHECK ${baseUrl}/pages?slug=${slug}`)
     try {
       const response = await axios.get(`${baseUrl}/pages?slug=${slug}`)
       commit('setContent', response.data)
