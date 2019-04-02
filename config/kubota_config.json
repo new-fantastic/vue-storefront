@@ -140,7 +140,7 @@
     }
   },
   "entities": {
-    "optimize": true,
+    "optimize": false,
     "twoStageCaching": true,
     "optimizeShoppingCart": true,
     "category": {
@@ -446,6 +446,12 @@
     }
   },
   "wordpressCms": {
-    "url": "https://wp.kubotastore.pl"
+    "url": "https://wp.kubotastore.pl",
+    "pages": {
+      "home": "30",
+      "category": "58",
+      "configurable-product": "61"
+    }
   }
 }
+ 
