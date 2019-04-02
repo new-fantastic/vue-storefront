@@ -2,7 +2,7 @@ import Vue from 'vue'
 
 export const mutations = {
   setContent (state, payload) {
-    Vue.set(state, 'content', payload)
+    Vue.set(state, 'content', Array.isArray(payload) ? payload[0] : {})
   },
   setTopNav (state, payload) {
     Vue.set(state, 'topNav', payload)
