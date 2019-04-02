@@ -140,7 +140,7 @@
     }
   },
   "entities": {
-    "optimize": true,
+    "optimize": false,
     "twoStageCaching": true,
     "optimizeShoppingCart": true,
     "category": {
@@ -148,7 +148,7 @@
       "excludeFields": [ "sgn" ],
       "categoriesRootCategorylId": 2,
       "categoriesDynamicPrefetchLevel": 2,
-      "categoriesDynamicPrefetch": true
+      "categoriesDynamicPrefetch": false
     },
     "attribute": {
       "includeFields": [ "attribute_code", "id", "entity_type_id", "options", "default_value", "is_user_defined", "frontend_label", "attribute_id", "default_frontend_label", "is_visible_on_front", "is_visible", "is_comparable", "tier_prices", "frontend_input" ]
@@ -250,14 +250,14 @@
   "products": {
     "useShortCatalogUrls": false,
     "useMagentoUrlKeys": true,
-    "setFirstVarianAsDefaultInURL": false,
+    "setFirstVarianAsDefaultInURL": true,
     "configurableChildrenStockPrefetchStatic": false,
     "configurableChildrenStockPrefetchDynamic": false,
     "configurableChildrenStockPrefetchStaticPrefetchCount": 8,
     "filterUnavailableVariants": false,
     "listOutOfStockProducts": true,
     "preventConfigurableChildrenDirectAccess": true,
-    "alwaysSyncPlatformPricesOver": false,
+    "alwaysSyncPlatformPricesOver": true,
     "clearPricesBeforePlatformSync": false,
     "waitForPlatformSync": false,
     "setupVariantByAttributeCode": true,
@@ -278,8 +278,8 @@
       "variantsGroupAttribute": "color",
       "mergeConfigurableChildren": true,
       "imageAttributes": ["image","thumbnail","small_image"],
-      "width": 600,
-      "height": 744
+      "width": 900,
+      "height": 1116
     },
     "filterAggregationSize": {
       "default": 10,
