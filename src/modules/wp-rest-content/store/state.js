@@ -1,4 +1,5 @@
 export const state = {
   content: null,
-  layout: null
+  topNav: null,
+  bottomNav: null
 }
