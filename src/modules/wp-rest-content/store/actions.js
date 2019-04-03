@@ -1,11 +1,22 @@
 import axios from 'axios'
 import config from 'config'
+import https from 'https'
 
 export const actions = {
   async loadContent ({commit}, {slug, lang}) {
-    const baseUrl = `${config.wordpressCms.url}/${lang}/wp-json/wp/v2`
+    const instance = axios.create({
+      httpsAgent: new https.Agent({
+        rejectUnauthorized: false
+      }),
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      }
+    })
+
+    const baseUrl = `${config.wordpressCms.url}/wp-json/wp/v2`
     try {
-      const response = await axios.get(`${baseUrl}/pages?slug=${slug}`)
+      const response = await instance.get(`${baseUrl}/pages?slug=${slug}`)
+      console.log('res', response.data)
       commit('setContent', response.data)
     } catch (err) {
       console.log(err)
