@@ -55,7 +55,7 @@
               :parent-slug="category.slug"
             />
           </li>
-          <li @click="closeMenu" v-if="isCurrentMenuShowed" class="bg-cl-secondary">
+          <!-- <li @click="closeMenu" v-if="isCurrentMenuShowed" class="bg-cl-secondary">
             <router-link
               class="block px25 py20 brdr-bottom-1 brdr-cl-secondary cl-accent no-underline fs-medium-small"
               :to="localizedRoute('/sale')"
@@ -102,7 +102,7 @@
             >
               {{ $t('My account') }}
             </a>
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>

@@ -402,6 +402,9 @@
   "analytics": {
     "id": "UA-129589807-1"
   },
+  "facebookPixel" : {
+    "id" : "1652355248347788"
+ },
   "hotjar": {
     "id": false
   },

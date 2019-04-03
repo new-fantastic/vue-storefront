@@ -11,4 +11,5 @@ src/themes/flyn-theme/components/core/blocks/Microcart/Microcart.vue
 src/themes/flyn-theme/components/core/ProductGalleryZoom.vue
 src/themes/flyn-theme/components/theme/MessengerChat.vue
 src/themes/flyn-theme/layouts/Default.vue
+src/modules/vsf-facebok-pixel
 */*
