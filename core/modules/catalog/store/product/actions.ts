@@ -598,7 +598,7 @@ const actions: ActionTree<ProductState, RootState> = {
   /**
    * Load the product data
    */
-  fetch (context, { parentSku, childSku = null }) {
+  fetch (context, { parentSku, childSku = null, quickBuyFetch = false }) {
     // pass both id and sku to render a product
     const productSingleOptions = {
       sku: parentSku,
@@ -628,7 +628,10 @@ const actions: ActionTree<ProductState, RootState> = {
         } else {
           context.dispatch('filterUnavailableVariants', { product: product }) // exec async
         }
-        subloaders.push(context.dispatch('setupBreadcrumbs', { product: product }))
+
+        if (!quickBuyFetch) {
+          subloaders.push(context.dispatch('setupBreadcrumbs', { product: product }))
+        }
 
         // subloaders.push(context.dispatch('setupVariants', { product: product })) -- moved to "product/single"
         /* if (product.type_id === 'grouped' || product.type_id === 'bundle') { -- moved to "product/single"
@@ -636,8 +639,9 @@ const actions: ActionTree<ProductState, RootState> = {
             context.dispatch('setCurrent', product) // because setup Associated can modify the product price we need to update the current product
           }))
         } */
-
-        context.dispatch('setProductGallery', { product: product })
+        if (!quickBuyFetch) {
+          context.dispatch('setProductGallery', { product: product })
+        }
 
         if (rootStore.state.config.products.preventConfigurableChildrenDirectAccess) {
           subloaders.push(context.dispatch('checkConfigurableParent', { product: product }))
