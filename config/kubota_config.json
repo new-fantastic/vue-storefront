@@ -82,7 +82,7 @@
   },
   "defaultStoreCode": "",
   "storeViews": {
-    "multistore": false,
+    "multistore": true,
     "mapStoreUrlsFor": ["eur"],
     "eur": {
       "storeCode": "eur",
@@ -92,7 +92,7 @@
       "url": "/eur",
       "elasticsearch": {
         "host": "https://api.eur.kubotastore.pl/api/catalog",
-        "index": "vue_storefront_catalog_eur"
+        "index": "vue_storefront_catalog"
       },
       "tax": {
         "sourcePriceIncludesTax": true,
@@ -325,7 +325,7 @@
   "tax": {
     "defaultCountry": "PL",
     "defaultRegion": "",
-    "sourcePriceIncludesTax": false,
+    "sourcePriceIncludesTax": true,
     "calculateServerSide": true
   },
   "shipping": {
@@ -430,4 +430,3 @@
     }
   }
 }
- 
