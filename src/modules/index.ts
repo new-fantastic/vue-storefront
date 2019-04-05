@@ -22,7 +22,7 @@ import { PaymentCashOnDelivery } from './payment-cash-on-delivery';
 import { RawOutputExample } from './raw-output-example'
 import { Magento2CMS } from './magento-2-cms'
 import { WPRestContent } from './wp-rest-content'
-import { SingleProductCategory } from './single-product-category'
+import { CategoryUpsell } from './category-upsell'
 
 // import { Example } from './module-template'
 
@@ -73,5 +73,6 @@ export const registerModules: VueStorefrontModule[] = [
   PaymentCashOnDelivery,
   RawOutputExample,
   AmpRenderer,
-  WPRestContent
+  WPRestContent,
+  CategoryUpsell
 ]

@@ -16,8 +16,9 @@ export const actions = {
     const baseUrl = `${config.wordpressCms.url}/wp-json/wp/v2`
     try {
       const response = await instance.get(`${baseUrl}/pages?slug=${slug}`)
-      console.log('res', response.data)
       commit('setContent', response.data)
+
+      return response.data
     } catch (err) {
       console.log(err)
     }
