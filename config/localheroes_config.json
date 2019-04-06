@@ -458,6 +458,10 @@
   "hotjar": {
     "id": "1250429"
   },
+  "facebookSdk" : {
+    "appId" : "378675779650706",
+    "pageId": "609400545866822"
+  },
   "cms": {
     "endpoint": "https://api.pln.localheroesstore.com/api/ext/cms-data/cms{{type}}/{{cmsId}}",
     "endpointIdentifier": "https://api.pln.localheroesstore.com/api/ext/cms-data/cms{{type}}Identifier/{{cmsIdentifier}}/storeId/{{storeId}}"
