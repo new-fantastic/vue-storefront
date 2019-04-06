@@ -14,8 +14,8 @@ import { Homepage } from "./homepage"
 import { Claims } from './claims'
 import { PromotedOffers } from './promoted-offers'
 import { Ui } from './ui-store'
-// import { GoogleAnalytics } from './google-analytics';
-// import { Hotjar } from './hotjar';
+import { GoogleAnalytics } from './google-analytics';
+import { Hotjar } from './hotjar';
 import { AmpRenderer } from './amp-renderer';
 import { PaymentBackendMethods } from './payment-backend-methods';
 import { PaymentCashOnDelivery } from './payment-cash-on-delivery';
@@ -23,6 +23,9 @@ import { RawOutputExample } from './raw-output-example'
 import { Magento2CMS } from './magento-2-cms'
 import { WPStaticPages } from './wp-static-pages'
 import { VsfFacebookPixel } from './vsf-facebook-pixel'
+import { VsfFacebookSdk } from './vsf-facebook-sdk'
+import { VsfMessengerChat } from './vsf-messenger-chat'
+
 // import { Example } from './module-template'
 
 // This is how you can extend any of VS modues
@@ -67,8 +70,10 @@ export const registerModules: VueStorefrontModule[] = [
   PromotedOffers,
   Magento2CMS,
   VsfFacebookPixel,
-  // GoogleAnalytics,
-  // Hotjar,
+  VsfFacebookSdk,
+  VsfMessengerChat,
+  GoogleAnalytics,
+  Hotjar,
   PaymentBackendMethods,
   PaymentCashOnDelivery,
   RawOutputExample,
