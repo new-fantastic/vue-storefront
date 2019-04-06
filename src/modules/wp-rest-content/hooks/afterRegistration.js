@@ -1,11 +1,14 @@
 import { AsyncDataLoader } from '@vue-storefront/core/lib/async-data-loader'
+import config from 'config'
 
 export function afterRegistration ({ Vue, store, isServer }) {
-  AsyncDataLoader.push({ // this is an example showing how to call data loader from another module
-    execute: async () => {
-      await store.dispatch('wp_rest_content/loadTopNav')
-      await store.dispatch('wp_rest_content/loadBottomNav')
-      await store.dispatch('wp_rest_content/loadTopAlert')
+  AsyncDataLoader.push({
+    execute: async ({ route }) => {
+      let lang = config.storeViews.mapStoreUrlsFor.some(el => route.name.includes(`${el}-`)) ? 'en' : 'pl'
+
+      await store.dispatch('wp_rest_content/loadTopNav', { lang: lang })
+      await store.dispatch('wp_rest_content/loadBottomNav', { lang: lang })
+      await store.dispatch('wp_rest_content/loadTopAlert', { lang: lang })
 
       return null
     }

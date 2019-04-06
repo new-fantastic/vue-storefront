@@ -10,7 +10,6 @@ module.exports = (expressApp) => {
 
     try {
       let data = await instagram.get('tags/kubota')
-      console.log('res', data)
       res.end(data)
     } catch (err) {
       console.log('instagram fetch error', err)
