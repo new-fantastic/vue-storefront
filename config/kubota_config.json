@@ -422,7 +422,7 @@
     "url": "https://checkout.kubotastore.pl"
   },
   "wordpressCms": {
-    "url": "https://wp.kubotastore.pl",
+    "url": "https://wordpress.kubotastore.pl",
     "pages": {
       "home": "strona-domowa",
       "category": "kategoria",
