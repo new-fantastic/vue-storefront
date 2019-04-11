@@ -11,7 +11,7 @@ export const mutations = {
   //   Vue.set(state, 'bottomNav', payload)
   // },
   setTopAlert (state, payload) {
-    Vue.set(state, 'topAlert', payload[0] ? payload[0] : null)
+    Vue.set(state, 'topAlert', payload)
   },
   setBottomMenu (state, payload) {
     Vue.set(state, 'bottomMenu', payload)

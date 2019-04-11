@@ -38,8 +38,9 @@ export const actions = {
     const baseUrl = `${config.wordpressCms.url}${part}/wp-json/wp/v2`
 
     try {
-      const response = await axios.get(`${baseUrl}/alerts`)
-      commit('setTopAlert', response.data)
+      const response = await axios.get(`${baseUrl}/alerts/117`)
+     
+      commit('setTopAlert', response.data.acf.TopAlert)
     } catch (err) {
       console.log(err)
     }
