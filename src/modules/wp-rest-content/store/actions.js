@@ -3,7 +3,7 @@ import config from 'config'
 
 export const actions = {
   async loadContent ({commit}, {slug, lang}) {
-    const baseUrl = `${config.wordpressCms.url}/wp-json/wp/v2`
+    const baseUrl = `${config.wordpressCms.url}/${lang}/wp-json/wp/v2`
 
     try {
       const response = await axios.get(`${baseUrl}/pages?slug=${slug}`)
@@ -16,7 +16,7 @@ export const actions = {
   },
 
   async loadTopNav ({commit}, {lang}) {
-    const baseNav = `${config.wordpressCms.url}/wp-json/menus/v1/locations/header`
+    const baseNav = `${config.wordpressCms.url}/${lang}/wp-json/menus/v1/locations/header`
     try {
       const response = await axios.get(baseNav)
       commit('setTopNav', response.data)
@@ -36,7 +36,7 @@ export const actions = {
   // },
 
   async loadTopAlert ({commit}, {lang}) {
-    const baseUrl = `${config.wordpressCms.url}/wp-json/wp/v2`
+    const baseUrl = `${config.wordpressCms.url}/${lang}/wp-json/wp/v2`
 
     try {
       const response = await axios.get(`${baseUrl}/alerts`)
@@ -46,8 +46,8 @@ export const actions = {
     }
   },
 
-  async loadBottomMenu ({commit}) {
-    const baseUrl = `${config.wordpressCms.url}/wp-json/menus/v1/menus`
+  async loadBottomMenu ({commit}, {lang}) {
+    const baseUrl = `${config.wordpressCms.url}/${lang}/wp-json/menus/v1/menus`
   
     try {
       const response = await Promise.all([
