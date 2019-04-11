@@ -367,10 +367,17 @@
   },
   "theme": "kubota-theme",
   "analytics": {
-    "id": false
+    "id": "UA-114400722-3"
   },
   "hotjar": {
     "id": false
+  },
+  "facebookPixel": {
+    "id": "204195233539653"
+  },
+  "facebookSdk": {
+    "appId": "378675779650706",
+    "pageId": "609400545866822"
   },
   "cms": {
     "endpoint": "https://api.pln.kubotastore.pl/api/ext/cms-data/cms{{type}}/{{cmsId}}",
