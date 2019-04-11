@@ -6,11 +6,10 @@ export function afterRegistration ({ Vue, store, isServer }) {
     execute: async ({ route }) => {
       let lang = config.storeViews.mapStoreUrlsFor.some(el => route.name.includes(`${el}-`)) ? 'en' : 'pl'
 
-      await Promise.all([
-        store.dispatch('wp_rest_content/loadTopNav', { lang: lang }),
-        store.dispatch('wp_rest_content/loadTopAlert', { lang: lang }),
-        store.dispatch('wp_rest_content/loadBottomMenu')
-      ])
+      await store.dispatch('wp_rest_content/loadTopNav', { lang: lang })
+      // await store.dispatch('wp_rest_content/loadBottomNav', { lang: lang })
+      await store.dispatch('wp_rest_content/loadTopAlert', { lang: lang })
+      await store.dispatch('wp_rest_content/loadBottomMenu', { lang: lang })
 
       return null
     }
