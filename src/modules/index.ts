@@ -14,8 +14,8 @@ import { Homepage } from "./homepage"
 import { Claims } from './claims'
 import { PromotedOffers } from './promoted-offers'
 import { Ui } from './ui-store'
-// import { GoogleAnalytics } from './google-analytics';
-// import { Hotjar } from './hotjar';
+import { GoogleAnalytics } from './google-analytics';
+import { Hotjar } from './hotjar';
 import { AmpRenderer } from './amp-renderer';
 import { PaymentBackendMethods } from './payment-backend-methods';
 import { PaymentCashOnDelivery } from './payment-cash-on-delivery';
@@ -23,6 +23,8 @@ import { RawOutputExample } from './raw-output-example'
 import { Magento2CMS } from './magento-2-cms'
 import { WPRestContent } from './wp-rest-content'
 import { CategoryUpsell } from './category-upsell'
+
+import { VsfFacebookPixel } from './vsf-facebook-pixel'
 
 // import { Example } from './module-template'
 
@@ -67,12 +69,13 @@ export const registerModules: VueStorefrontModule[] = [
   Claims,
   PromotedOffers,
   Magento2CMS,
-  // GoogleAnalytics,
-  // Hotjar,
+  GoogleAnalytics,
+  Hotjar,
   PaymentBackendMethods,
   PaymentCashOnDelivery,
   RawOutputExample,
   AmpRenderer,
   WPRestContent,
-  CategoryUpsell
+  CategoryUpsell,
+  VsfFacebookPixel
 ]
