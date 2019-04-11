@@ -434,9 +434,7 @@
   "wordpressCms": {
     "url": "https://wordpress.kubotastore.pl",
     "pages": {
-      "home": "strona-domowa",
-      "category": "kategoria",
-      "configurable-product": "produkt"
+      "home": "strona-domowa"
     }
   }
 }
