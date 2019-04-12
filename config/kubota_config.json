@@ -82,11 +82,11 @@
   },
   "defaultStoreCode": "",
   "storeViews": {
-    "multistore": true,
+    "multistore": false,
     "mapStoreUrlsFor": ["eur"],
     "eur": {
       "storeCode": "eur",
-      "disabled": false,
+      "disabled": true,
       "storeId": 2,
       "name": "Kubota Europe",
       "url": "/eur",
