@@ -8,12 +8,13 @@ export const actions = {
 
     try {
       const response = await axios.get(`${baseUrl}/pages?slug=${slug}`)
-      commit('setContent', response.data)
-      
-    } catch (err) {
-
-      console.log(err)
-    }
+    
+      commit('setContent', {
+        data: response.data,
+        slotName: slug
+      })
+      return response.data
+    } catch (err) {}
   },
 
   async loadTopNav ({commit}, {lang}) {
