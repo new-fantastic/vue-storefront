@@ -1,7 +1,7 @@
 import { module } from './store'
-import { afterRegistration } from './hooks/afterRegistration'
+import { afterRegistration } from './hooks/afterRegistration.ts'
 import { VueStorefrontModule, VueStorefrontModuleConfig } from '@vue-storefront/core/lib/module'
-import { routes } from './router/routes'
+import { routes } from './router/routes.ts'
 
 export const KEY = 'wp_rest_content'
 

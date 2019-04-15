@@ -1,15 +1,28 @@
 import axios from 'axios'
 import config from 'config'
+import { ContentState } from '../types/ContentState'
+import { ActionTree } from 'vuex';
+import * as types from './mutation-types'
 
-export const actions = {
-  async loadContent ({commit}, {slug, lang}) {
+interface DynamiclyNamedFragment {
+  slug: string
+  lang: string
+}
+
+interface StaticlyNamedFragment {
+  lang: string
+}
+
+export const actions: ActionTree<ContentState, DynamiclyNamedFragment | StaticlyNamedFragment> = {
+
+  async loadContent ({commit}, {slug, lang}: DynamiclyNamedFragment) {
     const part = lang == 'pl' ? '' : '/' + lang
     const baseUrl = `${config.wordpressCms.url}${part}/wp-json/wp/v2`
 
     try {
       const response = await axios.get(`${baseUrl}/pages?slug=${slug}`)
     
-      commit('setContent', {
+      commit(types.SET_CONTENT, {
         data: response.data,
         slotName: slug
       })
@@ -17,7 +30,7 @@ export const actions = {
     } catch (err) {}
   },
 
-  async loadTopNav ({commit}, {lang}) {
+  async loadTopNav ({commit}, {lang}: StaticlyNamedFragment) {
     const part = lang == 'pl' ? '' : '/' + lang
     const baseNav = `${config.wordpressCms.url}${part}/wp-json/menus/v1/locations/header`
     try {
@@ -28,26 +41,26 @@ export const actions = {
         url: v.url.replace('en/', '') 
       }))
 
-      commit('setTopNav', data)
+      commit(types.SET_TOP_NAV, data)
     } catch (err) {
       console.log(err)
     }
   },
 
-  async loadTopAlert ({commit}, {lang}) {
+  async loadTopAlert ({commit}, {lang}: StaticlyNamedFragment) {
     const part = lang == 'pl' ? '' : '/' + lang
     const baseUrl = `${config.wordpressCms.url}${part}/wp-json/wp/v2`
 
     try {
       const response = await axios.get(`${baseUrl}/alerts/117`)
      
-      commit('setTopAlert', response.data.acf.TopAlert)
+      commit(types.SET_TOP_ALERT, response.data.acf.TopAlert)
     } catch (err) {
       console.log(err)
     }
   },
 
-  async loadBottomMenu ({commit}, {lang}) {
+  async loadBottomMenu ({commit}, {lang}: StaticlyNamedFragment) {
     const part = lang == 'pl' ? '' : '/' + lang
     const baseUrl = `${config.wordpressCms.url}${part}/wp-json/menus/v1/menus`
   
@@ -58,7 +71,7 @@ export const actions = {
       ])
 
 
-      commit('setBottomMenu', response.map(v => {
+      commit(types.SET_BOTTOM_MENU, response.map(v => {
         // https://wordpress.kubotastore.pl/historia-marki/ -> /info/historia-marki/
         const items = v.data.items.map(item => ({
           ...item,
@@ -69,7 +82,7 @@ export const actions = {
           items
         }
       }).sort((a, b) => {
-        return a.term_id > b.term_id // 'Pomoc' then 'O nas'
+        return Number(a.term_id > b.term_id) // 'Pomoc' then 'O nas'
       }))
     } catch (err) {
       console.log('ERR', err)
