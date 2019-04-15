@@ -82,7 +82,7 @@
   },
   "defaultStoreCode": "",
   "storeViews": {
-    "multistore": false,
+    "multistore": true,
     "mapStoreUrlsFor": ["eur"],
     "eur": {
       "storeCode": "eur",
