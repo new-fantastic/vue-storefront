@@ -17,6 +17,7 @@
 "Product {productName} has been added to wishlist!","Produkt {productName} został dodany do listy życzeń!"
 "Product {productName} has been removed from wishlit!","Produkt {productName} został usunięty z listy życzeń!"
 "Account data has successfully been updated","Twoje dane zostały zaktualizowane"
+"The requested qty is not available","Ten produkt jest niedostępny na magazynie"
 "Newsletter preferences have successfully been updated","Twoje ustawienia subskrypcji zostały zaktualizowane"
 "Reset password feature does not work while offline!","Aby zresetowa hasło musisz posiadać połączenie z Internetem!"
 "You are logged in!","Jesteś zalogowany!"
