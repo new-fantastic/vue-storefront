@@ -1,5 +1,7 @@
 import rootStore from '@vue-storefront/store'
 
+let registered = false
+
 const injectJs = function(w,d,s,l,i) {
   w[l]=w[l]||[];
   w[l].push({
@@ -7,11 +9,11 @@ const injectJs = function(w,d,s,l,i) {
     event: 'gtm.js'
   });
   var f = d.getElementsByTagName(s)[0], j=d.createElement(s),
-      dl = l != 'dataLayer' ? '&l='+l : ''
-  j.async=true
-  j.src= 'https://www.googletagmanager.com/gtm.js?id=' + i + dl
-  f.parentNode.insertBefore(j, f)
-
+      dl = l != 'dataLayer' ? '&l='+l : ''; 
+  j.async=true;
+  j.src= 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+  f.parentNode.insertBefore(j, f);
+  registered = true
 }
 
 export function afterRegistration({ Vue, config, store, isServer }){
