@@ -25,7 +25,7 @@ import { WPRestContent } from './wp-rest-content'
 import { CategoryUpsell } from './category-upsell'
 
 import { VsfFacebookPixel } from './vsf-facebook-pixel'
-import { VsfGoogleTagManager } from './vsf-google-tag-manager'
+// import { VsfGoogleTagManager } from './vsf-google-tag-manager'
 
 // import { Example } from './module-template'
 
@@ -78,6 +78,6 @@ export const registerModules: VueStorefrontModule[] = [
   AmpRenderer,
   WPRestContent,
   CategoryUpsell,
-  VsfFacebookPixel,
-  VsfGoogleTagManager
+  VsfFacebookPixel
+  // VsfGoogleTagManager
 ]
