@@ -15,10 +15,10 @@ const injectJs = function(w,d,s,l,i) {
 }
 
 export function afterRegistration({ Vue, config, store, isServer }){
-  if (!isServer && config.googleTagManager && config.googleTagManager.id) {
-      if(!store.state['vsf-google-tag-manager'].registered) {
-        injectJs(window, document, 'script', 'dataLayer', config.googleTagManager.id);
-        store.commit('vsf-google-tag-manager/' + SET_STATUS, true)
-      }
-  }
+  // if (!isServer && config.googleTagManager && config.googleTagManager.id) {
+  //     if(!store.state['vsf-google-tag-manager'].registered) {
+  //       injectJs(window, document, 'script', 'dataLayer', config.googleTagManager.id);
+  //       store.commit('vsf-google-tag-manager/' + SET_STATUS, true)
+  //     }
+  // }
 }
