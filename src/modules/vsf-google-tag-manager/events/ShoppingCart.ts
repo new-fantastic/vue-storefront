@@ -27,7 +27,7 @@ export default (currency): void => {
                     id: pr.sku,
                     price: pr.priceInclTax,
                     quantity: pr.qty,
-                    variant: sizeIdToLabel(pr.size),
+                    variant: pr.sku.split('-')[1],
                     brand: "Kubota",
                     category: categoryName
                   }
@@ -49,7 +49,8 @@ export default (currency): void => {
     EventBus.$on('cart-before-itemchanged', product => {
         if(!myDebounceOnAdd) {
             myDebounceOnAdd = debounce(() => {
-                const pr = product.product
+                const pr = product.product || product.item
+
                 let categoryName = productCategoryName(pr)
                  
                   const productData: ProductData = {
@@ -57,7 +58,7 @@ export default (currency): void => {
                     id: pr.sku,
                     price: pr.priceInclTax,
                     quantity: pr.qty,
-                    variant: sizeIdToLabel(pr.size),
+                    variant: pr.sku.split('-')[1],
                     brand: "Kubota",
                     category: categoryName
                   }
@@ -90,7 +91,7 @@ export default (currency): void => {
                     id: pr.sku,
                     price: pr.priceInclTax,
                     quantity: pr.qty,
-                    variant: sizeIdToLabel(pr.size),
+                    variant: pr.sku.split('-')[1],
                     brand: "Kubota",
                     category: categoryName
                   }
