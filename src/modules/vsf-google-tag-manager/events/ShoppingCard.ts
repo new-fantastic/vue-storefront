@@ -2,6 +2,8 @@ import EventBus from '@vue-storefront/core/compatibility/plugins/event-bus/index
 import debounce from '../util/debounce'
 import { ProductData } from '../types/ProductData'
 import productCategoryName from '../util/productCategoryName'
+import sizeIdToLabel from '../util/sizeIdToLabel'
+import rootStore from '@vue-storefront/store'
 
 declare const dataLayer
 
@@ -13,6 +15,10 @@ export default (currency): void => {
     EventBus.$on('cart-before-add', product => {
         if(!myDebounceOnAdd) {
             myDebounceOnAdd = debounce(() => {
+                if(!rootStore.state.ui.searchpanel) {
+                  return
+                }
+
                 const pr = product.product
                 let categoryName = productCategoryName(pr)
                  
@@ -21,7 +27,7 @@ export default (currency): void => {
                     id: pr.sku,
                     price: pr.priceInclTax,
                     quantity: pr.qty,
-                    variant: pr.size,
+                    variant: sizeIdToLabel(pr.size),
                     brand: "Kubota",
                     category: categoryName
                   }
@@ -35,7 +41,7 @@ export default (currency): void => {
                       }
                     }
                   })
-            }, 1000)
+            }, 2000)
         }
         myDebounceOnAdd(product.product)
     })
@@ -51,7 +57,7 @@ export default (currency): void => {
                     id: pr.sku,
                     price: pr.priceInclTax,
                     quantity: pr.qty,
-                    variant: pr.size,
+                    variant: sizeIdToLabel(pr.size),
                     brand: "Kubota",
                     category: categoryName
                   }
@@ -84,7 +90,7 @@ export default (currency): void => {
                     id: pr.sku,
                     price: pr.priceInclTax,
                     quantity: pr.qty,
-                    variant: pr.size,
+                    variant: sizeIdToLabel(pr.size),
                     brand: "Kubota",
                     category: categoryName
                   }
