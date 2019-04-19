@@ -1,5 +1,6 @@
 import rootStore from '@vue-storefront/store'
 import { SET_STATUS } from '../store/mutation-types'
+import { searchImpression } from '../events/ProductImpression'
 
 // const injectJs = function(w,d,s,l,i) {
 //   w[l]=w[l]||[];
@@ -21,4 +22,10 @@ export function afterRegistration({ Vue, config, store, isServer }){
   //       store.commit('vsf-google-tag-manager/' + SET_STATUS, true)
   //     }
   // }
+
+  if (!isServer) {
+    const currency = rootStore.state.storeView.i18n.currencyCode
+    searchImpression(currency)
+  }
+
 }

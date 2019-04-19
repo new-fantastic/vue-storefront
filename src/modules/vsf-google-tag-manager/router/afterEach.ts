@@ -5,7 +5,7 @@ import { Route } from 'vue-router'
 import evProductClick from '../events/ProductClick'
 import evProductDetails from '../events/ProductDetails'
 import { categoryImperssion, searchImpression } from '../events/ProductImpression'
-import evShoppingCard from '../events/ShoppingCard'
+import evShoppingCart from '../events/ShoppingCart'
 
 export function afterEach (to: Route, from: Route) {
     const currency = rootStore.state.storeView.i18n.currencyCode
@@ -52,7 +52,6 @@ export function afterEach (to: Route, from: Route) {
             )
         }
 
-        searchImpression(currency)
-        evShoppingCard(currency)
+        evShoppingCart(currency)
     }
 }

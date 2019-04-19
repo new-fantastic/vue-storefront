@@ -18,7 +18,7 @@ export default (product, currency: string, source: string): void => {
             price: product.priceInclTax,
             brand: 'Kubota',
             category: categoryName,
-            variant: sizeIdToLabel(product.size),
+            variant: product.sku.split('-')[1],
             quantity: product.qty
         }
 
