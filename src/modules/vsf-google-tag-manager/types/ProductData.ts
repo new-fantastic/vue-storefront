@@ -5,5 +5,6 @@ export interface ProductData {
     brand: string,
     category: string,
     variant: string,
-    quantity?: number
+    quantity?: number,
+    list?: string
 }

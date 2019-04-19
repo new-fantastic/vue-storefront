@@ -23,13 +23,11 @@ export default (product, currency: string, source: string): void => {
         }
 
         dataLayer.push({
-            'event': 'productClick',
             'ecommerce': {
-                'currencyCode': currency,
-                'click': {
-                  'actionField': {'list': source},
-                  'products': [productData]
-                 }
+                'detail': {
+                    'actionField': {'list': source},
+                    'products': [productData]
+                }
             }
         })
     } catch(e) {
