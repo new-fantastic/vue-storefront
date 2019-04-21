@@ -7,6 +7,8 @@ import evProductDetails from '../events/ProductDetails'
 import { categoryImperssion, searchImpression } from '../events/ProductImpression'
 import evShoppingCart from '../events/ShoppingCart'
 
+let registeredShoppingCart = false
+
 export function afterEach (to: Route, from: Route) {
     const currency = rootStore.state.storeView.i18n.currencyCode
   
@@ -52,6 +54,9 @@ export function afterEach (to: Route, from: Route) {
             )
         }
 
-        evShoppingCart(currency)
+        if(!registeredShoppingCart) {
+            evShoppingCart(currency)
+            registeredShoppingCart = true
+        }
     }
 }

@@ -4,13 +4,13 @@ import { ProductData } from '../types/ProductData'
 import productCategoryName from '../util/productCategoryName'
 import sizeIdToLabel from '../util/sizeIdToLabel'
 import rootStore from '@vue-storefront/store'
-import { Queue } from '../structures/queue'
 
 declare const dataLayer
 
 export default (currency): void => { 
     let myDebounceOnAdd:(Function | null) = null 
     let myDebounceOnDelete:(Function | null) = null 
+    let myDebounceAfterDelete:(Function | null) = null 
 
     // Product first time added to cart
     EventBus.$on('cart-before-add', product => {
@@ -74,7 +74,7 @@ export default (currency): void => {
                       }
                     }
                   })
-            }, 1000)
+            }, 2000)
         }
 
         if(myDebounceOnAdd && product.item.qty > 1 && product.item.prev_qty < product.item.qty) {
@@ -82,14 +82,13 @@ export default (currency): void => {
         } 
     })
 
-    let queue = new Queue<ProductData>()
     let lastProducts = null
 
     EventBus.$on('cart-before-delete', product => {
         lastProducts = product
         if(!myDebounceOnDelete) {
             myDebounceOnDelete = debounce((product) => {
-                console.log('delete', product)
+                // console.log('delete', product)
                 const pr = product.items[0]
 
                 let categoryName = productCategoryName(pr)
@@ -113,7 +112,6 @@ export default (currency): void => {
                   //   }
                   // })
 
-                  queue.push(productData)
             }, 2000)
         }
 
@@ -121,24 +119,50 @@ export default (currency): void => {
     })
 
     EventBus.$on('cart-after-delete', products => {
-      console.log(lastProducts, products);
+      // console.log(lastProducts, products);
       // if(myDebounceOnDelete) {
         // if(JSON.stringify(lastProducts) === JSON.stringify(products)) {
         //   return;
         // }
-      console.log('looping')
-        for(let lpIndex in lastProducts) {
-          console.log('LP', lastProducts[lpIndex])
-          let present = false
-          for(let pIndex in products) {
-            console.log('P', products[pIndex])
-            if(lastProducts[lpIndex].id == products[pIndex].id) {
-              present = true
-              break;
+    //let myDebounceAfterDelete:(Function | null) = null 
+
+      if(!myDebounceAfterDelete) {
+        
+
+        myDebounceAfterDelete = debounce((products) => {
+          const unique = []
+          // console.log('looping', lastProducts, products)
+          for(let lpIndex in lastProducts.items) {
+            // console.log('LP', lastProducts.items[lpIndex])
+            let present = false
+            for(let pIndex in products.items) {
+              // console.log('P', products.items[pIndex])
+              if(lastProducts.items[lpIndex].id == products.items[pIndex].id) {
+                // console.log('ID', lastProducts.items[lpIndex].id, products.items[pIndex].id)
+                present = true
+                // break;
+              }
             }
+
+            if(!present) {
+              unique.push(lastProducts.items[lpIndex])
+            }
+            // console.log(lastProducts.items[lpIndex], 'present?: ', present)
           }
-          console.log(lastProducts[lpIndex], 'present?: ', present)
-        }
-      // }
+          // console.log('unique', unique)
+          dataLayer.push({
+              'event': 'removeFromCart',
+              'ecommerce': {
+                'remove': {     
+                  'products': unique
+                }
+              }
+            })
+        }, 2000)
+
+        
+      }
+
+      myDebounceAfterDelete(products)
     })
 }
