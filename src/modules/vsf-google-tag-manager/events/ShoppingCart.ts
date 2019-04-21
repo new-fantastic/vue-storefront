@@ -51,7 +51,7 @@ export default (currency): void => {
         if(!myDebounceOnAdd) {
             myDebounceOnAdd = debounce((product) => {
                 const pr = product.product || product.item
-                console.log('CHANGE', product)
+                // console.log('CHANGE', product)
 
                 let categoryName = productCategoryName(pr)
                  
