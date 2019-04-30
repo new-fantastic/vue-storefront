@@ -379,7 +379,12 @@
     "cmsUrl" : "https://checkout.maanu.pl"
   },
   "wordpressCms" : {
-    "url": "https://wp.maanu.pl/"
+    "url": "https://wp.maanu.pl/",
+    "pages": {
+      "home": "strona-domowa",
+      "category": "kategoria",
+      "configurable-product": "produkt"
+    }
   },
   "cms": {
     "endpoint": "https://api.pln.maanu.pl/api/ext/cms-data/cms{{type}}/{{cmsId}}",
