@@ -1,4 +1,4 @@
 core/build/*.js
 node_modules
 core/modules/**/tests
-*/*
+src/themes/maanu-theme/*
