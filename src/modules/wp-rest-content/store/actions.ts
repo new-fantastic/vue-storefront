@@ -3,15 +3,22 @@ import { WPRState } from '../types/WPRState'
 import { ActionTree } from 'vuex';
 import config from 'config'
 
+import * as types from './mutation-types'
+
 export const actions = {
-  async loadContent ({commit}, {slug, lang}) {
+  async loadContent ({state, commit}, {slug, lang}) {
+    // const lang = state.lang
     const part = lang == 'pl' ? '' : '/' + lang
     const baseUrl = `${config.wordpressCms.url}${part}/wp-json/wp/v2`
 
     try {
       const response = await axios.get(`${baseUrl}/pages?slug=${slug}`)
+
+      if(response.data.status == 404) {
+        throw new Error('Endpoint ain\'t ready')
+      }
     
-      commit('setContent', {
+      commit(types.SET_CONTENT, {
         data: response.data,
         slotName: slug
       })
@@ -20,37 +27,48 @@ export const actions = {
     } catch (err) {}
   },
 
-  async loadTopNav ({commit}, {lang}) {
+  async loadTopNav ({state, commit}) {
+    const lang = state.lang
     const part = lang == 'pl' ? '' : '/' + lang
-    const baseNav = `${config.wordpressCms.url}${part}/wp-json/menus/v1/locations/header`
+    const baseNav = `${config.wordpressCms.url}${part}/wp-json/menus/v1/locations/header`.replace('//', '/')
     try {
       const { data } = await axios.get(baseNav)
+
+      if(data.status == 404) {
+        throw new Error('Endpoint ain\'t ready')
+      }
 
       data.items = data.items.map(v => ({ 
         ...v, 
         url: v.url.replace('en/', '') 
       }))
 
-      commit('setTopNav', data)
+      commit(types.SET_TOP_NAV, data)
     } catch (err) {
       console.log(err)
     }
   },
 
-  async loadTopAlert ({commit}, {lang}) {
+  async loadTopAlert ({state, commit}) {
+    const lang = state.lang
     const part = lang == 'pl' ? '' : '/' + lang
     const baseUrl = `${config.wordpressCms.url}${part}/wp-json/wp/v2`
 
     try {
       const response = await axios.get(`${baseUrl}/alerts/117`)
+
+      if(response.data.status == 404) {
+        throw new Error('Endpoint ain\'t ready')
+      }
      
-      commit('setTopAlert', response.data.acf.TopAlert)
+      // commit(types.SET_TOP_ALERT, response.data.acf.TopAlert)
     } catch (err) {
       console.log(err)
     }
   },
 
-  async loadBottomMenu ({commit}, {lang}) {
+  async loadBottomMenu ({state, commit}) {
+    const lang = state.lang
     const part = lang == 'pl' ? '' : '/' + lang
     const baseUrl = `${config.wordpressCms.url}${part}/wp-json/menus/v1/menus`
   
@@ -60,12 +78,20 @@ export const actions = {
         axios.get(`${baseUrl}/stopka-pomoc`)
       ])
 
+      if(response[0].data.status == 404 || response[1].data.status == 404) {
+        throw new Error('Endpoint ain\'t ready')
+      }
 
-      commit('setBottomMenu', response.map(v => {
+
+      const pagePrefix = config.wordpressCms.staticPagePrefix 
+        ? config.wordpressCms.staticPagePrefix 
+        : 'info'
+
+      commit(types.SET_BOTTOM_MENU, response.map(v => {
         // https://wordpress.kubotastore.pl/historia-marki/ -> /info/historia-marki/
         const items = v.data.items.map(item => ({
           ...item,
-          url: item.url.replace(config.wordpressCms.url + '/' + lang + '/', '/info/').replace(config.wordpressCms.url, '/info')
+          url: item.url.replace(config.wordpressCms.url + '/' + lang + '/', `/${pagePrefix}/`).replace(config.wordpressCms.url, `/${pagePrefix}`)
         }))
         return {
           ...v.data,

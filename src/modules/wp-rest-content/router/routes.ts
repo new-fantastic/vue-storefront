@@ -1,3 +1,5 @@
+import config from 'config'
+
 const lazyStaticPage = () => import('../pages/Static.vue')
 
 interface PartialRoute {
@@ -6,7 +8,14 @@ interface PartialRoute {
   component: Promise<Object>
 }
 
+const pagePrefix = config.wordpressCms.staticPagePrefix 
+  ? config.wordpressCms.staticPagePrefix 
+  : 'info'
+
+const pageName = config.wordpressCms.staticPageName 
+  ? config.wordpressCms.staticPageName 
+  : 'info'
+
 export const routes = [
-  { name: 'page', path: '/informacje/:slug', component: lazyStaticPage },
-  { name: 'page', path: '/info/:slug', component: lazyStaticPage }
+  { name: pageName, path: `/${pagePrefix}/:slug`, component: lazyStaticPage }
 ]

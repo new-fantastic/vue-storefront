@@ -7,5 +7,6 @@ export const state: WPRState = {
   contentSlots: {
     //content: null,
     //home: ...
-  }
+  },
+  lang: null
 }

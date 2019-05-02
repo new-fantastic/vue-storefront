@@ -4,7 +4,10 @@ import Vue from 'vue'
 
 export const mutations: MutationTree<any> = {
   [types.SET_CONTENT] (state, { data, slotName }) {
-    Vue.set(state.contentSlots, slotName, Array.isArray(data) ? data[0] : data)
+    state.contentSlots = { 
+      ...state.contentSlots,
+      [slotName]: Array.isArray(data) ? data[0] : data
+    }
   },
   [types.SET_TOP_NAV] (state, payload) {
     Vue.set(state, 'topNav', payload)
@@ -14,5 +17,8 @@ export const mutations: MutationTree<any> = {
   },
   [types.SET_BOTTOM_MENU] (state, payload) {
     Vue.set(state, 'bottomMenu', payload)
+  },
+  [types.SET_LANG] (state, payload) {
+    state.lang = payload
   }
 }

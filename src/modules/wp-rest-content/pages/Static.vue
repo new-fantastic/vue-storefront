@@ -1,5 +1,5 @@
 <template>
-  <div class="staticpage page__wrapper container" :key="wpData.id">
+  <div v-if="wpData !== null" class="staticpage page__wrapper container" :key="wpData.id">
     <breadcrumbs :routes="breadcrumbs.routes" :active-route="wpData.title.rendered" />
     <div class="staticpage__heading">
       <h1 class="staticpage__title" v-html="wpData.title.rendered"/>
@@ -10,10 +10,10 @@
 </template>
 
 <script>
-import { prepareQuery } from "@vue-storefront/core/modules/catalog/queries/common";
 import rootStore from "@vue-storefront/store";
 import config from 'config'
 import Breadcrumbs from 'theme/components/core/Breadcrumbs.vue'
+import { getLangByRoute } from '../util/GetLang'
 
 export default {
   components: {
@@ -36,7 +36,7 @@ export default {
       return this.getCategories;
     },
     wpData () {
-      const lang = rootStore.state.storeView.url && rootStore.state.storeView.url.substr(1) !== 'pln' ? 'en' : 'pl'
+      const lang = getLangByRoute(this.$route)
       const langComponentName = (this.$route.name).replace(`${lang !== 'pl' ? rootStore.state.storeView.url.substr(1) + '-' : ''}`, '')
     
       return this.$store.state.wp_rest_content.contentSlots[this.$route.params.slug]
@@ -57,29 +57,19 @@ export default {
   },
   watch: {
     async $route(to) {
-      const lang =
-        rootStore.state.storeView.url &&
-        rootStore.state.storeView.url.substr(1) !== "pln"
-          ? "en"
-          : "pl";
-
       await this.$store.dispatch("wp_rest_content/loadContent", {
         slug: to.params.slug,
-        lang: lang
+        lang: getLangByRoute(to)
       });
     }
   },
   async asyncData({ store, route }) {
-    const lang =
-      rootStore.state.storeView.url &&
-      rootStore.state.storeView.url.substr(1) !== "pln"
-        ? "en"
-        : "pl";
     const config = store.state.config;
+    const lang = getLangByRoute(route)
 
     await store.dispatch("wp_rest_content/loadContent", {
       slug: route.params.slug,
-      lang: lang
+      lang
     });
 
     await store.dispatch("category/list", {

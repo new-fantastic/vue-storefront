@@ -8,7 +8,7 @@
       'margins-top-bottom' : data.BannerFullwidth_margins === true
     }"
   >
-    <div :class="{container: data.BannerFullwidth_container === 'with_container'}">
+    <div style="height:100%" :class="{container: data.BannerFullwidth_container === 'with_container'}">
 
       <img
         v-if="data.BannerFullwidth_image"
@@ -82,6 +82,10 @@ export default {
 <style lang="scss">
   // @import '~theme/css/kubota/base/variables';
   // @import '~theme/css/kubota/base/typography';
+
+  .section-wp {
+    margin: 5rem auto;
+  }
 
   .banner-fw {
     width: 100%;
