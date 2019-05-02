@@ -1,66 +1,72 @@
 # vsf-facebook-pixel
 
+<br>
+
 Facebook Pixel module for Vue Storefront.
 
 > Facebook Pixel documentation: https://developers.facebook.com/docs/facebook-pixel
 
-<br>
+<br/>
+
+## Table of Contents
+
+<br/>
+
+- [Main features](#main-features) 
+- [Installation](#installation)
+- [License](#license)
+
+  <br/>  
 
 ## Main features
 
-<br>
+<br/>
 
 This module enables you to seamlessly implement **Facebook Pixel** functionality to your Vue Storefront app, featuring generation of standard Facebook Pixel events **out-of-the-box**:
 
-- `PageView` - default event on triggered on every route change
+<br/>
 
-- `ViewContent` - triggered on entering `pages/Product.vue` route. Available object properties:
-  - `content_ids` (viewed Product SKU)
-  - `content_name` (viewed Product Name)
-  - `content_type` (set as `product`)
-  - `currency` (current Store View `currencyCode`)
-  - `value` (viewed Product Price)
+### Standard Facebook Pixel events
 
-- `AddToCart` - triggered after Product is added to Cart. Available object properties:
-  - `content_ids` (added Product SKU)
-  - `content_name` (added Product Name)
-  - `content_type` (set as `product`)
-  - `value` (added Product `price` * `qty`)
-  - `currency` (current Store View `currencyCode`)
-  
-- `AddToWishlist` - triggered after Product is added to Wishlist. Available object properties:
-  - `content_ids` (added Product SKU)
-  - `content_name` (added Product Name)
-  - `content_type` (set as `product`)
-  - `value` (added Product `price` * `qty`)
-  - `currency` (current Store View `currencyCode`)
+<br/>
 
-<br>
+| Event name         | Description                                   | Passed parameters                                                                                                                                                                                                                                                                                                                     |
+| ------------------ | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `PageView`         | Triggered on every route change.              | _No event-specific parameters_                                                                                                                                                                                                                                                                                                                                     | `ViewContent`      | Triggered on entering Product route.          | - `content_ids` (viewed Product SKU)<br/>  - `content_name` (viewed Product Name) <br/>  - `content_type` (set as `'product'`)<br/>  - `currency` (current Store View `currencyCode`)<br/>  - `value` (viewed Product Price)                                                                                                          |
+| `Search`           | Triggered when SearchPanel input has text     | - `search_string` (search input value)                                                                                                                                                                                                                                                                                                |
+| `AddToCart`        | Triggered after Product is added to Cart.     | - `content_ids` (added Product SKU)<br/>  - `content_name` (added Product Name)    <br/>  - `content_type` (set as `'product'`)<br/>  - `value` (added Product `price` * `qty`)    <br/>  - `currency` (current Store View `currencyCode`)                                                                                            |
+| `AddToWishlist`    | Triggered after Product is added to Wishlist. | - `content_ids` (added Product SKU)<br/>  - `content_name` (added Product Name)    <br/>  - `content_type` (set as `product`)<br/>  - `value` (added Product `price` * `qty`)    <br/>  - `currency` (current Store View `currencyCode`)                                                                                              |
+| `InitiateCheckout` | Triggered after Checkout is created.          | - `content_category` (set as `'product'`)<br/>  - `content_type` (set as `'product'`)<br/>  - `content_ids` (Cart Products SKUs)<br/>  - `contents` (Cart contents - SKU, Price, Qty) <br/>  - `currency` (current Store View `currencyCode`)<br/>  - `num_items` (number of items in Cart)<br/>  - `value` (Cart Price for Checkout) |
+| `Purchase`         | Triggered after Checkout success.             | - `content_type` (set as `'product'`)<br/>  - `content_ids` (bought Products SKUs)<br/>  - `contents` (Checkout Cart contents - SKU, Price, Qty)<br/>  - `currency` (current Store View `currencyCode`)<br/>  - `num_items` (number of bought items in Cart)<br/>  - `value` (Checkout Total Price)                                   |
+
+<br/>
 
 ## Installation
 
-<br>
+<br/>
 
 ### 1. Download the module
 
-<br>
+<br/>
 
 Go to your `vue-storefront`'s `modules` catalog and clone the repository with the module.
+
+<br/>
 
 ```bash
 cd ../vue-storefront/src/modules;
 git clone https://github.com/new-fantastic/vsf-facebook-pixel.git;
 ```
 
-<br>
+<br/>
 
-### 2. Import and register the module 
+### 2. Import and register the module
 
-<br>
+<br/>
 
 Go to `../vue-storefront/src/modules/index.ts` and add code below
 
-<br>
+<br/>
 
 ```js
 import { VsfFacebookPixel } from './vsf-facebook-pixel'
@@ -72,50 +78,30 @@ VsfFacebookPixel
 ]
 ```
 
-<br>
+<br/>  
 
 ### 3. Add new settings to your config
 
-<br>
+<br/>
 
 Go to `../vue-storefront/config/local.json` and add code below
 
-<br>
+<br/>
 
 ```json
 "facebookPixel" : {
-   "id" : "123456789012345"
+  "id" : "123456789012345"
 }
 ```
 
-<br>
+<br/>
 
-### 4. Set the module to be ignored by ESLint
+#### And that's it! You're good to go – the module automatically creates Facebook Pixel events. No need for additional configuration! :sunglasses:
 
-<br>
+<br/>
 
-Go to `../vue-storefront/.eslintignore` and add code below
+## License
 
-<br>
+<br/>
 
-```
-src/modules/vsf-facebok-pixel
-```
-
-<br>
-
-### And that's it! You're good to go :)
-
-<br>
-
-## Roadmap
-
-Standard events out-of-the-box:
-
-- [x] `PageView`
-- [x] `ViewContent`
-- [x] `AddToCart`
-- [x] `AddToWishlist`
-- [ ] `InitiateCheckout`
-- [ ] `Purchase`
-- [ ] `Search`
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
