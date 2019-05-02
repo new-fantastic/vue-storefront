@@ -31,7 +31,7 @@
     "core/**/*.vue",
     "tests/**/*.ts",
     "module/**/*.ts",
-    "core/build/theme-path.js"
+    "core/build/theme-path.js", "src/modules/wp-rest-content/mixins/loadSections.js"
   ],
   "exclude": [
     "node_modules"
