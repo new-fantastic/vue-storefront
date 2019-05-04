@@ -37,3 +37,5 @@ src/modules/facebook-pixel
 src/modules/vsf-wp-rest-content
 
 src/modules/vsf-wp-rest-api
+
+src/vsf-wp-rest-api
