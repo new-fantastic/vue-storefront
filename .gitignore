@@ -31,3 +31,5 @@ core/resource/i18n/pt-BR.json
 core/resource/i18n/ru-RU.json
 
 src/themes/maanu-theme/
+
+src/modules/vsf-wp-rest-api/
