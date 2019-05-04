@@ -16,9 +16,9 @@ import { PromotedOffers } from './promoted-offers'
 import { Ui } from './ui-store'
 // import { GoogleAnalytics } from './google-analytics';
 // import { Hotjar } from './hotjar';
-import { FacebookPixel } from './facebook-pixel'
-import { MessengerChat } from './messenger-chat'
-import { VsfWpRestContent } from './vsf-wp-rest-content'
+// import { FacebookPixel } from './vsf-facebook-pixel'
+// import { MessengerChat } from './messenger-chat'
+import { WpRestApi } from './vsf-wp-rest-api'
 import { AmpRenderer } from './amp-renderer';
 import { PaymentBackendMethods } from './payment-backend-methods';
 import { PaymentCashOnDelivery } from './payment-cash-on-delivery';
@@ -68,14 +68,14 @@ export const registerModules: VueStorefrontModule[] = [
   Claims,
   PromotedOffers,
   Magento2CMS,
-  FacebookPixel,
-  MessengerChat,
+  // FacebookPixel,
+  // MessengerChat,
   // GoogleAnalytics,
   // Hotjar,
   PaymentBackendMethods,
   PaymentCashOnDelivery,
   RawOutputExample,
-  VsfWpRestContent,
+  WpRestApi,
   AmpRenderer/*,
   Example*/
 ]
