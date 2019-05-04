@@ -32,6 +32,10 @@ core/resource/i18n/ru-RU.json
 
 src/themes/maanu-theme/
 
-src/modules/vsf-wp-rest-api/
+src/modules/facebook-pixel
+
+src/modules/vsf-wp-rest-content
+
+src/modules/vsf-wp-rest-api
 
 src/vsf-wp-rest-api
