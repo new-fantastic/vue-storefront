@@ -384,7 +384,8 @@
       "home": "strona-domowa",
       "category": "kategoria",
       "configurable-product": "produkt"
-    }
+    },
+    "menus": ["informacje", "kontakt", "dla-kupujacych", "menu-glowne"]
   },
   "cms": {
     "endpoint": "https://api.pln.maanu.pl/api/ext/cms-data/cms{{type}}/{{cmsId}}",
