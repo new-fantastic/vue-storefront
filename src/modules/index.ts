@@ -1,6 +1,7 @@
 // import { extendModule } from '@vue-storefront/core/lib/module'
 import { VueStorefrontModule } from '@vue-storefront/core/lib/module'
 import { Catalog } from "@vue-storefront/core/modules/catalog"
+import { catalogExtend } from './catalog'
 import { Cart } from '@vue-storefront/core/modules/cart'
 import { Checkout } from '@vue-storefront/core/modules/checkout'
 import { Compare } from '@vue-storefront/core/modules/compare'
@@ -48,6 +49,11 @@ import { Magento2CMS } from './magento-2-cms'
  * In VS 1.8 this modules will be semlessly lazyLoaded after proper action dispatch
  * - Wishlist
  */
+
+import { extendModule } from '@vue-storefront/core/lib/module'
+
+extendModule(catalogExtend)
+
 export const registerModules: VueStorefrontModule[] = [
   Checkout,
   Catalog,
