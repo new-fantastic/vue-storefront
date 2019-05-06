@@ -61,6 +61,9 @@ const actions: ActionTree<CategoryState, RootState> = {
       searchQuery = searchQuery.applyFilter({key: 'product_count', value: {'gt': 0}})
       customizedQuery = true
     }
+    searchQuery = searchQuery.applyFilter({key: 'include_in_menu', value: {'eq': true}})
+    customizedQuery = true
+
     if (skipCache || ((!context.state.list || context.state.list.length === 0) || customizedQuery)) {
     return quickSearchByQuery({ entityType: 'category', query: searchQuery, sort: sort, size: size, start: start, includeFields: includeFields, excludeFields: excludeFields }).then((resp) => {
       commit(types.CATEGORY_UPD_CATEGORIES, Object.assign(resp, { includeFields, excludeFields }))
