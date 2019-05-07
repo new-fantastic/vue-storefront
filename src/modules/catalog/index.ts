@@ -14,6 +14,9 @@ import CategoryState from '@vue-storefront/core/modules/catalog/types/CategorySt
 import SearchQuery from '@vue-storefront/core/lib/search/searchQuery'
 import { currentStoreView } from '@vue-storefront/core/lib/multistore'
 import { Logger } from '@vue-storefront/core/lib/logger'
+import { router } from '@vue-storefront/core/app';
+
+const PRODUCT_REENTER_TIMEOUT = 20000
 
 export const catalogExtend = {
  key: 'catalog',
@@ -66,5 +69,65 @@ export const catalogExtend = {
       }
      }
    }
- } }] },
+ } },
+ {
+   key: 'product',
+   module: {
+     actions: {
+      fetchAsync (context, { parentSku, childSku = null, route = null }) {
+        if (context.state.productLoadStart && (Date.now() - context.state.productLoadStart) < PRODUCT_REENTER_TIMEOUT) {
+          Logger.log('Product is being fetched ...', 'product')()
+        } else {
+          
+          context.state.productLoadPromise = new Promise((resolve, reject) => {
+            context.state.productLoadStart = Date.now()
+            Logger.info('Fetching product data asynchronously' , 'product', {parentSku, childSku})()
+            Vue.prototype.$bus.$emit('product-before-load', { store: rootStore, route: route })
+            context.dispatch('reset').then(() => {
+              context.dispatch('fetch', { parentSku: parentSku, childSku: childSku }).then((subpromises) => {
+                console.log('NOW', rootStore.getters['product/productCurrent'])
+
+                const cats = rootStore.getters['product/productCurrent'].category
+                const blockedCategories = [
+                  { id: 9, name: 'VIP' }
+                ]
+
+                for(let category of cats) {
+                  for(let blockedCategory of blockedCategories) {
+                    if(category.category_id == blockedCategory.id && category.name == blockedCategory.name) {
+                      router.push('/')
+                    }
+                  }
+                }
+
+                Promise.all(subpromises).then(subresults => {
+                  Vue.prototype.$bus.$emitFilter('product-after-load', { store: rootStore, route: route }).then((results) => {
+                    context.state.productLoadStart = null
+                    // console.log('NOW', rootStore.getters['product/productCurrent'])
+                    return resolve()
+                  }).catch((err) => {
+                    context.state.productLoadStart = null
+                    Logger.error(err, 'product')()
+                    return resolve()
+                  })
+                }).catch(errs => {
+                  context.state.productLoadStart = null
+                  reject(errs)
+                })
+              }).catch(err => {
+                context.state.productLoadStart = null
+                reject(err)
+              }).catch(err => {
+                context.state.productLoadStart = null
+                reject(err)
+              })
+            })
+          })
+        }
+        return context.state.productLoadPromise
+      }
+     }
+   }
+ }
+] },
 }
