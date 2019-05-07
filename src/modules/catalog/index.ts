@@ -85,7 +85,7 @@ export const catalogExtend = {
             Vue.prototype.$bus.$emit('product-before-load', { store: rootStore, route: route })
             context.dispatch('reset').then(() => {
               context.dispatch('fetch', { parentSku: parentSku, childSku: childSku }).then((subpromises) => {
-                console.log('NOW', rootStore.getters['product/productCurrent'])
+                // console.log('NOW', rootStore.getters['product/productCurrent'])
 
                 const cats = rootStore.getters['product/productCurrent'].category
                 const blockedCategories = [
@@ -94,7 +94,7 @@ export const catalogExtend = {
 
                 for(let category of cats) {
                   for(let blockedCategory of blockedCategories) {
-                    if(category.category_id == blockedCategory.id && category.name == blockedCategory.name) {
+                    if(category.category_id != blockedCategory.id && category.name != blockedCategory.name) {
                       router.push('/')
                     }
                   }
