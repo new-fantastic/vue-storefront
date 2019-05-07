@@ -51,7 +51,7 @@ export const catalogExtend = {
         searchQuery = searchQuery.applyFilter({key: 'product_count', value: {'gt': 0}})
         customizedQuery = true
       }
-      searchQuery = searchQuery.applyFilter({key: 'include_in_menu', value: {'eq': true}})
+      searchQuery = searchQuery.applyFilter({key: 'include_in_menu', value: {'eq': false}})
       customizedQuery = true
   
       if (skipCache || ((!context.state.list || context.state.list.length === 0) || customizedQuery)) {
