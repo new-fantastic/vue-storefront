@@ -18,7 +18,7 @@ import { Ui } from './ui-store'
 // import { Hotjar } from './hotjar';
 // import { FacebookPixel } from './vsf-facebook-pixel'
 // import { MessengerChat } from './messenger-chat'
-import { WpRestApi } from './vsf-wp-rest-api'
+import { VsfWpRestContent } from './vsf-wp-rest-api'
 import { AmpRenderer } from './amp-renderer';
 import { PaymentBackendMethods } from './payment-backend-methods';
 import { PaymentCashOnDelivery } from './payment-cash-on-delivery';
@@ -75,7 +75,7 @@ export const registerModules: VueStorefrontModule[] = [
   PaymentBackendMethods,
   PaymentCashOnDelivery,
   RawOutputExample,
-  WpRestApi,
+  VsfWpRestContent,
   AmpRenderer/*,
   Example*/
 ]
