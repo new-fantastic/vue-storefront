@@ -13,3 +13,4 @@ src/themes/dwshop-theme/pages/Product.vue
 src/themes/dwshop-theme/pages/ThankYou.vue
 src/themes/dwshop-theme/components/core/blocks/Microcart/Microcart.vue
 src/themes/dwshop-theme/resource
+*/*
