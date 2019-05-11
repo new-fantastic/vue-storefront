@@ -376,7 +376,7 @@
     "id": "2396882913914745"
   },
   "externalCheckout": {
-    "cmsUrl" : "https://checkout.maanu.pl"
+    "cmsUrl" : "https://checkout.maanu.pl/pln/"
   },
   "wordpressCms" : {
     "url": "https://wp.maanu.pl/",
