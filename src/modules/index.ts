@@ -24,7 +24,7 @@ import { PaymentBackendMethods } from './payment-backend-methods';
 import { PaymentCashOnDelivery } from './payment-cash-on-delivery';
 import { RawOutputExample } from './raw-output-example'
 import { Magento2CMS } from './magento-2-cms'
-import { WPRestContent } from './wp-rest-content'
+// import { WPRestContent } from './wp-rest-content'
 // import { Example } from './module-template'
 
 // This is how you can extend any of VS modues
