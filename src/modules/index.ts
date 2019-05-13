@@ -22,6 +22,7 @@ import { PaymentBackendMethods } from './payment-backend-methods';
 import { PaymentCashOnDelivery } from './payment-cash-on-delivery';
 import { RawOutputExample } from './raw-output-example'
 import { Magento2CMS } from './magento-2-cms'
+import { FacebookPixel } from './vsf-facebook-pixel'
 // import { Example } from './module-template'
 
 // This is how you can extend any of VS modues
@@ -75,6 +76,7 @@ export const registerModules: VueStorefrontModule[] = [
   PaymentBackendMethods,
   PaymentCashOnDelivery,
   RawOutputExample,
+  FacebookPixel,
   AmpRenderer/*,
   Example*/
 ]
