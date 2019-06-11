@@ -395,7 +395,7 @@
   },
   "theme": "dwshop-theme",
   "analytics": {
-    "id": false
+    "id": "UA-137188611-1"
   },
   "hotjar": {
     "id": false
