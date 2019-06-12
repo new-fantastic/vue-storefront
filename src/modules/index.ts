@@ -25,6 +25,10 @@ import { PaymentBackendMethods } from './payment-backend-methods';
 import { PaymentCashOnDelivery } from './payment-cash-on-delivery';
 import { RawOutputExample } from './raw-output-example'
 import { Magento2CMS } from './magento-2-cms'
+
+import { VsfFacebookJsSdk } from './facebook-js-sdk'
+import { MessengerChat } from './vsf-messenger-chat'
+
 // import { WPRestContent } from './wp-rest-content'
 // import { Example } from './module-template'
 
@@ -77,6 +81,8 @@ export const registerModules: VueStorefrontModule[] = [
   PaymentCashOnDelivery,
   RawOutputExample,
   WpJson,
+  VsfFacebookJsSdk,
+  MessengerChat,
   AmpRenderer/*,
   Example*/
 ]
