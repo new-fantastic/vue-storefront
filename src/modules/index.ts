@@ -24,6 +24,8 @@ import { RawOutputExample } from './raw-output-example'
 import { Magento2CMS } from './magento-2-cms'
 import { InstantCheckout } from './instant-checkout'
 
+import { WpJson } from './vsf-wp-json'
+
 // import { Example } from './module-template'
 
 // This is how you can extend any of VS modues
@@ -75,5 +77,6 @@ export const registerModules: VueStorefrontModule[] = [
   AmpRenderer,
   InstantCheckout,
   Url,
+  WpJson
   // Example
 ]
