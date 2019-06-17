@@ -22,7 +22,7 @@
     <!-- My profile body (edit mode) -->
     <div class="row" v-if="isEdited">
       <base-input
-        class="col-xs-12 col-md-6 mb25"
+        class="col-xs-12 col-md-6 mb10"
         type="text"
         name="first-name"
         autocomplete="given-name"
@@ -42,21 +42,21 @@
       />
 
       <base-input
-        class="col-xs-12 col-md-6 mb25"
+        class="col-xs-12 col-md-6 mb10"
         type="text"
         name="last-name"
         autocomplete="family-name"
         :placeholder="$t('Last name')"
         v-model.trim="currentUser.lastname"
         @input="$v.currentUser.lastname.$touch()"
-        :validation="{
+        :validations="[{
           condition: !$v.currentUser.lastname.required,
           text: $t('Field is required')
-        }"
+        }]"
       />
 
       <base-input
-        class="col-xs-12 col-md-6 mb25"
+        class="col-xs-12 col-md-6 mb10"
         type="email"
         name="email-address"
         autocomplete="email"
@@ -93,10 +93,10 @@
           :placeholder="$t('Current password *')"
           v-model="oldPassword"
           @input="$v.oldPassword.$touch()"
-          :validation="{
+          :validations="[{
             condition: !$v.oldPassword.required && $v.oldPassword.$error,
             text: $t('Field is required')
-          }"
+          }]"
         />
 
         <div class="hidden-xs hidden-sm col-md-6 mb15 mt10"/>
@@ -109,10 +109,10 @@
           :placeholder="$t('New password *')"
           v-model="password"
           @input="$v.password.$touch()"
-          :validation="{
+          :validations="[{
             condition: !$v.password.required && $v.password.$error,
             text: $t('Field is required')
-          }"
+          }]"
         />
 
         <base-input
@@ -148,63 +148,63 @@
 
       <template v-if="addCompany">
         <base-input
-          class="col-xs-12 mb25"
+          class="col-xs-12 mb10"
           type="text"
           name="company-name"
           autocomplete="organization"
           :placeholder="$t('Company name *')"
           v-model.trim="userCompany.company"
           @input="$v.userCompany.company.$touch()"
-          :validation="{
+          :validations="[{
             condition: !$v.userCompany.company.required && $v.userCompany.company.$error,
             text: $t('Field is required')
-          }"
+          }]"
         />
 
         <base-input
-          class="col-xs-12 col-sm-6 mb25"
+          class="col-xs-12 col-sm-6 mb10"
           type="text"
           name="street-address"
           autocomplete="address-line1"
           :placeholder="$t('Street name *')"
           v-model.trim="userCompany.street"
           @input="$v.userCompany.street.$touch()"
-          :validation="{
+          :validations="[{
             condition: !$v.userCompany.street.required && $v.userCompany.street.$error,
             text: $t('Field is required')
-          }"
+          }]"
         />
 
         <base-input
-          class="col-xs-12 col-sm-6 mb25"
+          class="col-xs-12 col-sm-6 mb10"
           type="text"
           name="apartment-number"
           autocomplete="address-line2"
           :placeholder="$t('House/Apartment number *')"
           v-model.trim="userCompany.house"
           @input="$v.userCompany.house.$touch()"
-          :validation="{
+          :validations="[{
             condition: !$v.userCompany.house.required && $v.userCompany.house.$error,
             text: $t('Field is required')
-          }"
+          }]"
         />
 
         <base-input
-          class="col-xs-12 col-sm-6 mb25"
+          class="col-xs-12 col-sm-6 mb10"
           type="text"
           name="city"
           autocomplete="address-level2"
           :placeholder="$t('City *')"
           v-model.trim="userCompany.city"
           @input="$v.userCompany.city.$touch()"
-          :validation="{
+          :validations="[{
             condition: !$v.userCompany.city.required && $v.userCompany.city.$error,
             text: $t('Field is required')
-          }"
+          }]"
         />
 
         <base-input
-          class="col-xs-12 col-sm-6 mb25"
+          class="col-xs-12 col-sm-6 mb10"
           type="text"
           name="state"
           autocomplete="address-level1"
@@ -213,7 +213,7 @@
         />
 
         <base-input
-          class="col-xs-12 col-sm-6 mb25"
+          class="col-xs-12 col-sm-6 mb10"
           type="text"
           name="zip-code"
           autocomplete="postal-code"
@@ -233,7 +233,7 @@
         />
 
         <base-select
-          class="col-xs-12 col-md-6 mb25"
+          class="col-xs-12 col-md-6 mb10"
           name="countries"
           :options="countryOptions"
           :selected="userCompany.country"
@@ -251,7 +251,7 @@
         />
 
         <base-input
-          class="col-xs-12 col-sm-6 mb25"
+          class="col-xs-12 col-sm-6 mb10"
           type="text"
           name="taxId"
           autocomplete="tax-id"
@@ -271,7 +271,7 @@
         />
 
         <base-input
-          class="col-xs-12 col-sm-6 mb25"
+          class="col-xs-12 col-sm-6 mb10"
           type="text"
           name="phone-number"
           autocomplete="tel"
@@ -429,7 +429,7 @@ export default {
       },
       postcode: {
         required,
-        minLength: minLength(5)
+        minLength: minLength(3)
       },
       city: {
         required

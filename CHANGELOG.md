@@ -4,6 +4,132 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.9.2] - 2019.06.10
+
+### Fixed
+- Instant Checkout visible on  Safari - @przspa (#2991)
+- Search Sidebar on Safari - @przspa (#2990)
+- Country label style - @przspa (#2989)
+- BaseInputNumber for qty of the product in the cart can change by using arrows - @przspa (#2988)
+- Category load depending on zoom level - @przspa (#2704)
+- Add yarn.lock to dockerfile build - @Flyingmana (#3006)
+- Inconsistent behaviour of picture slider on PDP - @przspa (#2757)
+
+## [1.9.1] - 2019.05.27
+
+### Fixed
+- Remove security vulnerabilities by updating project dependencies - @patzick (#2942)
+- Fix Configurable Products not accessible in CSR when children visibility is set to "not visible individually" - @revlis-x (#2933)
+- ProductTile placeholders are visible on SSR - @patzick (#2939)
+
+## [1.9.0] - 2019.05.06
+
+### Added
+- The Url Dispatcher feature added for friendly URLs. When `config.seo.useUrlDispatcher` set to true the `product.url_path` and `category.url_path` fields are used as absolute URL addresses (no `/c` and `/p` prefixes anymore). Check the latest `mage2vuestorefront` snapshot and reimport Your products to properly set `url_path` fields - #2010 - @pkarw
+- Unit tests of cart module written in jest - @lukeromanowicz (#2305)
+- validation for UTF8 alpha and alphanumeric characters in most checkout fields - @lromanowicz (#2653)
+- helper to process config urls with default endpoint host `config.api.host` - @patzick (#2858)
+
+### Changed / Improved
+- The `core/helpers` parsing URL methods exchanged to `query-string` package - @pkarw (#2446)
+- Unit tests in Karma are now removed in favor of jest - @lukeromanowicz (#2305)
+- Material Icons are loaded asynchronously - @JKrupinski, @filrak (#2060)
+- Update to babel 7 - @lukeromanowicz (#2554)
+
+### Fixed
+- For first time setup of the SSR Cache, a local cache-version.json file is required. The path has been removed from .gitignore and a template has been added. - @rio-vps
+- Gallery low quality image in offline mode when high quality already cached - @patzick (#2557)
+- Payment issue when no address set - @szafran89 (#2593)
+- Search component result message when search term is less than 3 letters - @robwozniak (#2561)
+- Removed childSku parameter in url for non-configurable products when using urlDispatcher - @Aekal (#2605)
+- Image lazy loading after SSR reload - @pkarw (#2641)
+- Modules can add custom URL - @pkarw (#2601)
+- Url routes fixes - @pkarw (#2598, #2645, #2614)
+- Fix for shopping cart actions when the `cartId` has been cleared out - @pkarw (#2567)
+- Fixed always common cache issue for multistore - @filrak (#2595)
+- Checkout copy address data will sync on later change - @haukebri (#2661)
+- Fixed Safari style for sort-by select - @haukebri (#2642)
+- fixed My orders in My Profile not refreshed after putting an order - @filrak (#2559)
+- Refreshing product page on mobile device - @patzick (#2484)
+- ESlint throwing errors about undefined jest globals in tests - @lukeromanowicz (#2702)
+- Fixed changing the country when entering shipping address in checkout not updating shipping costs - @revlis-x (#2691)
+- Instant Checkout fix - @qiqqq (#2750)
+- Infinite loop on multistore page after reload - @patzick (#2713)
+- Refreshing MyAccount page on multistore - @patzick (#2780)
+- "Toggle password visible" button in password fields works the right way - @lromanowicz (#2772)
+- Range queries to elasticsearch - @oskar1233 (#2746)
+- BaseInput has min height now to avoid jumping on forms - @patzick (#2771)
+- Orders with invalid address don't stack anymore in the queue and have proper notification popup - @AndreiBelokopytov, @lukeromanowicz (#2663)
+- Offline orders with out of stock products don't stack anymore and get canceled after going back to online - @lukeromanowicz (#2740)
+- Build ServiceWorker on Docker - @patzick (#2793)
+- Product image load after comming back to online - @patzick (#2573)
+- Insufficent validation for city field in checkout address - @lromanowicz (#2653)
+- Incorrect hover activity on the 'filter by categories' in the search view on mobile - @idodidodi (#2783)
+- Unit tests written in JavaScript now support async/await functions and dynamic import - @michaelKurowski, @lukeromanowicz (#2851)
+
+## [1.8.5] - 2019.04.17
+
+### Fixed
+- Memory leaks on SSR with Vue.use - @patzick (#2745)
+
+## [1.8.4] - 2019.03.26
+
+### Fixed
+- Problem with incomplete category products load for offline use - @patzick (#2543)
+- Category products view crash on scrolling down in offline mode - @patzick (#2569)
+- Default propery issue for the col-xs-* classes - @cnviradiya (#2558)
+- Wishlist and compare list not cached properly - @filrak (#2580)
+
+### Changed / Improved
+- Category and Homepage products are now cached for offline use on SSR entry - @patzick (@1698)
+
+## [1.8.3] - 2019.03.03
+
+### Added
+- Payment Request API integration - @qiqqq (#2306)
+- New reactive helper to check online state. Usage: `import { onlineHelper } from '@vue-storefront/core/helpers'` and then `onlineHelper.isOnline` - @patzick (#2510)
+- Cart count config, allows you to display the item count instead of a sum of the item quantities - @pauluse (#2483)
+- Video support in Product Gallery component. - @rain2o (#2433)
+
+### Fixed
+- Problem with placing second order (unbinding payment methods after first order) - @patzick (#2195, #2503)
+- Remaking order on user orders page - @patzick (#2480)
+- Images blinking on category page - @pkarw (#2523)
+- state.ts not bound in the module-template - @pkarw (#2496)
+- Validation in the Myprofile section for postcode field - @pkarw (#1317)
+- Non-integer qty of product added to the cart - @pkarw (#2517)
+
+### Changed / Improved
+- Fixed an issue where the correct image for a product configuration wasn't set on the product page image carousel. Also added the fix on the productcarousel in the zoom component - @DaanKouters (#2419)
+- Way of creating VS Modules was changed to use factory method instead of explict object creation. - @filrak (#2434)
+- Added clear filters button on desktop also and only show if filters are applied - @DaanKouters (#2342)
+- Improved docs at contributing.md and configuration.md (spelling etc.) - @ruthgeridema (#2421, #2422, #2423, #2425, #2426)
+- Fixed design issue of Country label on Edge 17 & Firefox - @ananth-iyer (#2390, #2399)
+- Wishlist and compare items are loaded from local cache only once, instead of every time when module component is rendered - @patzick (#2431)
+- Country field is filled by first counry from the list in cart in paymen section - @RakowskiPrzemyslaw (#2428)
+- Improved product quantity change component in product and cart - @patzick (#2398, #2437)
+- Updated to Vue 2.6.6 - @filrak (#2456)
+- Null sidebar menu data on static page fixed - @filrak (#2449, #2441)
+- Fix cannot edit previous steps in checkout - @filrak, @patzick (#2438)
+- Fixed route guard ssr problem - @vue-kacper (#2364)
+- Fix links in footer to static pages bug - @filrak (#2452)
+- Fix links at docs, Basics/Configuration file explained - @daksamit (#2490)
+- Improve images loading on category page, corrected alt view and blinking problem - @patzick (#2465)
+- Improve tsconfig for better IDE paths support - @patzick, @filrak (#2474)
+- fix breadcrumbs changing too early - @filrak, @pkarw (#2469, #2529)
+- improved product gallery load view, shows correct image on reload - @patzick (#2481, #2482, #2488, #2501)
+- Fix an issue where the index.html template within a theme is ignored - @EnthrallRecords (#2489)
+- Added async sidebar component with async off-screen components error handling and fetch retrying after coming back online - @filrak (#2408, #2451)
+- Inconsistent filters behaviour - clear filters on page load - @patzick (#2435)
+- fix price is never below 0 and user can't add 0 or below 0 products to cart - @RakowskiPrzemyslaw (#2437)
+- Check for placing single order in case of error in any payment module - @patzick (#2409)
+- Display prices in products added in offline mode. - @patzick (#2450)
+- Updated cypress dependency for e2e tests - @lukeromanowicz (#2518)
+- Improved styles on recommendation filters, product tile and numeric input - @patzick (#2458)
+
+### Deprecated / Removed
+- `@vue-storefront/store` package deprecated - @filrak
+
 ## [1.8.2] - 2019.02.11
 - Fixed docker-compose configuration for network_mode and TS build config - @lukeromanowicz (#2415)
 
@@ -50,7 +176,7 @@ Additional migration tips are available [here](https://github.com/DivanteLtd/vue
 - Improve sortBy mobile view - @martaradziszewska (#2251)
 - Slide animations to menu, search, wishlist and minicart components - @Aekal (#2256)
 - Fixed wishlist store module to not be lazy loaded - @vue-kacper (#2249)
-- Share webpack typescript config with docker container - @lukeromanowicz (#2269)
+- Share webpack typescript config with Docker container - @lukeromanowicz (#2269)
 - After checkout create logged-in cart for logged-in users if using order Direct Backend Sync - @grimasod (#2302)
 - Output cache clearing supports versioning - @igloczek (#2333, #2359)
 - Cash on delivery + Shipping addresses fixed for virtual products - @pkarw (#2366)

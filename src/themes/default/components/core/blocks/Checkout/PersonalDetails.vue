@@ -34,7 +34,7 @@
       <div class="col-xs-11 col-sm-9 col-md-10">
         <div class="row">
           <base-input
-            class="col-xs-12 col-md-6 mb25"
+            class="col-xs-12 col-md-6 mb10"
             type="text"
             :autofocus="true"
             name="first-name"
@@ -55,21 +55,21 @@
           />
 
           <base-input
-            class="col-xs-12 col-md-6 mb25"
+            class="col-xs-12 col-md-6 mb10"
             type="text"
             name="last-name"
             :placeholder="$t('Last name *')"
             v-model.trim="personalDetails.lastName"
             @blur="$v.personalDetails.lastName.$touch()"
             autocomplete="family-name"
-            :validation="{
+            :validations="[{
               condition: $v.personalDetails.lastName.$error && !$v.personalDetails.lastName.required,
               text: $t('Field is required')
-            }"
+            }]"
           />
 
           <base-input
-            class="col-xs-12 mb25"
+            class="col-xs-12 mb10"
             type="email"
             name="email-address"
             :placeholder="$t('Email address *')"
@@ -101,7 +101,7 @@
 
           <template v-if="createAccount && !currentUser">
             <base-input
-              class="col-xs-12 mb25 mt10"
+              class="col-xs-12 mb10 mt10"
               type="password"
               name="password"
               ref="password"
@@ -109,10 +109,10 @@
               v-model="password"
               @blur="$v.password.$touch()"
               autocomplete="new-password"
-              :validation="{
+              :validations="[{
                 condition: $v.password.$error && !$v.password.required,
                 text: $t('Field is required.')
-              }"
+              }]"
             />
 
             <base-input
@@ -140,10 +140,10 @@
               @click="acceptConditions = !acceptConditions"
               @blur="$v.acceptConditions.$touch()"
               v-model="acceptConditions"
-              :validation="{
+              :validations="[{
                 condition: !$v.acceptConditions.required && $v.acceptConditions.$error,
                 text: $t('You must accept the terms and conditions.')
-              }"
+              }]"
             >
               {{ $t('I accept ') }}
               <span

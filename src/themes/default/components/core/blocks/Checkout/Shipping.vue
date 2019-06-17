@@ -35,7 +35,7 @@
         <div class="row">
           <base-checkbox
             v-if="currentUser && hasShippingDetails()"
-            class="col-xs-12 mb25"
+            class="col-xs-12 mb10"
             id="shipToMyAddressCheckbox"
             @click="useMyAddress"
             v-model="shipToMyAddress"
@@ -44,7 +44,7 @@
           </base-checkbox>
 
           <base-input
-            class="col-xs-12 col-sm-6 mb25"
+            class="col-xs-12 col-sm-6 mb10"
             type="text"
             name="first-name"
             :placeholder="$t('First name *')"
@@ -64,63 +64,63 @@
           />
 
           <base-input
-            class="col-xs-12 col-sm-6 mb25"
+            class="col-xs-12 col-sm-6 mb10"
             type="text"
             name="last-name"
             :placeholder="$t('Last name *')"
             v-model.trim="shipping.lastName"
             @blur="$v.shipping.lastName.$touch()"
             autocomplete="family-name"
-            :validation="{
+            :validations="[{
               condition: $v.shipping.lastName.$error && !$v.shipping.lastName.required,
               text: $t('Field is required')
-            }"
+            }]"
           />
 
           <base-input
-            class="col-xs-12 mb25"
+            class="col-xs-12 mb10"
             type="text"
             name="street-address"
             :placeholder="$t('Street name *')"
             v-model.trim="shipping.streetAddress"
             @blur="$v.shipping.streetAddress.$touch()"
             autocomplete="address-line1"
-            :validation="{
+            :validations="[{
               condition: $v.shipping.streetAddress.$error && !$v.shipping.streetAddress.required,
               text: $t('Field is required')
-            }"
+            }]"
           />
 
           <base-input
-            class="col-xs-12 mb25"
+            class="col-xs-12 mb10"
             type="text"
             name="apartment-number"
             :placeholder="$t('House/Apartment number *')"
             v-model.trim="shipping.apartmentNumber"
             @blur="$v.shipping.apartmentNumber.$touch()"
             autocomplete="address-line2"
-            :validation="{
+            :validations="[{
               condition: $v.shipping.apartmentNumber.$error && !$v.shipping.apartmentNumber.required,
               text: $t('Field is required')
-            }"
+            }]"
           />
 
           <base-input
-            class="col-xs-12 col-sm-6 mb25"
+            class="col-xs-12 col-sm-6 mb10"
             type="text"
             name="city"
             :placeholder="$t('City *')"
             v-model.trim="shipping.city"
             @blur="$v.shipping.city.$touch()"
             autocomplete="address-level2"
-            :validation="{
+            :validations="[{
               condition: $v.shipping.city.$error && !$v.shipping.city.required,
               text: $t('Field is required')
-            }"
+            }]"
           />
 
           <base-input
-            class="col-xs-12 col-sm-6 mb25"
+            class="col-xs-12 col-sm-6 mb10"
             type="text"
             name="state"
             :placeholder="$t('State / Province')"
@@ -129,7 +129,7 @@
           />
 
           <base-input
-            class="col-xs-12 col-sm-6 mb25"
+            class="col-xs-12 col-sm-6 mb10"
             type="text"
             name="zip-code"
             :placeholder="$t('Zip-code *')"
@@ -149,7 +149,7 @@
           />
 
           <base-select
-            class="col-xs-12 col-sm-6 mb25"
+            class="col-xs-12 col-sm-6 mb10"
             name="countries"
             :options="countryOptions"
             :selected="shipping.country"
@@ -163,11 +163,11 @@
             v-model="shipping.country"
             autocomplete="country-name"
             @blur="$v.shipping.country.$touch()"
-            @change="$v.shipping.country.$touch(); changeCountry();"
+            @change.native="$v.shipping.country.$touch(); changeCountry();"
           />
 
           <base-input
-            class="col-xs-12 mb25"
+            class="col-xs-12 mb10"
             type="text"
             name="phone-number"
             :placeholder="$t('Phone Number')"
@@ -254,6 +254,7 @@
 
 <script>
 import { required, minLength } from 'vuelidate/lib/validators'
+import { unicodeAlpha, unicodeAlphaNum } from '@vue-storefront/core/helpers/validators'
 import { Shipping } from '@vue-storefront/core/modules/checkout/components/Shipping'
 
 import BaseCheckbox from 'theme/components/core/blocks/Form/BaseCheckbox'
@@ -285,29 +286,35 @@ export default {
     shipping: {
       firstName: {
         required,
-        minLength: minLength(2)
+        minLength: minLength(2),
+        unicodeAlpha
       },
       lastName: {
-        required
+        required,
+        unicodeAlpha
       },
       country: {
         required
       },
       streetAddress: {
-        required
+        required,
+        unicodeAlphaNum
       },
       apartmentNumber: {
-        required
+        required,
+        unicodeAlphaNum
       },
       shippingMethod: {
         required
       },
       zipCode: {
         required,
-        minLength: minLength(3)
+        minLength: minLength(3),
+        unicodeAlphaNum
       },
       city: {
-        required
+        required,
+        unicodeAlpha
       }
     }
   }

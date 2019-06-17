@@ -1,18 +1,27 @@
 import Vue from 'vue'
 import { ActionTree } from 'vuex'
 import * as types from './mutation-types'
-import rootStore from '@vue-storefront/store'
+import rootStore from '@vue-storefront/core/store'
 import i18n from '@vue-storefront/i18n'
 import { adjustMultistoreApiUrl } from '@vue-storefront/core/lib/multistore'
 import RootState from '@vue-storefront/core/types/RootState'
 import UserState from '../types/UserState'
 import { Logger } from '@vue-storefront/core/lib/logger'
 import { TaskQueue } from '@vue-storefront/core/lib/sync'
-import { UserProfile } from '../types/UserProfile';
+import { UserProfile } from '../types/UserProfile'
+import { isServer } from '@vue-storefront/core/helpers'
 // import router from '@vue-storefront/core/router'
 
 const actions: ActionTree<UserState, RootState> = {
-  startSession (context) {
+  async startSession (context) {
+    if (isServer || context.getters.isLocalDataLoaded) return
+    context.commit(types.USER_LOCAL_DATA_LOADED, true)
+
+    const user = localStorage.getItem(`shop/user/current-user`);
+    if (user) {
+      context.commit(types.USER_INFO_LOADED, JSON.parse(user))  
+    }
+
     context.commit(types.USER_START_SESSION)
     const cache = Vue.prototype.$db.usersCollection
     cache.getItem('current-token', (err, res) => {
@@ -163,7 +172,7 @@ const actions: ActionTree<UserState, RootState> = {
   /**
    * Load current user profile
    */
-  me (context, { refresh = true, useCache = true }) {
+  me (context, { refresh = true, useCache = true } = {}) {
     return new Promise((resolve, reject) => {
       if (!context.state.token) {
         Logger.warn('No User token, user unauthorized', 'user')()

@@ -18,7 +18,13 @@ module.exports = {
     ],
     sidebar: {
       '/guide/': [
-        '',
+      	{
+          title : 'General Information',
+          collapsible: false,
+          children: [
+            'general/introduction'
+          ]
+	      },
         'upgrade-notes/',
         {
           title: 'Installation',
@@ -44,7 +50,8 @@ module.exports = {
             'basics/graphql',
             'basics/ssr-cache',
             'basics/amp',
-            'basics/e2e'
+            'basics/e2e',
+            'basics/url'
           ],
         },
         {
@@ -118,6 +125,7 @@ module.exports = {
             'modules/user',
             'modules/checkout',
             'modules/order',
+            //'modules/review'
           ],
         },
         {
