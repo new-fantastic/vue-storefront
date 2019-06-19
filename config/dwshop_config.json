@@ -448,6 +448,9 @@
         }
       ]
     }
+  },
+  "googleTagManager": {
+    "id": "GTM-WBW3P5W"
   }
 }
 
