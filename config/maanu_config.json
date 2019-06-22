@@ -428,5 +428,15 @@
         }
       ]
     }
+  },
+  "facebookPixel" : {
+    "id" : "2396882913914745"
+  },
+  "googleTagManager": {
+    "id": "GTM-5884JJ4"
+  },
+  "facebookJsSdk" : {
+    "appId" : "952660061735485",
+    "pageId": "988699764507742"
   }
 }
