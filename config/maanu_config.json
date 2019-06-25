@@ -60,7 +60,13 @@
     },
     "searchableAttributes": {
       "name": {
+        "boost": 5
+      },
+      "subtitle": {
         "boost": 4
+      },
+      "description": {
+        "boost": 3
       },
       "sku": {
         "boost": 2
