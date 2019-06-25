@@ -438,8 +438,5 @@
   "facebookJsSdk" : {
     "appId" : "952660061735485",
     "pageId": "988699764507742"
-  },
-  "externalCheckout": {
-    "cmsUrl" : "https://checkout.maanu.pl/"
   }
 }
