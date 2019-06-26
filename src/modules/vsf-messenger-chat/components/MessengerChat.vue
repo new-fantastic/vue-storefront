@@ -18,8 +18,8 @@
 
 <script>
 
-import rootStore from '@vue-storefront/store'
-const pId = rootStore.state.config.facebookSdk.pageId
+import rootStore from '@vue-storefront/core/store'
+const pId = rootStore.state.config.facebookJsSdk.pageId
 
 export default {
   name: 'MessengerChat',
