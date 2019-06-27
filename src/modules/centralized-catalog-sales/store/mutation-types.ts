@@ -1,0 +1,1 @@
+export const CCS_STORE = 'CCS_STORE'
