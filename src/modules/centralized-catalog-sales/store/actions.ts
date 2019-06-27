@@ -4,13 +4,20 @@ import * as types from './mutation-types'
 import config from 'config'
 import axios from 'axios'
 import OAuth from 'oauth-1.0a'
+import crypto from 'crypto'
 
 const oauth = OAuth({
   consumer: { 
     key: 'nq81kv6upca1ri7yl50s8kgwy09vy7jv', 
     secret: 'ftpiy8grb3tg5mpkp0uz3lhxwaj9cm1r' 
   },
-  signature_method: 'HMAC-SHA1'
+  signature_method: 'HMAC-SHA1',
+  hash_function(base_string, key) {
+    return crypto
+        .createHmac('sha1', key)
+        .update(base_string)
+        .digest('base64')
+  }
 })
 
 export const actions: ActionTree<SalesState, any> = {
@@ -49,9 +56,19 @@ export const actions: ActionTree<SalesState, any> = {
         method: 'GET',
         url: `https://checkout.flynwetsuits.com/pln/rest/V1/salesRules/4`
       }
+      // https://checkout.flynwetsuits.com/pln/rest/V1/salesRules/3/?
+      // oauth_consumer_key=nq81kv6upca1ri7yl50s8kgwy09vy7jv
+      // &oauth_token=82e46mr971j8jfc6u20ukiywx2qcs4gd
+      // &oauth_signature_method=HMAC-SHA1
+      // &oauth_timestamp=1561652533
+      // &oauth_nonce=AVdIR6&oauth_version=1.0
+      // &oauth_signature=9KV4arru+SnbZ+ZbhuIeyRwPT9g=
 
       const hd = oauth.toHeader(oauth.authorize(request_data, token));
-      hd.Authorization = hd.Authorization.replace('oauth_consumer_key="undefined"', 'oauth_consumer_key="nq81kv6upca1ri7yl50s8kgwy09vy7jv"')
+      hd.Authorization = hd.Authorization.replace(
+        'oauth_consumer_key="undefined",', 
+        'oauth_consumer_key="nq81kv6upca1ri7yl50s8kgwy09vy7jv", oauth_token="82e46mr971j8jfc6u20ukiywx2qcs4gd",')
+
 
       await axios.get(request_data.url, {
         headers: {
@@ -121,7 +138,7 @@ export const actions: ActionTree<SalesState, any> = {
 
     } catch (e) {
       console.error('Centralized Catalog Sales!')
-      console.error(e)
+      console.error(e.response)
     }
   }
 }

@@ -22,7 +22,7 @@ import { PaymentCashOnDelivery } from './payment-cash-on-delivery';
 import { RawOutputExample } from './raw-output-example'
 import { Magento2CMS } from './magento-2-cms'
 import { WPStaticPages } from './wp-static-pages'
-import { FacebookPixel } from './vsf-facebook-pixel'
+import { VsfFacebookPixel } from './vsf-facebook-pixel'
 import { VsfFacebookJsSdk } from './vsf-facebook-js-sdk'
 import { MessengerChat } from './vsf-messenger-chat'
 
@@ -71,7 +71,7 @@ export const registerModules: VueStorefrontModule[] = [
   Claims,
   PromotedOffers,
   Magento2CMS,
-  FacebookPixel,
+  VsfFacebookPixel,
   VsfFacebookJsSdk,
   MessengerChat,
   GoogleAnalytics,
