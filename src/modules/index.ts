@@ -72,7 +72,7 @@ export const registerModules: VueStorefrontModule[] = [
   Magento2CMS,
   VsfFacebookPixel,
   VsfFacebookJsSdk,
-  MessengerChat,
+  VsfMessengerChat,
   GoogleAnalytics,
   Hotjar,
   PaymentBackendMethods,
