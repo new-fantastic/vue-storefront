@@ -2,6 +2,7 @@ import Vue from 'vue'
 import { MutationTree } from 'vuex'
 import * as types from './mutation-types'
 import ProductState, { PagedProductList } from '../../types/ProductState'
+import rootStore from '@vue-storefront/core/store'
 
 const mutations: MutationTree<ProductState> = {
   [types.CATALOG_UPD_RELATED] (state, { key, items }) {
@@ -34,6 +35,7 @@ const mutations: MutationTree<ProductState> = {
     }
   },
   [types.CATALOG_SET_PRODUCT_CURRENT] (state, product) {
+
     state.current = product
   },
   [types.CATALOG_SET_PRODUCT_ORIGINAL] (state, product) {

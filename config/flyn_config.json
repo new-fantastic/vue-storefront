@@ -421,7 +421,7 @@
     "filterUnavailableVariants": false,
     "listOutOfStockProducts": true,
     "preventConfigurableChildrenDirectAccess": true,
-    "alwaysSyncPlatformPricesOver": true,
+    "alwaysSyncPlatformPricesOver": false,
     "clearPricesBeforePlatformSync": false,
     "waitForPlatformSync": false,
     "setupVariantByAttributeCode": true,

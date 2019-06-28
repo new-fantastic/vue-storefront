@@ -1,4 +1,4 @@
-// import { extendModule } from '@vue-storefront/core/lib/module'
+import { extendModule } from '@vue-storefront/core/lib/module'
 import { VueStorefrontModule } from '@vue-storefront/core/lib/module'
 import { Catalog } from "@vue-storefront/core/modules/catalog"
 import { Cart } from '@vue-storefront/core/modules/cart'
@@ -23,9 +23,10 @@ import { RawOutputExample } from './raw-output-example'
 import { Magento2CMS } from './magento-2-cms'
 import { WPStaticPages } from './wp-static-pages'
 import { VsfFacebookPixel } from './vsf-facebook-pixel'
-import { VsfFacebookSdk } from './vsf-facebook-sdk'
-import { VsfMessengerChat } from './vsf-messenger-chat'
+import { VsfFacebookJsSdk } from './vsf-facebook-js-sdk'
+import { MessengerChat } from './vsf-messenger-chat'
 
+import { CentralizedCatalogSales, productExtend } from './centralized-catalog-sales'
 // import { Example } from './module-template'
 
 // This is how you can extend any of VS modues
@@ -45,7 +46,7 @@ import { VsfMessengerChat } from './vsf-messenger-chat'
 //   store: { modules: [{ key: 'cart', module: extendCartVuex }] },
 //  }
 
-//  extendModule(cartExtend)
+extendModule(productExtend)
 
 /**
  * Some of the modules are registered lazily only when components from module are appearing on current page.
@@ -70,14 +71,15 @@ export const registerModules: VueStorefrontModule[] = [
   PromotedOffers,
   Magento2CMS,
   VsfFacebookPixel,
-  VsfFacebookSdk,
-  VsfMessengerChat,
+  VsfFacebookJsSdk,
+  MessengerChat,
   GoogleAnalytics,
   Hotjar,
   PaymentBackendMethods,
   PaymentCashOnDelivery,
   RawOutputExample,
   WPStaticPages,
+  CentralizedCatalogSales,
   AmpRenderer/*,
   Example*/
 ]
