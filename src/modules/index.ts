@@ -1,4 +1,4 @@
-// import { extendModule } from '@vue-storefront/core/lib/module'
+import { extendModule } from '@vue-storefront/core/lib/module'
 import { VueStorefrontModule } from '@vue-storefront/core/lib/module'
 import { Catalog } from "@vue-storefront/core/modules/catalog"
 import { Cart } from '@vue-storefront/core/modules/cart'
@@ -26,8 +26,7 @@ import { VsfFacebookPixel } from './vsf-facebook-pixel'
 import { VsfFacebookJsSdk } from './vsf-facebook-js-sdk'
 import { MessengerChat } from './vsf-messenger-chat'
 
-import { CentralizedCatalogSales } from './centralized-catalog-sales'
-
+import { CentralizedCatalogSales, productExtend } from './centralized-catalog-sales'
 // import { Example } from './module-template'
 
 // This is how you can extend any of VS modues
@@ -47,7 +46,7 @@ import { CentralizedCatalogSales } from './centralized-catalog-sales'
 //   store: { modules: [{ key: 'cart', module: extendCartVuex }] },
 //  }
 
-//  extendModule(cartExtend)
+extendModule(productExtend)
 
 /**
  * Some of the modules are registered lazily only when components from module are appearing on current page.
