@@ -151,7 +151,7 @@ export const actions: ActionTree<SalesState, any> = {
                         "condition_type": "Magento\\SalesRule\\Model\\Rule\\Condition\\Product",
                         "operator": "==",
                         "attribute_name": "category_ids",
-                        "value": "24, 25, 23, 26"
+                        "value": "24, 25, 23, 26, 28, 36, 37"
                     }
                 ],
                 "aggregator_type": "all",
