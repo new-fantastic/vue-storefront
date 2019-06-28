@@ -24,7 +24,7 @@ import { Magento2CMS } from './magento-2-cms'
 import { WPStaticPages } from './wp-static-pages'
 import { VsfFacebookPixel } from './vsf-facebook-pixel'
 import { VsfFacebookJsSdk } from './vsf-facebook-js-sdk'
-import { MessengerChat } from './vsf-messenger-chat'
+import { VsfMessengerChat } from './vsf-messenger-chat'
 
 import { CentralizedCatalogSales, productExtend } from './centralized-catalog-sales'
 // import { Example } from './module-template'
