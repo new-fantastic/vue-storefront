@@ -120,165 +120,112 @@ export const actions: ActionTree<SalesState, any> = {
 
       commit(types.CCS_STORE, [
         {
-          "rule_id": 3,
-          "name": "catalog-30",
-          "store_labels": [],
-          "description": "",
-          "website_ids": [
-              1,
-              2
-          ],
-          "customer_group_ids": [
-              0,
-              1,
-              2,
-              3
-          ],
-          "from_date": "2019-06-27",
-          "to_date": "2019-07-11",
-          "uses_per_customer": 0,
-          "is_active": true,
-          "condition": {
-              "condition_type": "Magento\\SalesRule\\Model\\Rule\\Condition\\Combine",
-              "aggregator_type": "all",
-              "operator": null,
-              "value": "1"
-          },
-          "action_condition": {
-              "condition_type": "Magento\\SalesRule\\Model\\Rule\\Condition\\Product\\Combine",
-              "conditions": [
-                  {
-                      "condition_type": "Magento\\SalesRule\\Model\\Rule\\Condition\\Product",
-                      "operator": "==",
-                      "attribute_name": "category_ids",
-                      "value": "25, 21, 26, 22"
-                  }
-              ],
-              "aggregator_type": "all",
-              "operator": null,
-              "value": "1"
-          },
-          "stop_rules_processing": true,
-          "is_advanced": true,
-          "sort_order": 0,
-          "simple_action": "by_percent",
-          "discount_amount": 30,
-          "discount_step": 0,
-          "apply_to_shipping": false,
-          "times_used": 0,
-          "is_rss": true,
-          "coupon_type": "NO_COUPON",
-          "use_auto_generation": false,
-          "uses_per_coupon": 0,
-          "simple_free_shipping": "0"
-      },
-      {
-        "rule_id": 2,
-        "name": "FLYN50",
-        "store_labels": [
-            {
-                "store_id": 0,
-                "store_label": "FLYN50"
+            "rule_id": 3,
+            "name": "catalog-30",
+            "store_labels": [],
+            "description": "",
+            "website_ids": [
+                1,
+                2
+            ],
+            "customer_group_ids": [
+                0,
+                1,
+                2,
+                3
+            ],
+            "from_date": "2019-06-27",
+            "to_date": "2019-07-11",
+            "uses_per_customer": 0,
+            "is_active": true,
+            "condition": {
+                "condition_type": "Magento\\SalesRule\\Model\\Rule\\Condition\\Combine",
+                "aggregator_type": "all",
+                "operator": null,
+                "value": "1"
             },
-            {
-                "store_id": 1,
-                "store_label": "FLYN50"
-            }
-        ],
-        "description": "50% zniżki na zakupy w naszym sklepie",
-        "website_ids": [
-            1
-        ],
-        "customer_group_ids": [
-            0,
-            1,
-            2,
-            3
-        ],
-        "from_date": "2018-11-26",
-        "to_date": "2019-01-15",
-        "uses_per_customer": 0,
-        "is_active": false,
-        "condition": {
-            "condition_type": "Magento\\SalesRule\\Model\\Rule\\Condition\\Combine",
-            "aggregator_type": "all",
-            "operator": null,
-            "value": "1"
+            "action_condition": {
+                "condition_type": "Magento\\SalesRule\\Model\\Rule\\Condition\\Product\\Combine",
+                "conditions": [
+                    {
+                        "condition_type": "Magento\\SalesRule\\Model\\Rule\\Condition\\Product",
+                        "operator": "==",
+                        "attribute_name": "category_ids",
+                        "value": "24, 25, 23, 26"
+                    }
+                ],
+                "aggregator_type": "all",
+                "operator": null,
+                "value": "1"
+            },
+            "stop_rules_processing": true,
+            "is_advanced": true,
+            "sort_order": 0,
+            "simple_action": "by_percent",
+            "discount_amount": 30,
+            "discount_step": 0,
+            "apply_to_shipping": false,
+            "times_used": 0,
+            "is_rss": true,
+            "coupon_type": "NO_COUPON",
+            "use_auto_generation": false,
+            "uses_per_coupon": 0,
+            "simple_free_shipping": "0"
         },
-        "action_condition": {
-            "condition_type": "Magento\\SalesRule\\Model\\Rule\\Condition\\Product\\Combine",
-            "aggregator_type": "all",
-            "operator": null,
-            "value": "1"
-        },
-        "stop_rules_processing": false,
-        "is_advanced": true,
-        "sort_order": 0,
-        "simple_action": "by_percent",
-        "discount_amount": 50,
-        "discount_step": 0,
-        "apply_to_shipping": false,
-        "times_used": 46,
-        "is_rss": true,
-        "coupon_type": "SPECIFIC_COUPON",
-        "use_auto_generation": false,
-        "uses_per_coupon": 0,
-        "simple_free_shipping": "0"
-    },
-    {
-      "rule_id": 4,
-      "name": "catalog-60",
-      "store_labels": [],
-      "description": "",
-      "website_ids": [
-          1,
-          2
-      ],
-      "customer_group_ids": [
-          0,
-          1,
-          2,
-          3
-      ],
-      "from_date": "2019-06-27",
-      "to_date": "2019-06-30",
-      "uses_per_customer": 0,
-      "is_active": true,
-      "condition": {
-          "condition_type": "Magento\\SalesRule\\Model\\Rule\\Condition\\Combine",
-          "aggregator_type": "all",
-          "operator": null,
-          "value": "1"
-      },
-      "action_condition": {
-          "condition_type": "Magento\\SalesRule\\Model\\Rule\\Condition\\Product\\Combine",
-          "conditions": [
-              {
-                  "condition_type": "Magento\\SalesRule\\Model\\Rule\\Condition\\Product",
-                  "operator": "==",
-                  "attribute_name": "category_ids",
-                  "value": "18"
-              }
-          ],
-          "aggregator_type": "all",
-          "operator": null,
-          "value": "1"
-      },
-      "stop_rules_processing": false,
-      "is_advanced": true,
-      "sort_order": 0,
-      "simple_action": "by_percent",
-      "discount_amount": 60,
-      "discount_step": 0,
-      "apply_to_shipping": false,
-      "times_used": 0,
-      "is_rss": true,
-      "coupon_type": "NO_COUPON",
-      "use_auto_generation": false,
-      "uses_per_coupon": 0,
-      "simple_free_shipping": "0"
-  }
-      ])
+        {
+            "rule_id": 4,
+            "name": "catalog-60",
+            "store_labels": [],
+            "description": "",
+            "website_ids": [
+                1,
+                2
+            ],
+            "customer_group_ids": [
+                0,
+                1,
+                2,
+                3
+            ],
+            "from_date": "2019-06-27",
+            "to_date": "2019-06-30",
+            "uses_per_customer": 0,
+            "is_active": true,
+            "condition": {
+                "condition_type": "Magento\\SalesRule\\Model\\Rule\\Condition\\Combine",
+                "aggregator_type": "all",
+                "operator": null,
+                "value": "1"
+            },
+            "action_condition": {
+                "condition_type": "Magento\\SalesRule\\Model\\Rule\\Condition\\Product\\Combine",
+                "conditions": [
+                    {
+                        "condition_type": "Magento\\SalesRule\\Model\\Rule\\Condition\\Product",
+                        "operator": "==",
+                        "attribute_name": "category_ids",
+                        "value": "18, 19, 21, 16, 22, 39, 43, 40"
+                    }
+                ],
+                "aggregator_type": "all",
+                "operator": null,
+                "value": "1"
+            },
+            "stop_rules_processing": false,
+            "is_advanced": true,
+            "sort_order": 0,
+            "simple_action": "by_percent",
+            "discount_amount": 60,
+            "discount_step": 0,
+            "apply_to_shipping": false,
+            "times_used": 0,
+            "is_rss": true,
+            "coupon_type": "NO_COUPON",
+            "use_auto_generation": false,
+            "uses_per_coupon": 0,
+            "simple_free_shipping": "0"
+        }
+    ])
 
     } catch (e) {
       console.error('Centralized Catalog Sales!')
