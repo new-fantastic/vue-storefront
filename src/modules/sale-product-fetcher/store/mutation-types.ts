@@ -1,0 +1,2 @@
+export const FETCH_PRODUCTS = 'FETCH_PRODUCTS'
+export const MORE_PRODUCTS = 'MORE_PRODUCTS'

@@ -31,6 +31,8 @@ import { VsfGoogleTagManager } from './vsf-google-tag-manager'
 import { VsfFacebookJsSdk } from './vsf-facebook-js-sdk'
 import { MessengerChat } from './vsf-messenger-chat'
 
+import { SaleProductFetcher } from './sale-product-fetcher'
+
 // import { Example } from './module-template'
 
 // This is how you can extend any of VS modues
@@ -86,6 +88,7 @@ export const registerModules: VueStorefrontModule[] = [
   VsfGoogleTagManager,
   VsfFacebookJsSdk,
   MessengerChat,
-  WpJson
+  WpJson,
+  SaleProductFetcher
   // Example
 ]
