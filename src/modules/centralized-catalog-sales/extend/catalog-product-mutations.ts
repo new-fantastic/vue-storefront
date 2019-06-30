@@ -1,9 +1,16 @@
 import * as types from '@vue-storefront/core/modules/catalog/store/product/mutation-types'
 import { PagedProductList } from '@vue-storefront/core/modules/catalog/types/ProductState'
 import ApplyCategorySale from '../util/ApplyCategorySale'
+import Vue from 'vue'
 
 export default {
   mutations: {
+    [types.CATALOG_UPD_RELATED] (state, { key, items }) {
+      state.related[key] = items.map(
+        product => ApplyCategorySale(product)
+      )
+      Vue.prototype.$bus.$emit('product-after-related', { key: key, items: items })
+    },
     [types.CATALOG_UPD_PRODUCTS] (state, { products, append }) {
       if (append === false) {
 
