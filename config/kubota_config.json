@@ -411,19 +411,19 @@
         }
       ]
     },
-    "coolBags": {
+    "premiumSlippers": {
       "filter": [
         {
           "key": "category.name",
-          "value" : { "eq": "Women" }
+          "value" : { "eq": "Klapki Premium" }
         }
       ]
     },
-    "bestSellers": {
+    "sockets": {
       "filter": [
         {
           "key": "category.name",
-          "value" : { "eq": "Tees" }
+          "value" : { "eq": "Skarpety" }
         }
       ]
     }

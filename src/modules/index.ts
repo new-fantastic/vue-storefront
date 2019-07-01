@@ -27,6 +27,8 @@ import { CategoryUpsell } from './category-upsell'
 import { VsfFacebookPixel } from './vsf-facebook-pixel'
 import { VsfGoogleTagManager } from './vsf-google-tag-manager'
 
+import { Bundle } from './bundle'
+
 // import { Example } from './module-template'
 
 // This is how you can extend any of VS modues
@@ -79,5 +81,6 @@ export const registerModules: VueStorefrontModule[] = [
   WPRestContent,
   CategoryUpsell,
   VsfFacebookPixel,
-  VsfGoogleTagManager
+  VsfGoogleTagManager,
+  Bundle
 ]

@@ -1,0 +1,2 @@
+export const SET_PRIMARY = 'SET_PRIMARY'
+export const SET_SECONDARY = 'SET_SECONDARY'
