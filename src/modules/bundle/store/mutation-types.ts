@@ -1,2 +1,3 @@
 export const SET_PRIMARY = 'SET_PRIMARY'
 export const SET_SECONDARY = 'SET_SECONDARY'
+export const FETCH_PRODUCTS = 'FETCH_PRODUCTS'
