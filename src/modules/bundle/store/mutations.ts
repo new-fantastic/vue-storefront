@@ -7,12 +7,8 @@ export const mutations: MutationTree<any> = {
     state.products = payload
   },
 
-  [types.SET_PRIMARY] (state, payload) {
-    state.optionsPrimary = payload
-  },
-
-  [types.SET_SECONDARY] (state, payload) {
-    state.optionsSecondary = payload
+  [types.FETCH_CERTAIN_PRODUCT] (state, payload) {
+    state.current = Array.isArray(payload) ? payload[0] : payload
   }
 
 }

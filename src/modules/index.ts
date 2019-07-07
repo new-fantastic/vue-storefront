@@ -1,4 +1,4 @@
-// import { extendModule } from '@vue-storefront/core/lib/module'
+import { extendModule } from '@vue-storefront/core/lib/module'
 import { VueStorefrontModule } from '@vue-storefront/core/lib/module'
 import { Catalog } from "@vue-storefront/core/modules/catalog"
 import { Cart } from '@vue-storefront/core/modules/cart'
@@ -27,7 +27,7 @@ import { CategoryUpsell } from './category-upsell'
 import { VsfFacebookPixel } from './vsf-facebook-pixel'
 import { VsfGoogleTagManager } from './vsf-google-tag-manager'
 
-import { Bundle } from './bundle'
+import { Bundle, extendedCart } from './bundle'
 
 // import { Example } from './module-template'
 
@@ -48,7 +48,7 @@ import { Bundle } from './bundle'
 //   store: { modules: [{ key: 'cart', module: extendCartVuex }] },
 //  }
 
-//  extendModule(cartExtend)
+ extendModule(extendedCart)
 
 /**
  * Some of the modules are registered lazily only when components from module are appearing on current page.
