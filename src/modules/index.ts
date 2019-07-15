@@ -26,7 +26,7 @@ import { VsfFacebookPixel } from './vsf-facebook-pixel'
 import { VsfFacebookJsSdk } from './vsf-facebook-js-sdk'
 import { VsfMessengerChat } from './vsf-messenger-chat'
 
-import { CentralizedCatalogSales, productExtend } from './centralized-catalog-sales'
+// import { CentralizedCatalogSales, productExtend } from './centralized-catalog-sales'
 // import { Example } from './module-template'
 
 // This is how you can extend any of VS modues
@@ -46,7 +46,7 @@ import { CentralizedCatalogSales, productExtend } from './centralized-catalog-sa
 //   store: { modules: [{ key: 'cart', module: extendCartVuex }] },
 //  }
 
-extendModule(productExtend)
+// extendModule(productExtend)
 
 /**
  * Some of the modules are registered lazily only when components from module are appearing on current page.
@@ -79,7 +79,7 @@ export const registerModules: VueStorefrontModule[] = [
   PaymentCashOnDelivery,
   RawOutputExample,
   WPStaticPages,
-  CentralizedCatalogSales,
+  // CentralizedCatalogSales,
   AmpRenderer/*,
   Example*/
 ]
