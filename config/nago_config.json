@@ -350,7 +350,7 @@
     },
     "images": {
       "useExactUrlsNoProxy": false,
-      "baseUrl": "https://demo.vuestorefront.io/img/",
+      "baseUrl": "https://api.pln.nago.com/img/",
       "productPlaceholder": "/assets/placeholder.jpg"
     },
     "install": {
