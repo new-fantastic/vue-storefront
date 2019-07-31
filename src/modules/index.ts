@@ -28,6 +28,7 @@ import { VsfFacebookPixel } from './vsf-facebook-pixel'
 import { VsfGoogleTagManager } from './vsf-google-tag-manager'
 
 import { Bundle, extendedCart } from './bundle'
+import Vue from 'vue'
 
 // import { Example } from './module-template'
 
@@ -49,6 +50,30 @@ import { Bundle, extendedCart } from './bundle'
 //  }
 
  extendModule(extendedCart)
+ extendModule({
+   key: 'catalog',
+   store: { modules: [
+     {
+       key: 'product',
+       module: {
+         actions: {
+          configureBundleAsync(context, product) {
+            if(product.hasOwnProperty('runNow') && product.runNow === true) {
+              return context.dispatch(
+                'setupAssociated', {
+                  product: product ,
+                  skipCache: true
+                })
+                .then(() => {context.dispatch('setCurrent', product)})
+                .then(() => {Vue.prototype.$bus.$emit('product-after-setup-associated')})
+            }
+            return Promise.resolve()
+          }
+         }
+       }
+     }
+   ]}
+ })
 
 /**
  * Some of the modules are registered lazily only when components from module are appearing on current page.
