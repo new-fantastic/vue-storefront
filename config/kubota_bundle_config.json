@@ -34,7 +34,7 @@
   },
   "elasticsearch": {
     "httpAuth": "",
-    "host": "https://api.pln.kubotastore.pl/api/catalog",
+    "host": "https://bundle.api.pln.kubotastore.pl/api/catalog",
     "index": "vue_storefront_catalog",
     "min_score": 0.02,
     "csrTimeout": 5000,
@@ -128,11 +128,11 @@
     },
     "productList": {
       "sort": "",
-      "includeFields": [ "type_id", "sku", "product_links", "tax_class_id", "special_price", "special_to_date", "special_from_date", "name", "price", "priceInclTax", "originalPriceInclTax", "originalPrice", "specialPriceInclTax", "id", "image", "sale", "new", "url_key", "status", "tier_prices", "configurable_children.sku", "configurable_children.price", "configurable_children.special_price", "configurable_children.priceInclTax", "configurable_children.specialPriceInclTax", "configurable_children.originalPrice", "configurable_children.originalPriceInclTax" ],
+      "includeFields": [ "bundle_price", "type_id", "sku", "product_links", "tax_class_id", "special_price", "special_to_date", "special_from_date", "name", "price", "priceInclTax", "originalPriceInclTax", "originalPrice", "specialPriceInclTax", "id", "image", "sale", "new", "url_key", "status", "tier_prices", "configurable_children.sku", "configurable_children.price", "configurable_children.special_price", "configurable_children.priceInclTax", "configurable_children.specialPriceInclTax", "configurable_children.originalPrice", "configurable_children.originalPriceInclTax" ],
       "excludeFields": [ "description", "configurable_options", "sgn", "*.sgn", "msrp_display_actual_price_type", "*.msrp_display_actual_price_type", "required_options" ]
     },
     "productListWithChildren": {
-      "includeFields": [ "type_id", "sku", "name", "tax_class_id", "special_price", "special_to_date", "special_from_date", "price", "priceInclTax", "originalPriceInclTax", "originalPrice", "specialPriceInclTax", "id", "image", "sale", "new", "configurable_children.image", "configurable_children.sku", "configurable_children.price", "configurable_children.special_price", "configurable_children.priceInclTax", "configurable_children.specialPriceInclTax", "configurable_children.originalPrice", "configurable_children.originalPriceInclTax", "configurable_children.color", "configurable_children.size", "configurable_children.id", "configurable_children.tier_prices", "product_links", "url_key", "status", "tier_prices"],
+      "includeFields": [ "bundle_price", "type_id", "sku", "name", "tax_class_id", "special_price", "special_to_date", "special_from_date", "price", "priceInclTax", "originalPriceInclTax", "originalPrice", "specialPriceInclTax", "id", "image", "sale", "new", "configurable_children.image", "configurable_children.sku", "configurable_children.price", "configurable_children.special_price", "configurable_children.priceInclTax", "configurable_children.specialPriceInclTax", "configurable_children.originalPrice", "configurable_children.originalPriceInclTax", "configurable_children.color", "configurable_children.size", "configurable_children.id", "configurable_children.tier_prices", "product_links", "url_key", "status", "tier_prices"],
       "excludeFields": [ "description", "sgn", "*.sgn", "msrp_display_actual_price_type", "*.msrp_display_actual_price_type", "required_options"]
     },
     "review": {
@@ -143,6 +143,7 @@
       "includeFields": null,
       "useDynamicAttributeLoader": true,
       "standardSystemFields": [
+        "bundle_price",
         "description",
         "configurable_options",
         "tsk",
@@ -208,17 +209,17 @@
     "setConfigurableProductOptions": true,
     "askBeforeRemoveProduct": true,
     "displayItemDiscounts": true,
-    "create_endpoint": "https://api.pln.kubotastore.pl/api/cart/create?token={{token}}",
-    "updateitem_endpoint": "https://api.pln.kubotastore.pl/api/cart/update?token={{token}}&cartId={{cartId}}",
-    "deleteitem_endpoint": "https://api.pln.kubotastore.pl/api/cart/delete?token={{token}}&cartId={{cartId}}",
-    "pull_endpoint": "https://api.pln.kubotastore.pl/api/cart/pull?token={{token}}&cartId={{cartId}}",
-    "totals_endpoint": "https://api.pln.kubotastore.pl/api/cart/totals?token={{token}}&cartId={{cartId}}",
-    "paymentmethods_endpoint": "https://api.pln.kubotastore.pl/api/cart/payment-methods?token={{token}}&cartId={{cartId}}",
-    "shippingmethods_endpoint": "https://api.pln.kubotastore.pl/api/cart/shipping-methods?token={{token}}&cartId={{cartId}}",
-    "shippinginfo_endpoint": "https://api.pln.kubotastore.pl/api/cart/shipping-information?token={{token}}&cartId={{cartId}}",
-    "collecttotals_endpoint": "https://api.pln.kubotastore.pl/api/cart/collect-totals?token={{token}}&cartId={{cartId}}",
-    "deletecoupon_endpoint": "https://api.pln.kubotastore.pl/api/cart/delete-coupon?token={{token}}&cartId={{cartId}}",
-    "applycoupon_endpoint": "https://api.pln.kubotastore.pl/api/cart/apply-coupon?token={{token}}&cartId={{cartId}}&coupon={{coupon}}"
+    "create_endpoint": "https://bundle.api.pln.kubotastore.pl/api/cart/create?token={{token}}",
+    "updateitem_endpoint": "https://bundle.api.pln.kubotastore.pl/api/cart/update?token={{token}}&cartId={{cartId}}",
+    "deleteitem_endpoint": "https://bundle.api.pln.kubotastore.pl/api/cart/delete?token={{token}}&cartId={{cartId}}",
+    "pull_endpoint": "https://bundle.api.pln.kubotastore.pl/api/cart/pull?token={{token}}&cartId={{cartId}}",
+    "totals_endpoint": "https://bundle.api.pln.kubotastore.pl/api/cart/totals?token={{token}}&cartId={{cartId}}",
+    "paymentmethods_endpoint": "https://bundle.api.pln.kubotastore.pl/api/cart/payment-methods?token={{token}}&cartId={{cartId}}",
+    "shippingmethods_endpoint": "https://bundle.api.pln.kubotastore.pl/api/cart/shipping-methods?token={{token}}&cartId={{cartId}}",
+    "shippinginfo_endpoint": "https://bundle.api.pln.kubotastore.pl/api/cart/shipping-information?token={{token}}&cartId={{cartId}}",
+    "collecttotals_endpoint": "https://bundle.api.pln.kubotastore.pl/api/cart/collect-totals?token={{token}}&cartId={{cartId}}",
+    "deletecoupon_endpoint": "https://bundle.api.pln.kubotastore.pl/api/cart/delete-coupon?token={{token}}&cartId={{cartId}}",
+    "applycoupon_endpoint": "https://bundle.api.pln.kubotastore.pl/api/cart/apply-coupon?token={{token}}&cartId={{cartId}}&coupon={{coupon}}"
   },
   "products": {
     "useShortCatalogUrls": false,
@@ -234,7 +235,7 @@
     "clearPricesBeforePlatformSync": false,
     "waitForPlatformSync": false,
     "setupVariantByAttributeCode": true,
-    "endpoint": "https://api.pln.kubotastore.pl/api/product",
+    "endpoint": "https://bundle.api.pln.kubotastore.pl/api/product",
     "defaultFilters": ["color", "size", "price", "erin_recommends"],
     "filterFieldMapping": {
       "category.name": "category.name.keyword"
@@ -262,7 +263,7 @@
   },
   "orders": {
     "directBackendSync": true,
-    "endpoint": "https://api.pln.kubotastore.pl/api/order",
+    "endpoint": "https://bundle.api.pln.kubotastore.pl/api/order",
     "payment_methods_mapping": {
     },
     "offline_orders": {
@@ -294,27 +295,27 @@
     }
   },
   "reviews": {
-    "create_endpoint": "https://api.pln.kubotastore.pl/api/review/create"
+    "create_endpoint": "https://bundle.api.pln.kubotastore.pl/api/review/create"
   },
   "users": {
     "autoRefreshTokens": true,
-    "endpoint": "https://api.pln.kubotastore.pl/api/user",
-    "history_endpoint": "https://api.pln.kubotastore.pl/api/user/order-history?token={{token}}",
-    "resetPassword_endpoint": "https://api.pln.kubotastore.pl/api/user/reset-password",
-    "changePassword_endpoint": "https://api.pln.kubotastore.pl/api/user/change-password?token={{token}}",
-    "login_endpoint": "https://api.pln.kubotastore.pl/api/user/login",
-    "create_endpoint": "https://api.pln.kubotastore.pl/api/user/create",
-    "me_endpoint": "https://api.pln.kubotastore.pl/api/user/me?token={{token}}",
-    "refresh_endpoint": "https://api.pln.kubotastore.pl/api/user/refresh"
+    "endpoint": "https://bundle.api.pln.kubotastore.pl/api/user",
+    "history_endpoint": "https://bundle.api.pln.kubotastore.pl/api/user/order-history?token={{token}}",
+    "resetPassword_endpoint": "https://bundle.api.pln.kubotastore.pl/api/user/reset-password",
+    "changePassword_endpoint": "https://bundle.api.pln.kubotastore.pl/api/user/change-password?token={{token}}",
+    "login_endpoint": "https://bundle.api.pln.kubotastore.pl/api/user/login",
+    "create_endpoint": "https://bundle.api.pln.kubotastore.pl/api/user/create",
+    "me_endpoint": "https://bundle.api.pln.kubotastore.pl/api/user/me?token={{token}}",
+    "refresh_endpoint": "https://bundle.api.pln.kubotastore.pl/api/user/refresh"
   },
   "stock": {
     "synchronize": true,
     "allowOutOfStockInCart": true,
-    "endpoint": "https://api.pln.kubotastore.pl/api/stock"
+    "endpoint": "https://bundle.api.pln.kubotastore.pl/api/stock"
   },
   "images": {
     "useExactUrlsNoProxy": false,
-    "baseUrl": "https://api.pln.kubotastore.pl/img/",
+    "baseUrl": "https://bundle.api.pln.kubotastore.pl/img/",
     "productPlaceholder": "/assets/placeholder.jpg"
   },
   "install": {
@@ -355,12 +356,12 @@
     "bundleAllStoreviewLanguages": true
   },
   "mailchimp": {
-    "endpoint": "https://api.pln.kubotastore.pl/api/ext/mailchimp-subscribe/subscribe"
+    "endpoint": "https://bundle.api.pln.kubotastore.pl/api/ext/mailchimp-subscribe/subscribe"
   },
   "mailer": {
     "endpoint": {
-      "send": "https://api.pln.kubotastore.pl/api/ext/mail-service/send-email",
-      "token": "https://api.pln.kubotastore.pl/api/ext/mail-service/get-token"
+      "send": "https://bundle.api.pln.kubotastore.pl/api/ext/mail-service/send-email",
+      "token": "https://bundle.api.pln.kubotastore.pl/api/ext/mail-service/get-token"
     },
     "contactAddress": "contributors@vuestorefront.io",
     "sendConfirmation": true
@@ -383,8 +384,8 @@
     "pageId": "999999999999999"
   },
   "cms": {
-    "endpoint": "https://api.pln.kubotastore.pl/api/ext/cms-data/cms{{type}}/{{cmsId}}",
-    "endpointIdentifier": "https://api.pln.kubotastore.pl/api/ext/cms-data/cms{{type}}Identifier/{{cmsIdentifier}}/storeId/{{storeId}}"
+    "endpoint": "https://bundle.api.pln.kubotastore.pl/api/ext/cms-data/cms{{type}}/{{cmsId}}",
+    "endpointIdentifier": "https://bundle.api.pln.kubotastore.pl/api/ext/cms-data/cms{{type}}Identifier/{{cmsIdentifier}}/storeId/{{storeId}}"
   },
   "cms_block": {
     "max_count": 500
@@ -411,19 +412,19 @@
         }
       ]
     },
-    "premiumSlippers": {
+    "coolBags": {
       "filter": [
         {
           "key": "category.name",
-          "value" : { "eq": "Klapki Premium" }
+          "value" : { "eq": "Women" }
         }
       ]
     },
-    "sockets": {
+    "bestSellers": {
       "filter": [
         {
           "key": "category.name",
-          "value" : { "eq": "Skarpety" }
+          "value" : { "eq": "Tees" }
         }
       ]
     }
@@ -438,7 +439,6 @@
     "url": "https://wordpress.kubotastore.pl",
     "pages": {
       "home": "strona-domowa",
-      "eur-home": "strona-domowa",
       "category": "kategoria",
       "configurable-product": "produkt"
     }
