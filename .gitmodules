@@ -1,0 +1,3 @@
+[submodule "src/modules/vsf-wp-json"]
+	path = src/modules/vsf-wp-json
+	url = git@github.com:new-fantastic/vsf-wp-json.git
