@@ -76,8 +76,7 @@
     "templates": {
       "default": "dist/index.html",
       "minimal": "dist/index.minimal.html",
-      "basic": "dist/index.basic.html",
-      "amp": "dist/index.amp.html"
+      "basic": "dist/index.basic.html"
     },
     "executeMixedinAsyncData": true,
     "initialStateFilter": ["__DEMO_MODE__", "version", "storeView"],
