@@ -464,5 +464,9 @@
   },
   "googleTagManager": {
     "id": "GTM-NVVN94R"
+  },
+  "facebookJsSdk": {
+    "appId": "488234078415966",
+    "pageId": "1597769753863797"
   }
 }
