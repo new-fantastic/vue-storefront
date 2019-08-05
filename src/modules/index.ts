@@ -82,7 +82,7 @@ export const registerModules: VueStorefrontModule[] = [
   Url,
   WpJson,
   FacebookPixel,
-  VsfGoogleTagManager
+  VsfGoogleTagManager,
   VsfFacebookJsSdk,
   MessengerChat
   // Example
