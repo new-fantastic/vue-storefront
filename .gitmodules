@@ -4,3 +4,9 @@
 [submodule "src/modules/vsf-facebook-pixel"]
 	path = src/modules/vsf-facebook-pixel
 	url = git@github.com:new-fantastic/vsf-facebook-pixel.git
+[submodule "src/modules/vsf-facebook-js-sdk"]
+	path = src/modules/vsf-facebook-js-sdk
+	url = git@github.com:new-fantastic/vsf-facebook-js-sdk.git
+[submodule "src/modules/vsf-messenger-chat"]
+	path = src/modules/vsf-messenger-chat
+	url = git@github.com:new-fantastic/vsf-messenger-chat.git
