@@ -2245,6 +2245,15 @@
     "@shellscape/koa-send" "^4.1.0"
     debug "^2.6.8"
 
+"@sxcss/gutenberg@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@sxcss/gutenberg/-/gutenberg-1.0.8.tgz#857440f92b61f0b721da0c65d2cabc9fe373a51a"
+  integrity sha512-HwGI1vZyeCDfPstKCmYU6tQBd+QOqX6KMa0e44BVo+6JgEOby0ChLgz1M5h/vfNn1dGDi65HDV7FvglUoMEFEQ==
+  dependencies:
+    node-sass "^4.12.0"
+    sass-loader "^7.1.0"
+    sxcss "^1.0.41"
+
 "@types/anymatch@*":
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/@types/anymatch/-/anymatch-1.3.0.tgz#d1d55958d1fccc5527d4aba29fc9c4b942f563ff"
@@ -13996,6 +14005,22 @@ sw-toolbox@^3.4.0:
   dependencies:
     path-to-regexp "^1.0.1"
     serviceworker-cache-polyfill "^4.0.0"
+
+sxcss@^1.0.41:
+  version "1.0.54"
+  resolved "https://registry.yarnpkg.com/sxcss/-/sxcss-1.0.54.tgz#ebc8984f0bc28b1131ed34d32e0bd05254675828"
+  integrity sha512-EDE80CnBAHWQMEim0R+0dS4F6XlkkkI/JeHeCAzWEN8mq4TiDbw4wOMpQJfokB0bck3nFzC53eF1YGRpDzmYrg==
+  dependencies:
+    node-sass "^4.12.0"
+    sass-loader "^7.1.0"
+
+sxcss@^1.0.63:
+  version "1.0.63"
+  resolved "https://registry.yarnpkg.com/sxcss/-/sxcss-1.0.63.tgz#27575f18406545139b9140c29122b9063454457e"
+  integrity sha512-pWez+OWNLhfPBmafD7HMZGDk0jKUhX8RfnCdB1VS5Zb2VhwDpr0oXMPPvTdOO0EfeHWkkbA7xQl7CG39WwiDgA==
+  dependencies:
+    node-sass "^4.12.0"
+    sass-loader "^7.1.0"
 
 symbol-observable@1.0.1:
   version "1.0.1"
