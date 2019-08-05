@@ -25,6 +25,7 @@ import { Magento2CMS } from "./magento-2-cms";
 import { InstantCheckout } from "./instant-checkout";
 import { WpJson } from "./vsf-wp-json";
 import { FacebookPixel } from "./vsf-facebook-pixel";
+import { VsfGoogleTagManager } from "./vsf-google-tag-manager";
 
 // import { Example } from './module-template'
 
@@ -78,6 +79,7 @@ export const registerModules: VueStorefrontModule[] = [
   InstantCheckout,
   Url,
   WpJson,
-  FacebookPixel
+  FacebookPixel,
+  VsfGoogleTagManager
   // Example
 ];
