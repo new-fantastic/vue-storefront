@@ -25,6 +25,7 @@ import { Magento2CMS } from "./magento-2-cms";
 import { InstantCheckout } from "./instant-checkout";
 import { WpJson } from "./vsf-wp-json";
 import { FacebookPixel } from "./vsf-facebook-pixel";
+import { VsfGoogleTagManager } from "./vsf-google-tag-manager";
 import { VsfFacebookJsSdk } from "./vsf-facebook-js-sdk";
 import { MessengerChat } from "./vsf-messenger-chat";
 
@@ -81,6 +82,7 @@ export const registerModules: VueStorefrontModule[] = [
   Url,
   WpJson,
   FacebookPixel,
+  VsfGoogleTagManager
   VsfFacebookJsSdk,
   MessengerChat
   // Example
