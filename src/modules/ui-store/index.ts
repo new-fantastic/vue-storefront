@@ -1,3 +1,4 @@
+import { actions } from './../module-template/store/actions';
 import { createModule } from '@vue-storefront/core/lib/module'
 // TODO: Move the logic to appropriate modules and deprecate this one
 
@@ -16,6 +17,7 @@ const store = {
     checkoutMode: false,
     openMyAccount: false,
     menu: false,
+    mobileMenu: false,
     submenu: {
       depth: false,
       path: []
@@ -56,6 +58,9 @@ const store = {
     },
     setMenu (state, action) {
       state.menu = action === true
+    },
+    setMobileMenu (state, action) {
+      state.mobileMenu = action === true
     },
     setLoader (state, action) {
       state.loader = action === true
