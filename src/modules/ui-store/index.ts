@@ -15,6 +15,7 @@ const store = {
     authElem: 'login',
     checkoutMode: false,
     openMyAccount: false,
+    menu: false,
     submenu: {
       depth: false,
       path: []
@@ -52,6 +53,9 @@ const store = {
     },
     setOverlay (state, action) {
       state.overlay = action === true
+    },
+    setMenu (state, action) {
+      state.menu = action === true
     },
     setLoader (state, action) {
       state.loader = action === true

@@ -14014,10 +14014,10 @@ sxcss@^1.0.41:
     node-sass "^4.12.0"
     sass-loader "^7.1.0"
 
-sxcss@^1.0.63:
-  version "1.0.63"
-  resolved "https://registry.yarnpkg.com/sxcss/-/sxcss-1.0.63.tgz#27575f18406545139b9140c29122b9063454457e"
-  integrity sha512-pWez+OWNLhfPBmafD7HMZGDk0jKUhX8RfnCdB1VS5Zb2VhwDpr0oXMPPvTdOO0EfeHWkkbA7xQl7CG39WwiDgA==
+sxcss@^1.0.84:
+  version "1.0.84"
+  resolved "https://registry.yarnpkg.com/sxcss/-/sxcss-1.0.84.tgz#60fd597bcc8ba0efc3a93d71192d5d47af52cda5"
+  integrity sha512-W/RDj5KdRu6CeAK9qFoOgK2M/dUFb92L3KsMzbsss87ojHAtcKzmPewsbLrHxt2WdnQr3w5FMoL7Lw/ItppWrQ==
   dependencies:
     node-sass "^4.12.0"
     sass-loader "^7.1.0"
