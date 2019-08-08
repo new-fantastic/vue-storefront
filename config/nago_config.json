@@ -588,7 +588,7 @@
   "wordpressCms": {
     "url": "https://wordpress.nago.com/",
     "lang": "pl",
-    "menus": ["header-menu", "footer-menu"]
+    "menus": ["header-menu", "footer-menu", "mega-menu"]
   },
   "cms": {
     "endpoint": "https://api.pln.nago.com/api/ext/cms-data/cms{{type}}/{{cmsId}}",
