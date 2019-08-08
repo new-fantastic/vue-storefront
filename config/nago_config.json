@@ -57,7 +57,7 @@
   "elasticsearch": {
     "httpAuth": "",
     "host": "/api/catalog",
-    "index": "vue_storefront_catalog",
+    "index": "vue_storefront_catalog_pln",
     "min_score": 0.02,
     "csrTimeout": 5000,
     "ssrTimeout": 1000,
@@ -588,7 +588,7 @@
   "wordpressCms": {
     "url": "https://wordpress.nago.com/",
     "lang": "pl",
-    "menus": ["header-menu", "footer-menu", "mega-menu"]
+    "menus": ["header-menu", "footer-menu"]
   },
   "cms": {
     "endpoint": "https://api.pln.nago.com/api/ext/cms-data/cms{{type}}/{{cmsId}}",
