@@ -407,7 +407,7 @@
     "synchronize_totals": true,
     "setCustomProductOptions": true,
     "setConfigurableProductOptions": true,
-    "askBeforeRemoveProduct": true,
+    "askBeforeRemoveProduct": false,
     "displayItemDiscounts": true,
     "minicartCountType": "quantities",
     "create_endpoint": "https://api.pln.nago.com/api/cart/create?token={{token}}",
