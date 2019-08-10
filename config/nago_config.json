@@ -250,6 +250,8 @@
         "configurable_children.originalPrice",
         "configurable_children.originalPriceInclTax",
         "configurable_children.stock.is_in_stock",
+        "configurable_children.media_gallery",
+        "media_gallery",
         "configurable_options"
       ],
       "excludeFields": [
@@ -301,6 +303,8 @@
         "configurable_children.id",
         "configurable_children.tier_prices",
         "configurable_children.stock.is_in_stock",
+        "configurable_children.media_gallery",
+        "media_gallery",
         "product_links",
         "url_path",
         "url_key",
@@ -347,7 +351,10 @@
         "sgn",
         "*.sgn"
       ],
-      "includeFields": null,
+      "includeFields": [
+        "media_gallery",
+        "configurable_children.media_gallery"
+      ],
       "useDynamicAttributeLoader": true,
       "standardSystemFields": [
         "tags",
@@ -470,7 +477,25 @@
       "default": 10,
       "size": 10,
       "color": 10
-    }
+    },
+    "sizesOrder": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "elementsInRow": [
+      {
+        "max": 767,
+        "amount": 2
+      },
+      {
+        "max": 1080,
+        "amount": 3
+      }
+    ],
+    "maxElementsInRow": 5
   },
   "orders": {
     "directBackendSync": true,
