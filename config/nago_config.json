@@ -351,10 +351,7 @@
         "sgn",
         "*.sgn"
       ],
-      "includeFields": [
-        "media_gallery",
-        "configurable_children.media_gallery"
-      ],
+      "includeFields": [],
       "useDynamicAttributeLoader": true,
       "standardSystemFields": [
         "tags",
