@@ -31,22 +31,8 @@ import { MessengerChat } from "./vsf-messenger-chat";
 
 import { extendMappingFallback, Payload } from 'src/modules/vsf-mapping-fallback'
 import { forProduct, forCategory, tap } from 'src/modules/vsf-mapping-fallback/builtin'
-import config from 'config'
-import fetch from 'isomorphic-fetch'
 
 export const forDemo = async (context, { url, params }: Payload) => {
-//   const u = `${config.wordpressCms.url}wp-json/wp/v2/pages?slug=${url}`;
-// const u2 = `${config.wordpressCms.url}wp-json/wp/v2/posts?slug=${url}`;
-// try {
-//   const r = await Promise.all([fetch(u), fetch(u2)]);
-//   const response = await r[0].json();
-//   const response2 = await r[1].json();
-//   if ((response === null || response.length < 1) && (response2 === null || response2.length < 1)) {
-//     return undefined;
-//   }
-// } catch (e) {
-//   console.error(e);
-// }  
   
   return {
       name: 'static-page',
