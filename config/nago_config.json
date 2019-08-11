@@ -171,6 +171,7 @@
     "optimizeShoppingCart": true,
     "category": {
       "includeFields": [
+        "description",
         "id",
         "*.children_data.id",
         "*.id",
@@ -211,6 +212,7 @@
     "productList": {
       "sort": "",
       "includeFields": [
+        "newin_label",
         "product_label_primary",
         "product_label_secondary",
         "tags",
@@ -265,6 +267,7 @@
     },
     "productListWithChildren": {
       "includeFields": [
+        "newin_label",
         "product_label_primary",
         "product_label_secondary",
         "tags",
@@ -465,7 +468,7 @@
     },
     "gallery": {
       "variantsGroupAttribute": "color",
-      "mergeConfigurableChildren": true,
+      "mergeConfigurableChildren": false,
       "imageAttributes": ["image", "thumbnail", "small_image"],
       "width": 600,
       "height": 744

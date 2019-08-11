@@ -2546,10 +2546,10 @@
   resolved "https://registry.yarnpkg.com/@types/zen-observable/-/zen-observable-0.8.0.tgz#8b63ab7f1aa5321248aad5ac890a485656dcea4d"
   integrity sha512-te5lMAWii1uEJ4FwLjzdlbw3+n0FZNOvFXHxQDKeT0dilh7HOzdMzV2TrJVUzq8ep7J4Na8OUYPRLSQkJHAlrg==
 
-"@vue-wordpress/core@^1.0.59":
-  version "1.0.59"
-  resolved "https://registry.yarnpkg.com/@vue-wordpress/core/-/core-1.0.59.tgz#a8e376ab20e90b365dc66fb8b44875e650dd766d"
-  integrity sha512-LjnxgRNMauupetb55rYeu4fOIagd1cXVc0U2Dca+eeixmP0NU7Et3qZGbPXsZEml6m2/U/eo5MPjBF9zxowBpg==
+"@vue-wordpress/core@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@vue-wordpress/core/-/core-1.2.0.tgz#20ea460b0a809412407c9079700834bc3de2aed2"
+  integrity sha512-PIAu1n0m9cF/FKRUABgmsyvgA+ZTcsAqMSYLL5EMxguMeej/zF5QelSm8x1VDC3JjyqGWXTiLvdRbuhXhcI7fw==
   dependencies:
     axios "^0.18.0"
     vue-meta-info "^0.1.7"
@@ -7872,6 +7872,11 @@ hasha@^2.2.0:
     is-stream "^1.0.1"
     pinkie-promise "^2.0.0"
 
+he@1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/he/-/he-1.1.1.tgz#93410fd21b009735151f8868c2f271f3427e23fd"
+  integrity sha1-k0EP0hsAlzUVH4howvJx80J+I/0=
+
 he@1.2.x, he@^1.1.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
@@ -10669,6 +10674,13 @@ node-gyp@^4.0.0:
     semver "~5.3.0"
     tar "^4.4.8"
     which "1"
+
+node-html-parser@^1.1.16:
+  version "1.1.16"
+  resolved "https://registry.yarnpkg.com/node-html-parser/-/node-html-parser-1.1.16.tgz#59f072bcabf1cf6e23f7878a76e0c3b81b9194fa"
+  integrity sha512-cfqTZIYDdp5cGh3NvCD5dcEDP7hfyni7WgyFacmDynLlIZaF3GVlRk8yMARhWp/PobWt1KaCV8VKdP5LKWiVbg==
+  dependencies:
+    he "1.1.1"
 
 node-int64@^0.4.0:
   version "0.4.0"
@@ -14014,10 +14026,10 @@ sxcss@^1.0.41:
     node-sass "^4.12.0"
     sass-loader "^7.1.0"
 
-sxcss@^1.0.91:
-  version "1.0.91"
-  resolved "https://registry.yarnpkg.com/sxcss/-/sxcss-1.0.91.tgz#3def0d8872b3454a1b1c9b5c4670ff2fcc77c480"
-  integrity sha512-aINH6xzWQmWbgO1hsuaFue/KU1sg5nUa4iE8VjHBQRTLmlyRO9CbNnhbjh87iVn5qX2fONuAO42RArTuhjmnyw==
+sxcss@^1.0.92:
+  version "1.0.92"
+  resolved "https://registry.yarnpkg.com/sxcss/-/sxcss-1.0.92.tgz#bd16490d1cdaada37e445de2fecfa3910dac896c"
+  integrity sha512-KTldQPAh8oqX1QuJe2+fud8VqAd1/OVDbLooF0ZzOAERUm3x0iN2c8i9X935uIO5rRd/hMYbIOEjj3jKG2vf0g==
   dependencies:
     node-sass "^4.12.0"
     sass-loader "^7.1.0"
