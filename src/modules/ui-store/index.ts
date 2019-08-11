@@ -17,6 +17,7 @@ const store = {
     checkoutMode: false,
     openMyAccount: false,
     menu: false,
+    menuType: null,
     mobileMenu: false,
     submenu: {
       depth: false,
@@ -58,9 +59,13 @@ const store = {
     },
     setMenu (state, action) {
       state.menu = action === true
+      state.menuType = null
     },
     setMobileMenu (state, action) {
       state.mobileMenu = action === true
+    },
+    setMenuType (state, action) {
+      state.menuType = action
     },
     setLoader (state, action) {
       state.loader = action === true
