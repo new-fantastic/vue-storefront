@@ -171,7 +171,6 @@
     "optimizeShoppingCart": true,
     "category": {
       "includeFields": [
-        "description",
         "id",
         "*.children_data.id",
         "*.id",
@@ -212,7 +211,6 @@
     "productList": {
       "sort": "",
       "includeFields": [
-        "newin_label",
         "product_label_primary",
         "product_label_secondary",
         "tags",
@@ -271,7 +269,6 @@
     },
     "productListWithChildren": {
       "includeFields": [
-        "newin_label",
         "product_label_primary",
         "product_label_secondary",
         "tags",
@@ -463,7 +460,7 @@
     "waitForPlatformSync": false,
     "setupVariantByAttributeCode": true,
     "endpoint": "https://api.pln.nago.com/api/product",
-    "defaultFilters": ["color", "size", "price", "erin_recommends", "style"],
+    "defaultFilters": ["color", "size", "price", "erin_recommends", "style", "material", "qualities", "tags"],
     "filterFieldMapping": {
       "category.name": "category.name.keyword"
     },
@@ -472,12 +469,14 @@
     },
     "sortByAttributes": {
       "Latest": "updated_at",
+      "A-Z": "name.keyword",
+      "Z-A": "name.keyword:desc",
       "Price: Low to high": "final_price",
       "Price: High to low": "final_price:desc"
     },
     "gallery": {
       "variantsGroupAttribute": "color",
-      "mergeConfigurableChildren": false,
+      "mergeConfigurableChildren": true,
       "imageAttributes": ["image", "thumbnail", "small_image"],
       "width": 600,
       "height": 744

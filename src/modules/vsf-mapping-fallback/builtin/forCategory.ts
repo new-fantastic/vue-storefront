@@ -5,9 +5,10 @@ import config from 'config'
 
 export const forCategory = async ({ dispatch }, { url }: Payload) => {
   url = (removeStoreCodeFromRoute(url) as string)
+  const slug = url.split('/').reverse()[0]
   
   try {
-    const category = await dispatch('category/single', { key: 'url_path', value: url }, { root: true })
+    const category = await dispatch('category/single', { key: 'url_key', value: slug }, { root: true })
     if (category !== null) {
       return {
         name: 'category',
