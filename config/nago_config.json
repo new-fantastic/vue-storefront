@@ -171,6 +171,7 @@
     "optimizeShoppingCart": true,
     "category": {
       "includeFields": [
+        "description",
         "id",
         "*.children_data.id",
         "*.id",
