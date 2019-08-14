@@ -29,6 +29,8 @@ import { VsfGoogleTagManager } from "./vsf-google-tag-manager";
 import { VsfFacebookJsSdk } from "./vsf-facebook-js-sdk";
 import { MessengerChat } from "./vsf-messenger-chat";
 
+import { VsfChildGallery } from './vsf-child-gallery/index.js'
+
 import { extendMappingFallback, Payload } from 'src/modules/vsf-mapping-fallback'
 import { forProduct, forCategory, tap } from 'src/modules/vsf-mapping-fallback/builtin'
 
@@ -101,6 +103,7 @@ export const registerModules: VueStorefrontModule[] = [
   FacebookPixel,
   VsfGoogleTagManager,
   VsfFacebookJsSdk,
-  MessengerChat
+  MessengerChat,
+  VsfChildGallery
   // Example
 ];
