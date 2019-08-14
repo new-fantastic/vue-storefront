@@ -1,4 +1,4 @@
-// import { extendModule } from '@vue-storefront/core/lib/module'
+import { extendModule } from '@vue-storefront/core/lib/module'
 import { VueStorefrontModule } from "@vue-storefront/core/lib/module";
 import { Catalog } from "@vue-storefront/core/modules/catalog";
 import { Cart } from "@vue-storefront/core/modules/cart";
@@ -34,6 +34,8 @@ import { VsfChildGallery } from './vsf-child-gallery/index.js'
 import { extendMappingFallback, Payload } from 'src/modules/vsf-mapping-fallback'
 import { forProduct, forCategory, tap } from 'src/modules/vsf-mapping-fallback/builtin'
 
+import { productExtend } from './extended-product'
+
 export const forDemo = async (context, { url, params }: Payload) => {
   
   return {
@@ -68,6 +70,8 @@ extendMappingFallback(
 //  }
 
 //  extendModule(cartExtend)
+
+extendModule(productExtend)
 
 /**
  * Some of the modules are registered lazily only when components from the module are appearing on current page.
