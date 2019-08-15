@@ -36,6 +36,8 @@ import { forProduct, forCategory, tap } from 'src/modules/vsf-mapping-fallback/b
 
 import { productExtend } from './extended-product'
 
+import { FeaturedProducts } from './featured-products'
+
 export const forDemo = async (context, { url, params }: Payload) => {
   
   return {
@@ -108,6 +110,7 @@ export const registerModules: VueStorefrontModule[] = [
   VsfGoogleTagManager,
   VsfFacebookJsSdk,
   MessengerChat,
-  VsfChildGallery
+  VsfChildGallery,
+  FeaturedProducts
   // Example
 ];
