@@ -14,6 +14,8 @@ export const actions: ActionTree<FeaturedState, any> = {
     .build()
     let response = await Promise.all([quickSearchByQuery({query}), quickSearchByQuery({query: query2})])
 
+    // console.log(response)
+
     commit(types.SET_PRODUCTS, {
       response: [response[0].items, response[1].items],
       skus

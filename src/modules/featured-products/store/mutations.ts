@@ -10,14 +10,27 @@ export const mutations: MutationTree<any> = {
     }
 
     for (const [ key, parent ] of Object.entries(response[configurableIndex])) {
-      response[configurableIndex][key].configurable_children 
-        = response[configurableIndex][key].configurable_children.filter(v => skus.includes(v.sku))
-          .map(v => response[1 - configurableIndex].find(x => x.sku === v.sku))
+      for (let kid of response[1 - configurableIndex]) {
+        const kidSku = kid.sku
+        const index = response[configurableIndex][key].configurable_children.findIndex(v => v.sku === kidSku)
+        if (index) {
+          response[configurableIndex][key].configurable_children[index] = kid
+          // const desiredColor = kid.name.split(' / ').reverse()[1]
+        }
+      }
     }
 
     for (let product of response[configurableIndex]) {
       for (let child of product.configurable_children) {
-        Vue.set(state.products, child.sku, product)
+        if (skus.includes(child.sku))
+          Vue.set(state.products, child.sku, {
+            ...product,
+            configurable_children: product.configurable_children.filter(v => {
+              const childColor = v.name.split(' / ').reverse()[1].trim()
+              const targetColor = child.name.split(' / ').reverse()[1].trim()
+              return targetColor === childColor
+            })
+          })
       }
     }
   } 
