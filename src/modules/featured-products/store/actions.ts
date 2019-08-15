@@ -8,9 +8,15 @@ import builder from 'bodybuilder'
 export const actions: ActionTree<FeaturedState, any> = {
 
   async loadProducts ({ commit }, skus) {
-    const query = builder().query('terms', 'sku', skus).build()
-    let { items } = await quickSearchByQuery({query})
+    const query = builder().orQuery('terms', 'configurable_children.sku', skus)
+    .build()
+    const query2 = builder().orQuery('terms', 'sku', skus)
+    .build()
+    let response = await Promise.all([quickSearchByQuery({query}), quickSearchByQuery({query: query2})])
 
-    commit(types.SET_PRODUCTS, items)
+    commit(types.SET_PRODUCTS, {
+      response: [response[0].items, response[1].items],
+      skus
+    })
   }
 }

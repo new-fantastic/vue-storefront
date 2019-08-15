@@ -7,6 +7,9 @@ export const actions = {
 
   async loadChildsGalleries ({ commit }, product) {
 
+    if(product.type_id !== 'configurable')
+      return
+
     const fakeGenerator = {
       next() {
         return {

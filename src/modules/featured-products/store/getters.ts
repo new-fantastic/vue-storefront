@@ -3,6 +3,15 @@ import { GetterTree } from 'vuex';
 
 export const getters: GetterTree<FeaturedState, any> = {
 
-  certainSkus: state => skus => Object.values(state.products).filter(v => skus.includes(v.sku))
+  certainSkus: state => skus => {
+    // .filter(v => skus.includes(v.sku))
+    const returnable = []
+    for (const [key, value] of Object.entries(state.products)) {
+      if (skus.includes(key)) {
+        returnable.push(value)
+      }
+    }
+    return returnable
+  }
 
 }
