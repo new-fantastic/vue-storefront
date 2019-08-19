@@ -1,5 +1,6 @@
 import { actions } from './../module-template/store/actions';
 import { createModule } from '@vue-storefront/core/lib/module'
+import EventBus from '@vue-storefront/core/compatibility/plugins/event-bus/index'
 // TODO: Move the logic to appropriate modules and deprecate this one
 
 const KEY = 'ui'
@@ -29,6 +30,7 @@ const store = {
       state.checkoutMode = action === true
     },
     setMicrocart (state, action) {
+      EventBus.$emit(action === true ? 'microcart-before-open' : 'microcart-before-close')
       state.microcart = action === true
       state.overlay = action === true
     },
@@ -47,6 +49,7 @@ const store = {
       state.submenu.depth = state.submenu.depth > 0 && depth
     },
     setSearchpanel (state, action) {
+      EventBus.$emit(action === true ? 'searchpanel-before-open' : 'searchpanel-before-close')
       state.searchpanel = action === true
       state.overlay = action === true
     },
