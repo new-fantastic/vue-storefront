@@ -257,7 +257,9 @@
         "configurable_children.news_from_date",
         "configurable_children.news_to_date",
         "media_gallery",
-        "configurable_options"
+        "configurable_options",
+        "newin_label",
+        "configurable_children.newin_label"
       ],
       "excludeFields": [
         "description",
@@ -319,7 +321,8 @@
         "url_key",
         "status",
         "tier_prices",
-        "configurable_options"
+        "configurable_options",
+        "newin_label"
       ],
       "excludeFields": [
         "description",
@@ -366,6 +369,7 @@
         "tags",
         "material",
         "qualities",
+        "newin_label",
         "drop",
         "description",
         "configurable_options",
