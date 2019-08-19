@@ -470,7 +470,14 @@
       "category.name": "category.name.keyword"
     },
     "colorMappings": {
-      "Melange graphite": "#eeeeee"
+      "Cloud Grey": "#c0c0c0",
+      "Grey": "#D3D3D3",
+      "Smoke Rose": "#EEB6B7",
+      "White": "#ffffff",
+      "Brick": "#841f27",
+      "Khaki": "#7F7C5D",
+      "Mint": "#AAF0D1",
+      "White 1": "#f0f0f0"
     },
     "sortByAttributes": {
       "Latest": "updated_at",
