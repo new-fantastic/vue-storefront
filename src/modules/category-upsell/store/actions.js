@@ -1,33 +1,19 @@
-// import { quickSearchByQuery } from '../../lib/search'
-// import SearchQuery from '@vue-storefront/core/lib/search/searchQuery'
-import axios from 'axios'
-import config from 'config'
+import { quickSearchByQuery } from '@vue-storefront/core/lib/search'
+import builder from 'bodybuilder'
 
 /* eslint-disable */
 export const actions = {
   async getUpsell ({commit}, {id}) {
-    const query = {
-      "query": {
-        "bool": {
-          "filter": {
-            "bool": {
-              "must": [
-                {
-                  "terms": {
-                    "category.category_id": [
-                      id
-                    ]
-                  }
-                }
-              ]
-            }
-          }
-        }
-      }
-    } 
 
-    let res = await axios.post(`${config.elasticsearch.host}/${config.elasticsearch.index}/product/_search`, query)
+    const query = builder().query('term', 'category_ids', id)
+    .filter('term', 'type_id', 'configurable').build()
 
-    commit('setUpsell', res.data.hits.hits ? res.data.hits.hits : [])
+    const { items } = await quickSearchByQuery({
+      query,
+      entityType: 'product',
+      size: '10'
+    })
+
+    commit('setUpsell', items ? items : [])
   }
 }
