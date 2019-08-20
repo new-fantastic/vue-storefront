@@ -212,6 +212,7 @@
     "productList": {
       "sort": "",
       "includeFields": [
+        "model_info",
         "product_label_primary",
         "product_label_secondary",
         "tags",
@@ -272,6 +273,7 @@
     },
     "productListWithChildren": {
       "includeFields": [
+        "model_info",
         "product_label_primary",
         "product_label_secondary",
         "tags",
@@ -366,6 +368,7 @@
       "includeFields": [],
       "useDynamicAttributeLoader": true,
       "standardSystemFields": [
+        "model_info",
         "tags",
         "material",
         "qualities",
@@ -591,7 +594,7 @@
         "method_code": "flatrate",
         "carrier_code": "flatrate",
         "amount": 4,
-        "price_incl_tax": 5,
+        "price_incl_tax": 9.90,
         "default": true,
         "offline": true
       }
