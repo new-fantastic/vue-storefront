@@ -170,6 +170,7 @@
     "twoStageCaching": true,
     "optimizeShoppingCart": true,
     "category": {
+      "categoriesRootCategorySlug": "nago",
       "includeFields": [
         "description",
         "id",

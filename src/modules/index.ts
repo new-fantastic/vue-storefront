@@ -19,7 +19,6 @@ import { Ui } from "./ui-store";
 // import { AmpRenderer } from './amp-renderer';
 import { PaymentBackendMethods } from "./payment-backend-methods";
 import { PaymentCashOnDelivery } from "./payment-cash-on-delivery";
-import { RawOutputExample } from "./raw-output-example";
 import { InstantCheckout } from "./instant-checkout";
 import { WpJson } from "./vsf-wp-json";
 import { FacebookPixel } from "./vsf-facebook-pixel";
@@ -42,7 +41,7 @@ export const forDemo = async (context, { url, params }: Payload) => {
   return {
       name: 'static-page',
       params: {
-        slug: url
+        slug: url 
       }
   }
 }
@@ -79,7 +78,6 @@ export const registerModules: VueStorefrontModule[] = [
   // Hotjar,
   PaymentBackendMethods,
   PaymentCashOnDelivery,
-  RawOutputExample,
   // AmpRenderer,
   InstantCheckout,
   Url,
