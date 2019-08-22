@@ -1,9 +1,1 @@
-[submodule "src/modules/vsf-facebook-pixel"]
-	path = src/modules/vsf-facebook-pixel
-	url = git@github.com:new-fantastic/vsf-facebook-pixel.git
-[submodule "src/modules/vsf-google-tag-manager"]
-	path = src/modules/vsf-google-tag-manager
-	url = git@github.com:new-fantastic/vsf-google-tag-manager.git
-[submodule "src/modules/vsf-wp-json"]
-	path = src/modules/vsf-wp-json
-	url = git@github.com:new-fantastic/vsf-wp-json.git
+#
