@@ -29,7 +29,6 @@ import { VsfFacebookJsSdk } from './vsf-facebook-js-sdk'
 import { VsfGoogleTagManager } from './vsf-google-tag-manager'
 import { WpJson } from './vsf-wp-json'
 
-
 // import { Example } from './module-template'
 
 // This is how you can extend any of VS modues
