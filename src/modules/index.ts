@@ -26,7 +26,6 @@ import { InstantCheckout } from './instant-checkout'
 import { OrderHistory } from './order-history'
 import { FacebookPixel } from './vsf-facebook-pixel'
 import { VsfFacebookJsSdk } from './vsf-facebook-js-sdk'
-import { VsfGoogleTagManager } from './vsf-google-tag-manager'
 import { WpJson } from './vsf-wp-json'
 
 // import { Example } from './module-template'
@@ -83,7 +82,6 @@ export const registerModules: VueStorefrontModule[] = [
   OrderHistory,
   FacebookPixel,
   VsfFacebookJsSdk,
-  VsfGoogleTagManager,
   WpJson
   // Example
 ]

@@ -1,13 +1,12 @@
-#
 [submodule "src/modules/vsf-facebook-js-sdk"]
 	path = src/modules/vsf-facebook-js-sdk
 	url = git@github.com:new-fantastic/vsf-facebook-js-sdk.git
 [submodule "src/modules/vsf-facebook-pixel"]
 	path = src/modules/vsf-facebook-pixel
 	url = git@github.com:new-fantastic/vsf-facebook-pixel.git
-[submodule "src/modules/vsf-google-tag-manager"]
-	path = src/modules/vsf-google-tag-manager
-	url = git@github.com:new-fantastic/vsf-google-tag-manager.git
 [submodule "src/modules/vsf-wp-json"]
 	path = src/modules/vsf-wp-json
 	url = git@github.com:new-fantastic/vsf-wp-json.git
+[submodule "src/themes/kubota-theme"]
+	path = src/themes/kubota-theme
+	url = git@github.com:new-fantastic/kubota-theme.git
