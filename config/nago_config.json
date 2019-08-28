@@ -107,62 +107,60 @@
   },
   "defaultStoreCode": "",
   "storeViews": {
-    "multistore": true,
+    "multistore": false,
     "commonCache": true,
-    "mapStoreUrlsFor": ["pl", "eu"],
-    "pl": {
-      "storeCode": "pln",
-      "disabled": false,
-      "storeId": 1,
-      "name": "NAGO Store Polska",
-      "url": "/pl",
+    "mapStoreUrlsFor": ["de", "it"],
+    "de": {
+      "storeCode": "de",
+      "disabled": true,
+      "storeId": 3,
+      "name": "German Store",
+      "url": "/de",
       "elasticsearch": {
         "host": "/api/catalog",
-        "index": "vue_storefront_catalog_pln"
+        "index": "vue_storefront_catalog_de"
       },
       "tax": {
-        "sourcePriceIncludesTax": true,
-        "defaultCountry": "PL",
-        "defaultRegion": "",
-        "calculateServerSide": true
-      },
-      "i18n": {
-        "fullCountryName": "Polska",
-        "fullLanguageName": "Polski",
-        "defaultLanguage": "PL",
-        "defaultCountry": "PL",
-        "defaultLocale": "pl-PL",
-        "currencyCode": "PLN",
-        "currencySign": " zł",
-        "currencySignPlacement": "append",
-        "dateFormat": "HH:mm D-M-YYYY"
-      }
-    },
-    "eu": {
-      "storeCode": "eur",
-      "disabled": false,
-      "storeId": 2,
-      "name": "NAGO Store Europe",
-      "url": "/eu",
-      "elasticsearch": {
-        "host": "/api/catalog",
-        "index": "vue_storefront_catalog_eur"
-      },
-      "tax": {
-        "sourcePriceIncludesTax": true,
+        "sourcePriceIncludesTax": false,
         "defaultCountry": "DE",
         "defaultRegion": "",
         "calculateServerSide": true
       },
       "i18n": {
-        "fullCountryName": "Europe",
-        "fullLanguageName": "English",
-        "defaultLanguage": "EN",
-        "defaultCountry": "EN",
-        "defaultLocale": "en-US",
+        "fullCountryName": "Germany",
+        "fullLanguageName": "German",
+        "defaultLanguage": "DE",
+        "defaultCountry": "DE",
+        "defaultLocale": "de-DE",
         "currencyCode": "EUR",
-        "currencySign": "€ ",
-        "currencySignPlacement": "prepend",
+        "currencySign": "EUR",
+        "dateFormat": "HH:mm D-M-YYYY"
+      }
+    },
+    "it": {
+      "storeCode": "it",
+      "disabled": true,
+      "storeId": 4,
+      "name": "Italian Store",
+      "url": "/it",
+      "elasticsearch": {
+        "host": "/api/catalog",
+        "index": "vue_storefront_catalog_it"
+      },
+      "tax": {
+        "sourcePriceIncludesTax": false,
+        "defaultCountry": "IT",
+        "defaultRegion": "",
+        "calculateServerSide": true
+      },
+      "i18n": {
+        "fullCountryName": "Italy",
+        "fullLanguageName": "Italian",
+        "defaultCountry": "IT",
+        "defaultLanguage": "IT",
+        "defaultLocale": "it-IT",
+        "currencyCode": "EUR",
+        "currencySign": "EUR",
         "dateFormat": "HH:mm D-M-YYYY"
       }
     }
@@ -215,7 +213,6 @@
     "productList": {
       "sort": "",
       "includeFields": [
-        "model_info",
         "product_label_primary",
         "product_label_secondary",
         "tags",
@@ -276,7 +273,6 @@
     },
     "productListWithChildren": {
       "includeFields": [
-        "model_info",
         "product_label_primary",
         "product_label_secondary",
         "tags",
@@ -327,7 +323,8 @@
         "status",
         "tier_prices",
         "configurable_options",
-        "newin_label"
+        "newin_label",
+        "configurable_children.newin_label"
       ],
       "excludeFields": [
         "description",
@@ -371,7 +368,6 @@
       "includeFields": [],
       "useDynamicAttributeLoader": true,
       "standardSystemFields": [
-        "model_info",
         "tags",
         "material",
         "qualities",
@@ -471,7 +467,16 @@
     "waitForPlatformSync": false,
     "setupVariantByAttributeCode": true,
     "endpoint": "https://api.pln.nago.com/api/product",
-    "defaultFilters": ["color", "size", "price", "erin_recommends", "style", "material", "qualities", "tags"],
+    "defaultFilters": [
+      "color",
+      "size",
+      "price",
+      "erin_recommends",
+      "style",
+      "material",
+      "qualities",
+      "tags"
+    ],
     "filterFieldMapping": {
       "category.name": "category.name.keyword"
     },
@@ -481,7 +486,7 @@
       "Smoke Rose": "#EEB6B7",
       "White": "#ffffff",
       "Brick": "#841f27",
-      "Olive": "#7F7C5D",
+      "Khaki": "#7F7C5D",
       "Mint": "#AAF0D1",
       "White 1": "#f0f0f0"
     },
@@ -504,13 +509,7 @@
       "size": 10,
       "color": 10
     },
-    "sizesOrder": [
-      "XS",
-      "S",
-      "M",
-      "L",
-      "XL"
-    ],
+    "sizesOrder": ["XS", "S", "M", "L", "XL"],
     "elementsInRow": [
       {
         "max": 767,
@@ -597,7 +596,7 @@
         "method_code": "flatrate",
         "carrier_code": "flatrate",
         "amount": 4,
-        "price_incl_tax": 9.90,
+        "price_incl_tax": 5,
         "default": true,
         "offline": true
       }
@@ -706,7 +705,8 @@
     }
   },
   "facebookPixel": {
-    "id": "407983889815506"
+    "id": "407983889815506",
+    "useParentSku": true
   },
   "googleTagManager": {
     "id": "GTM-NVVN94R"
@@ -714,5 +714,11 @@
   "facebookJsSdk": {
     "appId": "488234078415966",
     "pageId": "1597769753863797"
+  },
+  "payu": {
+    "client_id": "1162483",
+    "client_secret": "423f86bcbd108313f5cc2b3740955684",
+    "notifyUrl": "https://abc.pl",
+    "pos_id": "1162483"
   }
 }
