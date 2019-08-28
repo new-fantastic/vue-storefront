@@ -52,7 +52,7 @@
     "port": 8080
   },
   "api": {
-    "url": "https://api.pln.nago.com"
+    "url": "https://api.nago.com"
   },
   "elasticsearch": {
     "httpAuth": "",
@@ -442,17 +442,17 @@
     "askBeforeRemoveProduct": true,
     "displayItemDiscounts": true,
     "minicartCountType": "quantities",
-    "create_endpoint": "https://api.pln.nago.com/api/cart/create?token={{token}}",
-    "updateitem_endpoint": "https://api.pln.nago.com/api/cart/update?token={{token}}&cartId={{cartId}}",
-    "deleteitem_endpoint": "https://api.pln.nago.com/api/cart/delete?token={{token}}&cartId={{cartId}}",
-    "pull_endpoint": "https://api.pln.nago.com/api/cart/pull?token={{token}}&cartId={{cartId}}",
-    "totals_endpoint": "https://api.pln.nago.com/api/cart/totals?token={{token}}&cartId={{cartId}}",
-    "paymentmethods_endpoint": "https://api.pln.nago.com/api/cart/payment-methods?token={{token}}&cartId={{cartId}}",
-    "shippingmethods_endpoint": "https://api.pln.nago.com/api/cart/shipping-methods?token={{token}}&cartId={{cartId}}",
-    "shippinginfo_endpoint": "https://api.pln.nago.com/api/cart/shipping-information?token={{token}}&cartId={{cartId}}",
-    "collecttotals_endpoint": "https://api.pln.nago.com/api/cart/collect-totals?token={{token}}&cartId={{cartId}}",
-    "deletecoupon_endpoint": "https://api.pln.nago.com/api/cart/delete-coupon?token={{token}}&cartId={{cartId}}",
-    "applycoupon_endpoint": "https://api.pln.nago.com/api/cart/apply-coupon?token={{token}}&cartId={{cartId}}&coupon={{coupon}}"
+    "create_endpoint": "https://api.nago.com/api/cart/create?token={{token}}",
+    "updateitem_endpoint": "https://api.nago.com/api/cart/update?token={{token}}&cartId={{cartId}}",
+    "deleteitem_endpoint": "https://api.nago.com/api/cart/delete?token={{token}}&cartId={{cartId}}",
+    "pull_endpoint": "https://api.nago.com/api/cart/pull?token={{token}}&cartId={{cartId}}",
+    "totals_endpoint": "https://api.nago.com/api/cart/totals?token={{token}}&cartId={{cartId}}",
+    "paymentmethods_endpoint": "https://api.nago.com/api/cart/payment-methods?token={{token}}&cartId={{cartId}}",
+    "shippingmethods_endpoint": "https://api.nago.com/api/cart/shipping-methods?token={{token}}&cartId={{cartId}}",
+    "shippinginfo_endpoint": "https://api.nago.com/api/cart/shipping-information?token={{token}}&cartId={{cartId}}",
+    "collecttotals_endpoint": "https://api.nago.com/api/cart/collect-totals?token={{token}}&cartId={{cartId}}",
+    "deletecoupon_endpoint": "https://api.nago.com/api/cart/delete-coupon?token={{token}}&cartId={{cartId}}",
+    "applycoupon_endpoint": "https://api.nago.com/api/cart/apply-coupon?token={{token}}&cartId={{cartId}}&coupon={{coupon}}"
   },
   "products": {
     "useShortCatalogUrls": false,
@@ -468,7 +468,7 @@
     "clearPricesBeforePlatformSync": false,
     "waitForPlatformSync": false,
     "setupVariantByAttributeCode": true,
-    "endpoint": "https://api.pln.nago.com/api/product",
+    "endpoint": "https://api.nago.com/api/product",
     "defaultFilters": [
       "color",
       "size",
@@ -526,7 +526,7 @@
   },
   "orders": {
     "directBackendSync": true,
-    "endpoint": "https://api.pln.nago.com/api/order",
+    "endpoint": "https://api.nago.com/api/order",
     "payment_methods_mapping": {},
     "offline_orders": {
       "automatic_transmission_enabled": false,
@@ -557,27 +557,27 @@
     }
   },
   "reviews": {
-    "create_endpoint": "https://api.pln.nago.com/api/review/create"
+    "create_endpoint": "https://api.nago.com/api/review/create"
   },
   "users": {
     "autoRefreshTokens": true,
-    "endpoint": "https://api.pln.nago.com/api/user",
-    "history_endpoint": "https://api.pln.nago.com/api/user/order-history?token={{token}}",
-    "resetPassword_endpoint": "https://api.pln.nago.com/api/user/reset-password",
-    "changePassword_endpoint": "https://api.pln.nago.com/api/user/change-password?token={{token}}",
-    "login_endpoint": "https://api.pln.nago.com/api/user/login",
-    "create_endpoint": "https://api.pln.nago.com/api/user/create",
-    "me_endpoint": "https://api.pln.nago.com/api/user/me?token={{token}}",
-    "refresh_endpoint": "https://api.pln.nago.com/api/user/refresh"
+    "endpoint": "https://api.nago.com/api/user",
+    "history_endpoint": "https://api.nago.com/api/user/order-history?token={{token}}",
+    "resetPassword_endpoint": "https://api.nago.com/api/user/reset-password",
+    "changePassword_endpoint": "https://api.nago.com/api/user/change-password?token={{token}}",
+    "login_endpoint": "https://api.nago.com/api/user/login",
+    "create_endpoint": "https://api.nago.com/api/user/create",
+    "me_endpoint": "https://api.nago.com/api/user/me?token={{token}}",
+    "refresh_endpoint": "https://api.nago.com/api/user/refresh"
   },
   "stock": {
     "synchronize": true,
     "allowOutOfStockInCart": true,
-    "endpoint": "https://api.pln.nago.com/api/stock"
+    "endpoint": "https://api.nago.com/api/stock"
   },
   "images": {
     "useExactUrlsNoProxy": false,
-    "baseUrl": "https://api.pln.nago.com/img/",
+    "baseUrl": "https://api.nago.com/img/",
     "productPlaceholder": "/assets/placeholder.jpg"
   },
   "install": {
@@ -630,12 +630,12 @@
     "bundleAllStoreviewLanguages": true
   },
   "mailchimp": {
-    "endpoint": "https://api.pln.nago.com/api/ext/mailchimp-subscribe/subscribe"
+    "endpoint": "https://api.nago.com/api/ext/mailchimp-subscribe/subscribe"
   },
   "mailer": {
     "endpoint": {
-      "send": "https://api.pln.nago.com/api/ext/mail-service/send-email",
-      "token": "https://api.pln.nago.com/api/ext/mail-service/get-token"
+      "send": "https://api.nago.com/api/ext/mail-service/send-email",
+      "token": "https://api.nago.com/api/ext/mail-service/get-token"
     },
     "contactAddress": "contributors@vuestorefront.io",
     "sendConfirmation": true
@@ -653,8 +653,8 @@
     "menus": ["header-menu", "footer-menu", "mega-menu"]
   },
   "cms": {
-    "endpoint": "https://api.pln.nago.com/api/ext/cms-data/cms{{type}}/{{cmsId}}",
-    "endpointIdentifier": "https://api.pln.nago.com/api/ext/cms-data/cms{{type}}Identifier/{{cmsIdentifier}}/storeId/{{storeId}}"
+    "endpoint": "https://api.nago.com/api/ext/cms-data/cms{{type}}/{{cmsId}}",
+    "endpointIdentifier": "https://api.nago.com/api/ext/cms-data/cms{{type}}Identifier/{{cmsIdentifier}}/storeId/{{storeId}}"
   },
   "cms_block": {
     "max_count": 500
