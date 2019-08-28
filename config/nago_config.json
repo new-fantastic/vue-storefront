@@ -107,60 +107,62 @@
   },
   "defaultStoreCode": "",
   "storeViews": {
-    "multistore": false,
+    "multistore": true,
     "commonCache": true,
-    "mapStoreUrlsFor": ["de", "it"],
-    "de": {
-      "storeCode": "de",
-      "disabled": true,
-      "storeId": 3,
-      "name": "German Store",
-      "url": "/de",
+    "mapStoreUrlsFor": ["pl", "eu"],
+    "pl": {
+      "storeCode": "pln",
+      "disabled": false,
+      "storeId": 1,
+      "name": "NAGO Store Polska",
+      "url": "/pl",
       "elasticsearch": {
         "host": "/api/catalog",
-        "index": "vue_storefront_catalog_de"
+        "index": "vue_storefront_catalog_pln"
       },
       "tax": {
-        "sourcePriceIncludesTax": false,
-        "defaultCountry": "DE",
+        "sourcePriceIncludesTax": true,
+        "defaultCountry": "PL",
         "defaultRegion": "",
         "calculateServerSide": true
       },
       "i18n": {
-        "fullCountryName": "Germany",
-        "fullLanguageName": "German",
-        "defaultLanguage": "DE",
-        "defaultCountry": "DE",
-        "defaultLocale": "de-DE",
-        "currencyCode": "EUR",
-        "currencySign": "EUR",
+        "fullCountryName": "Polska",
+        "fullLanguageName": "Polski",
+        "defaultLanguage": "PL",
+        "defaultCountry": "PL",
+        "defaultLocale": "pl-PL",
+        "currencyCode": "PLN",
+        "currencySign": " zł",
+        "currencySignPlacement": "append",
         "dateFormat": "HH:mm D-M-YYYY"
       }
     },
-    "it": {
-      "storeCode": "it",
-      "disabled": true,
-      "storeId": 4,
-      "name": "Italian Store",
-      "url": "/it",
+    "eu": {
+      "storeCode": "eur",
+      "disabled": false,
+      "storeId": 2,
+      "name": "NAGO Store Europe",
+      "url": "/eu",
       "elasticsearch": {
         "host": "/api/catalog",
-        "index": "vue_storefront_catalog_it"
+        "index": "vue_storefront_catalog_eur"
       },
       "tax": {
-        "sourcePriceIncludesTax": false,
-        "defaultCountry": "IT",
+        "sourcePriceIncludesTax": true,
+        "defaultCountry": "DE",
         "defaultRegion": "",
         "calculateServerSide": true
       },
       "i18n": {
-        "fullCountryName": "Italy",
-        "fullLanguageName": "Italian",
-        "defaultCountry": "IT",
-        "defaultLanguage": "IT",
-        "defaultLocale": "it-IT",
+        "fullCountryName": "Europe",
+        "fullLanguageName": "English",
+        "defaultLanguage": "EN",
+        "defaultCountry": "EN",
+        "defaultLocale": "en-US",
         "currencyCode": "EUR",
-        "currencySign": "EUR",
+        "currencySign": "€ ",
+        "currencySignPlacement": "prepend",
         "dateFormat": "HH:mm D-M-YYYY"
       }
     }
