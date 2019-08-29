@@ -6,7 +6,7 @@ jest.mock("@vue-storefront/core/lib/logger", () => ({
   }
 }));
 
-const exampleData = [
+const exampleData: any[] = [
   {
     condition: {
       condition_type: "MagentoSalesRuleModelRuleConditionCombine",
@@ -330,5 +330,22 @@ describe("ConsumeCondition.ts", () => {
     });
 
     expect(result).toBeFalsy();
+  });
+
+  it("Everything works - aggregator all - true", () => {
+    const product = {
+      category_ids: 5
+    };
+    const result = ConsumeCondition(product, exampleData[0].condition);
+
+    expect(result).toBeTruthy();
+
+    const product2 = {
+      drop: 28,
+      style: 43
+    };
+    const result2 = ConsumeCondition(product2, exampleData[1].condition);
+
+    expect(result2).toBeTruthy();
   });
 });
