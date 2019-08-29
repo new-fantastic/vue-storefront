@@ -104,6 +104,35 @@ const sampleFoundProduct: any = {
   value: "1"
 };
 
+const sampleConditionsCombine: any = {
+  condition_type: "MagentoSalesRuleModelRuleConditionCombine",
+  conditions: [
+    {
+      condition_type: "MagentoSalesRuleModelRuleConditionProductFound",
+      conditions: [
+        {
+          condition_type: "MagentoSalesRuleModelRuleConditionProduct",
+          operator: "==",
+          attribute_name: "drop",
+          value: "28"
+        },
+        {
+          condition_type: "MagentoSalesRuleModelRuleConditionProduct",
+          operator: "{}",
+          attribute_name: "style",
+          value: ["43"]
+        }
+      ],
+      aggregator_type: "all",
+      operator: null,
+      value: "1"
+    }
+  ],
+  aggregator_type: "all",
+  operator: null,
+  value: "1"
+};
+
 describe("ConsumeCondition.ts", () => {
   it("ProductCondition - returns false for unknown attribute", () => {
     const product = {};
@@ -250,5 +279,56 @@ describe("ConsumeCondition.ts", () => {
     });
 
     expect(result).toBeTruthy();
+  });
+
+  it("FewProductConditions - aggregator all - false", () => {
+    const product = {
+      drop: 28,
+      style: 4992
+    };
+    const result = ConsumeCondition(product, {
+      ...sampleFoundProduct,
+      aggregator_type: "all"
+    });
+
+    expect(result).toBeFalsy();
+  });
+
+  it("ConditionsCombine - false for unknown agregator", () => {
+    const product = {
+      drop: 28
+    };
+    const result = ConsumeCondition(product, {
+      ...sampleConditionsCombine,
+      aggregator_type: "xcxcx"
+    });
+
+    expect(result).toBeFalsy();
+  });
+
+  it("ConditionsCombine - aggregator all - true", () => {
+    const product = {
+      drop: 28,
+      style: 43
+    };
+    const result = ConsumeCondition(product, {
+      ...sampleConditionsCombine,
+      aggregator_type: "all"
+    });
+
+    expect(result).toBeTruthy();
+  });
+
+  it("ConditionsCombine - aggregator all - false", () => {
+    const product = {
+      drop: 28,
+      style: 4992
+    };
+    const result = ConsumeCondition(product, {
+      ...sampleConditionsCombine,
+      aggregator_type: "all"
+    });
+
+    expect(result).toBeFalsy();
   });
 });

@@ -38,6 +38,14 @@ interface ConditionWrapper {
   value: string;
 }
 
+interface ConditionWrapperWrapper {
+  condition_type: string;
+  conditions: ConditionWrapper[];
+  aggregator_type: string;
+  operator: any;
+  value: string;
+}
+
 const KNOWN_OPERATORS = [
   "==", // equals
   "{}" // contains
@@ -47,13 +55,15 @@ const KNOWN_AGGREGATORS = ["all"];
 
 export default (
   source: any,
-  condition: Condition | ConditionWrapper
+  condition: Condition | ConditionWrapper | ConditionWrapperWrapper
 ): boolean => {
   switch (condition.condition_type) {
     case "MagentoSalesRuleModelRuleConditionProduct":
       return ProductCondition(source, <Condition>condition);
     case "MagentoSalesRuleModelRuleConditionProductFound":
       return FewProductConditions(source, <ConditionWrapper>condition);
+    case "MagentoSalesRuleModelRuleConditionCombine":
+      return ConditionsCombine(source, <ConditionWrapperWrapper>condition);
   }
 };
 
@@ -116,6 +126,27 @@ const FewProductConditions = (
 
   const conditions = conditionWrapper.conditions.map(v =>
     ProductCondition(product, v)
+  );
+
+  if (conditionWrapper.aggregator_type === "all") {
+    return conditions.every(v => v === true);
+  }
+  return true;
+};
+
+const ConditionsCombine = (
+  product: any,
+  conditionWrapper: ConditionWrapperWrapper
+): boolean => {
+  if (!KNOWN_AGGREGATORS.includes(conditionWrapper.aggregator_type)) {
+    Logger.warn(
+      "[CPR] - Unknown aggregator " + conditionWrapper.aggregator_type
+    );
+    return false;
+  }
+
+  const conditions = conditionWrapper.conditions.map(v =>
+    FewProductConditions(product, v)
   );
 
   if (conditionWrapper.aggregator_type === "all") {
