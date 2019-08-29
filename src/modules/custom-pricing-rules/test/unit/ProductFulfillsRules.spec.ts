@@ -1,4 +1,4 @@
-import ProductFulfillsRules from "../../util/productFulfillsRules";
+import ProductFulfillsRules from "../../util/ProductFulfillsRules";
 
 const exampleData = [
   {

@@ -1,3 +1,6 @@
+import ConsumeCondition from "./ConsumeCondition";
+import ApplyPromotion from "./ApplyPromotion";
+
 export default (product, rules, category) => {
   let fulfills = false;
   let promoObj: any = {};
