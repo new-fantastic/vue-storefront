@@ -1,4 +1,4 @@
-import { extendModule } from '@vue-storefront/core/lib/module'
+import { extendModule } from "@vue-storefront/core/lib/module";
 import { VueStorefrontModule } from "@vue-storefront/core/lib/module";
 import { Catalog } from "@vue-storefront/core/modules/catalog";
 import { Cart } from "@vue-storefront/core/modules/cart";
@@ -26,33 +26,37 @@ import { VsfGoogleTagManager } from "./vsf-google-tag-manager";
 import { VsfFacebookJsSdk } from "./vsf-facebook-js-sdk";
 import { MessengerChat } from "./vsf-messenger-chat";
 
-import { VsfChildGallery } from './vsf-child-gallery/index.js'
+import { VsfChildGallery } from "./vsf-child-gallery/index.js";
 
-import { extendMappingFallback, Payload } from 'src/modules/vsf-mapping-fallback'
-import { forProduct, forCategory, tap } from 'src/modules/vsf-mapping-fallback/builtin'
+import {
+  extendMappingFallback,
+  Payload
+} from "src/modules/vsf-mapping-fallback";
+import {
+  forProduct,
+  forCategory,
+  tap
+} from "src/modules/vsf-mapping-fallback/builtin";
 
-import { productExtend } from './extended-product'
-import { categoryExtend } from './extended-category'
+import { productExtend } from "./extended-product";
+import { categoryExtend } from "./extended-category";
 
-import { FeaturedProducts } from './featured-products'
+import { FeaturedProducts } from "./featured-products";
+import { CustomPricingRules } from "./custom-pricing-rules";
 
 export const forDemo = async (context, { url, params }: Payload) => {
-  
   return {
-      name: 'static-page',
-      params: {
-        slug: url 
-      }
-  }
-}
+    name: "static-page",
+    params: {
+      slug: url
+    }
+  };
+};
 
-extendMappingFallback(
-  forProduct, forCategory, forDemo, tap
-)
+extendMappingFallback(forProduct, forCategory, forDemo, tap);
 
-
-extendModule(productExtend)
-extendModule(categoryExtend)
+extendModule(productExtend);
+extendModule(categoryExtend);
 
 /**
  * Some of the modules are registered lazily only when components from the module are appearing on current page.
@@ -87,6 +91,7 @@ export const registerModules: VueStorefrontModule[] = [
   VsfFacebookJsSdk,
   MessengerChat,
   VsfChildGallery,
-  FeaturedProducts
+  FeaturedProducts,
+  CustomPricingRules
   // Example
 ];
