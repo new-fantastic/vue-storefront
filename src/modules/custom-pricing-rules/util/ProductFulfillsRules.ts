@@ -14,6 +14,21 @@ export default (product, rules, category = null) => {
     }
   }
 
+  if (
+    newProduct.hasOwnProperty("category") &&
+    Array.isArray(newProduct.category)
+  ) {
+    const ids = newProduct.category.map(v => v.category_id);
+    if (!Array.isArray(newProduct.category_ids)) {
+      newProduct.category_ids = [newProduct.category_ids];
+    }
+    for (let id of ids) {
+      if (!newProduct.category_ids.includes(id)) {
+        newProduct.category_ids.push(id);
+      }
+    }
+  }
+
   for (let rule of rules) {
     if (ConsumeCondition(newProduct, rule.condition)) {
       newProduct = ApplyPromotion(
