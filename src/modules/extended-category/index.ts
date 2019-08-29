@@ -1,4 +1,4 @@
-import mutations from './mutations'
+import mutations from "./mutations";
 // import { extendModule } from '@vue-storefront/core/lib/module';
 
 const extendCategoryVuex = {
@@ -15,13 +15,14 @@ const extendCategoryVuex = {
     },
     current_product_query: null,
     current_path: [],
-    childCategories: []
+    childCategories: [],
+    sort_order: []
   }
- }
+};
 
- export const categoryExtend = {
-  key: 'catalog',
-  store: { modules: [{ key: 'category', module: extendCategoryVuex }] },
- }
+export const categoryExtend = {
+  key: "catalog",
+  store: { modules: [{ key: "category", module: extendCategoryVuex }] }
+};
 
 //  extendModule(productExtend)
