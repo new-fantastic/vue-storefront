@@ -18,7 +18,7 @@ export const mutations: MutationTree<any> = {
       let test3 = !config.storeViews.multistore;
       if (!test3) {
         const { storeId } = currentStoreView();
-        test3 = v.websites_ids.includes(storeId);
+        test3 = v.website_ids.includes(storeId);
       }
 
       return test1 && test2 && test3;

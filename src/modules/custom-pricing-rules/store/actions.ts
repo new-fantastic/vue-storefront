@@ -9,7 +9,6 @@ export const actions: ActionTree<CPRState, any> = {
   async loadRules({ commit }) {
     try {
       const { storeCode } = currentStoreView();
-
       let r = await fetch(
         `${
           config.api.url.endsWith("/") ? config.api.url : config.api.url + "/"
