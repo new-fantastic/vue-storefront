@@ -2,7 +2,8 @@ export const divideProduct = (
   product,
   generator = null,
   limit: number = Infinity,
-  spread: number = -1
+  spread: number = -1,
+  leaveConfigurableChildren: Boolean = false
 ) => {
   if (!product) {
     throw new Error('ProductColorTiles not received "product" props');
@@ -41,13 +42,16 @@ export const divideProduct = (
       const baseProduct = {
         ...product,
         ...curr,
-        configurable_children: [curr],
-        configurable_options: [],
+
         photo_plan: generator ? generator.next().value : 1,
         name
       };
+      if (!leaveConfigurableChildren) {
+        baseProduct.configurable_children = [curr];
+        baseProduct.configurable_options = [];
+      }
       products[name] = baseProduct;
-    } else if (products.hasOwnProperty(name)) {
+    } else if (!leaveConfigurableChildren && products.hasOwnProperty(name)) {
       products[name].configurable_children.push(curr);
     }
   }
