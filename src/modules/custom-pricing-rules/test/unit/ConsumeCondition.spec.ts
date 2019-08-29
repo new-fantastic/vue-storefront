@@ -9,13 +9,15 @@ jest.mock("@vue-storefront/core/lib/logger", () => ({
 const exampleData: any[] = [
   {
     condition: {
-      condition_type: "MagentoSalesRuleModelRuleConditionCombine",
+      condition_type: "Magento\\SalesRule\\Model\\Rule\\Condition\\Combine",
       conditions: [
         {
-          condition_type: "MagentoSalesRuleModelRuleConditionProductFound",
+          condition_type:
+            "Magento\\SalesRule\\Model\\Rule\\Condition\\Product\\Found",
           conditions: [
             {
-              condition_type: "MagentoSalesRuleModelRuleConditionProduct",
+              condition_type:
+                "Magento\\SalesRule\\Model\\Rule\\Condition\\Product",
               operator: "==",
               attribute_name: "category_ids",
               value: "5"
@@ -35,19 +37,22 @@ const exampleData: any[] = [
   },
   {
     condition: {
-      condition_type: "MagentoSalesRuleModelRuleConditionCombine",
+      condition_type: "Magento\\SalesRule\\Model\\Rule\\Condition\\Combine",
       conditions: [
         {
-          condition_type: "MagentoSalesRuleModelRuleConditionProductFound",
+          condition_type:
+            "Magento\\SalesRule\\Model\\Rule\\Condition\\Product\\Found",
           conditions: [
             {
-              condition_type: "MagentoSalesRuleModelRuleConditionProduct",
+              condition_type:
+                "Magento\\SalesRule\\Model\\Rule\\Condition\\Product",
               operator: "==",
               attribute_name: "drop",
               value: "28"
             },
             {
-              condition_type: "MagentoSalesRuleModelRuleConditionProduct",
+              condition_type:
+                "Magento\\SalesRule\\Model\\Rule\\Condition\\Product",
               operator: "{}",
               attribute_name: "style",
               value: ["43"]
@@ -77,23 +82,23 @@ const exampleData: any[] = [
 // Only support for MagentoSalesRuleModelRuleConditionProduct Currently
 
 const sampleProductCondition: any = {
-  condition_type: "MagentoSalesRuleModelRuleConditionProduct",
+  condition_type: "Magento\\SalesRule\\Model\\Rule\\Condition\\Product",
   operator: "==",
   attribute_name: "drop",
   value: "28"
 };
 
 const sampleFoundProduct: any = {
-  condition_type: "MagentoSalesRuleModelRuleConditionProductFound",
+  condition_type: "Magento\\SalesRule\\Model\\Rule\\Condition\\Product\\Found",
   conditions: [
     {
-      condition_type: "MagentoSalesRuleModelRuleConditionProduct",
+      condition_type: "Magento\\SalesRule\\Model\\Rule\\Condition\\Product",
       operator: "==",
       attribute_name: "drop",
       value: "28"
     },
     {
-      condition_type: "MagentoSalesRuleModelRuleConditionProduct",
+      condition_type: "Magento\\SalesRule\\Model\\Rule\\Condition\\Product",
       operator: "{}",
       attribute_name: "style",
       value: ["43"]
@@ -105,19 +110,20 @@ const sampleFoundProduct: any = {
 };
 
 const sampleConditionsCombine: any = {
-  condition_type: "MagentoSalesRuleModelRuleConditionCombine",
+  condition_type: "Magento\\SalesRule\\Model\\Rule\\Condition\\Combine",
   conditions: [
     {
-      condition_type: "MagentoSalesRuleModelRuleConditionProductFound",
+      condition_type:
+        "Magento\\SalesRule\\Model\\Rule\\Condition\\Product\\Found",
       conditions: [
         {
-          condition_type: "MagentoSalesRuleModelRuleConditionProduct",
+          condition_type: "Magento\\SalesRule\\Model\\Rule\\Condition\\Product",
           operator: "==",
           attribute_name: "drop",
           value: "28"
         },
         {
-          condition_type: "MagentoSalesRuleModelRuleConditionProduct",
+          condition_type: "Magento\\SalesRule\\Model\\Rule\\Condition\\Product",
           operator: "{}",
           attribute_name: "style",
           value: ["43"]

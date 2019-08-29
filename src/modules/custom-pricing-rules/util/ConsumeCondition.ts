@@ -58,12 +58,15 @@ export default (
   condition: Condition | ConditionWrapper | ConditionWrapperWrapper
 ): boolean => {
   switch (condition.condition_type) {
-    case "MagentoSalesRuleModelRuleConditionProduct":
+    case "Magento\\SalesRule\\Model\\Rule\\Condition\\Product":
       return ProductCondition(source, <Condition>condition);
-    case "MagentoSalesRuleModelRuleConditionProductFound":
+    case "Magento\\SalesRule\\Model\\Rule\\Condition\\Product\\Found":
       return FewProductConditions(source, <ConditionWrapper>condition);
-    case "MagentoSalesRuleModelRuleConditionCombine":
+    case "Magento\\SalesRule\\Model\\Rule\\Condition\\Combine":
       return ConditionsCombine(source, <ConditionWrapperWrapper>condition);
+    default:
+      console.error("Something went wrong!", condition, source);
+      return false;
   }
 };
 
