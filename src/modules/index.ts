@@ -43,8 +43,11 @@ import { categoryExtend } from "./extended-category";
 
 import { FeaturedProducts } from "./featured-products";
 import { CustomPricingRules } from "./custom-pricing-rules";
+import { removeStoreCodeFromRoute } from "@vue-storefront/core/lib/multistore";
 
-export const forDemo = async (context, { url, params }: Payload) => {
+export const forStaticPage = async (context, { url, params }: Payload) => {
+  url = removeStoreCodeFromRoute(url) as string;
+
   return {
     name: "static-page",
     params: {
@@ -53,7 +56,7 @@ export const forDemo = async (context, { url, params }: Payload) => {
   };
 };
 
-extendMappingFallback(forProduct, forCategory, forDemo, tap);
+extendMappingFallback(forProduct, forCategory, forStaticPage, tap);
 
 extendModule(productExtend);
 extendModule(categoryExtend);

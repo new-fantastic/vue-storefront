@@ -112,6 +112,7 @@
     "mapStoreUrlsFor": ["pl", "en"],
     "pl": {
       "storeCode": "pl",
+      "apiStoreCode": "pln",
       "disabled": false,
       "storeId": 1,
       "name": "NAGO Store Polska",
@@ -140,6 +141,7 @@
     },
     "en": {
       "storeCode": "en",
+      "apiStoreCode": "eur",
       "disabled": false,
       "storeId": 2,
       "name": "NAGO Store Europe",

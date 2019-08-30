@@ -2551,10 +2551,10 @@
   resolved "https://registry.yarnpkg.com/@types/zen-observable/-/zen-observable-0.8.0.tgz#8b63ab7f1aa5321248aad5ac890a485656dcea4d"
   integrity sha512-te5lMAWii1uEJ4FwLjzdlbw3+n0FZNOvFXHxQDKeT0dilh7HOzdMzV2TrJVUzq8ep7J4Na8OUYPRLSQkJHAlrg==
 
-"@vue-wordpress/core@^1.2.3":
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/@vue-wordpress/core/-/core-1.2.3.tgz#275b2d1aaabe498e3ee8f22845215ba875f76b5f"
-  integrity sha512-PfpdXRE4IkrHwsXjqLfoE1q2f8mmF02rSHpUbfGtvt7Rdrv4j1A7lqkjt7aZmXmOixr1IV2JC20rltMxsdZhbw==
+"@vue-wordpress/core@^1.2.13":
+  version "1.2.13"
+  resolved "https://registry.yarnpkg.com/@vue-wordpress/core/-/core-1.2.13.tgz#f857c9e774e9702b66b072682e5745697b209b85"
+  integrity sha512-sNQh5OLiRF9IB9k5JJXH83u4CenRTsbJ2ncwYSUrmn7nBENC4vFb2N5hKYDSgxB3GAOl82zY4kP76wn+fL94dA==
   dependencies:
     axios "^0.18.0"
     vue-meta-info "^0.1.7"
