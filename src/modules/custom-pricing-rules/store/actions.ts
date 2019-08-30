@@ -8,7 +8,7 @@ import { currentStoreView } from "@vue-storefront/core/lib/multistore";
 export const actions: ActionTree<CPRState, any> = {
   async loadRules({ commit }) {
     try {
-      const { storeCode } = currentStoreView();
+      const storeCode = (<any>currentStoreView()).apiStoreCode;
       let r = await fetch(
         `${
           config.api.url.endsWith("/") ? config.api.url : config.api.url + "/"
@@ -18,7 +18,6 @@ export const actions: ActionTree<CPRState, any> = {
       );
 
       let { result } = await r.json();
-
       commit(types.SET_RULES, result.items);
     } catch (e) {
       console.error(e);
