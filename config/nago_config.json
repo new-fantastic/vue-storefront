@@ -109,9 +109,9 @@
   "storeViews": {
     "multistore": true,
     "commonCache": true,
-    "mapStoreUrlsFor": ["pl", "eu"],
+    "mapStoreUrlsFor": ["pl", "en"],
     "pl": {
-      "storeCode": "pln",
+      "storeCode": "pl",
       "disabled": false,
       "storeId": 1,
       "name": "NAGO Store Polska",
@@ -138,12 +138,12 @@
         "dateFormat": "HH:mm D-M-YYYY"
       }
     },
-    "eu": {
-      "storeCode": "eur",
+    "en": {
+      "storeCode": "en",
       "disabled": false,
       "storeId": 2,
       "name": "NAGO Store Europe",
-      "url": "/eu",
+      "url": "/en",
       "elasticsearch": {
         "host": "/api/catalog",
         "index": "vue_storefront_catalog_eur"
