@@ -43,17 +43,31 @@ import { categoryExtend } from "./extended-category";
 
 import { FeaturedProducts } from "./featured-products";
 import { CustomPricingRules } from "./custom-pricing-rules";
-import { removeStoreCodeFromRoute } from "@vue-storefront/core/lib/multistore";
+import { removeStoreCodeFromRoute, currentStoreView } from "@vue-storefront/core/lib/multistore";
+
+import Vue from 'vue'
+import store from '@vue-storefront/core/store'
 
 export const forStaticPage = async (context, { url, params }: Payload) => {
   url = removeStoreCodeFromRoute(url) as string;
+  const { storeCode } = currentStoreView();
+  Vue.prototype.$wp.requestPrefix = storeCode;
+  const slug = url.split('/').reverse()[0]
 
-  return {
-    name: "static-page",
-    params: {
-      slug: url
-    }
-  };
+  await store.dispatch("wp_post/load", {
+    embed: true,
+    dataName: 'fetchedData',
+    slug
+  });
+
+  if (store.state[`wp_post`].types.pages[slug]) {
+    return {
+      name: "static-page",
+      params: {
+        slug: url
+      }
+    };
+  }
 };
 
 extendMappingFallback(forProduct, forCategory, forStaticPage, tap);
