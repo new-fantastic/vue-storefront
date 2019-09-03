@@ -26,6 +26,7 @@ import { OrderHistory } from './order-history'
 import { FacebookPixel } from './vsf-facebook-pixel'
 import { VsfFacebookJsSdk } from './vsf-facebook-js-sdk'
 import { WpJson } from './vsf-wp-json'
+import { CategoryUpsell } from "./category-upsell";
 
 // import { Example } from './module-template'
 
@@ -80,6 +81,7 @@ export const registerModules: VueStorefrontModule[] = [
   OrderHistory,
   FacebookPixel,
   VsfFacebookJsSdk,
-  WpJson
+  WpJson,
+  CategoryUpsell
   // Example
 ]
