@@ -13,3 +13,6 @@
 [submodule "src/modules/vsf-messenger-chat"]
 	path = src/modules/vsf-messenger-chat
 	url = git@github.com:new-fantastic/vsf-messenger-chat.git
+[submodule "src/modules/payment-payu"]
+	path = src/modules/payment-payu
+	url = git@github.com:new-fantastic/payment-payu.git
