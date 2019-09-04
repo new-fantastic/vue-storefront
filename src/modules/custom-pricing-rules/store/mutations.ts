@@ -25,7 +25,7 @@ export const mutations: MutationTree<any> = {
     });
 
     state.rules = [
-      ...rules.map(v =>
+      ...filteredRules.map(v =>
         pick(v, ["condition", "simple_action", "discount_amount"])
       )
     ];

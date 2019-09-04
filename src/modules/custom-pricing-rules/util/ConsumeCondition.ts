@@ -148,6 +148,12 @@ const ConditionsCombine = (
     return false;
   }
 
+  if(!conditionWrapper.conditions){
+    Logger.warn(
+      "[CPR] - Conditions is undefined" + conditionWrapper
+    );
+    return false
+  }
   const conditions = conditionWrapper.conditions.map(v =>
     FewProductConditions(product, v)
   );
