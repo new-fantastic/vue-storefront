@@ -263,7 +263,8 @@
         "media_gallery",
         "configurable_options",
         "newin_label",
-        "configurable_children.newin_label"
+        "configurable_children.newin_label",
+        "configurable_children.color"
       ],
       "excludeFields": [
         "description",
