@@ -2,6 +2,7 @@ import fetch from 'isomorphic-fetch'
 import config from 'config'
 import builder from 'bodybuilder'
 import { divideProduct } from '../../../themes/nago-theme/mixins/separateByColors'
+import { currentStoreView } from '@vue-storefront/core/lib/multistore';
 
 export const actions = {
 
@@ -23,13 +24,13 @@ export const actions = {
       .build()
 
     const include_fields = ['sku', 'media_gallery']
+    const { elasticsearch } = currentStoreView()
     const apiUrl = config.api.url.substr(-1) === '/' ? config.api.url : config.api.url+'/'
-    const baseUrl = `${apiUrl}api/catalog/${config.elasticsearch.index}/product/_search?_source_include=`
+    const baseUrl = `${apiUrl}api/catalog/${elasticsearch.index}/product/_search?_source_include=`
     const requestUrl = baseUrl + include_fields.join('%2C') + '&request=' + JSON.stringify(query)
 
     let response = await fetch(requestUrl)
     let body = await response.json()
-
 
     const childs = body.hits.hits.map(v => v._source).map(v => ({
       media_gallery: v.media_gallery,
@@ -47,9 +48,10 @@ export const actions = {
   async loadProduct ({ commit }, sku) {
 
     const query = builder().query('term', 'sku', sku).build()
-    // const include_fields = ['sku', 'media_gallery']
+
+    const { elasticsearch } = currentStoreView()
     const apiUrl = config.api.url.substr(-1) === '/' ? config.api.url : config.api.url+'/'
-    const baseUrl = `${apiUrl}api/catalog/${config.elasticsearch.index}/product/_search?request=` + JSON.stringify(query)
+    const baseUrl = `${apiUrl}api/catalog/${elasticsearch.index}/product/_search?request=` + JSON.stringify(query)
 
     let response = await fetch(baseUrl)
     let body = await response.json()

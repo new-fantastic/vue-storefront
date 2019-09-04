@@ -18,7 +18,8 @@
       "my-account",
       "P",
       "C",
-      "error"
+      "error",
+      "static"
     ],
     "invalidateCacheKey": "aeSu7aip",
     "dynamicConfigReload": false,
@@ -57,7 +58,7 @@
   "elasticsearch": {
     "httpAuth": "",
     "host": "/api/catalog",
-    "index": "vue_storefront_catalog_pln",
+    "index": "vue_storefront_catalog_pl",
     "min_score": 0.02,
     "csrTimeout": 5000,
     "ssrTimeout": 1000,
@@ -118,7 +119,7 @@
       "url": "/pl",
       "elasticsearch": {
         "host": "/api/catalog",
-        "index": "vue_storefront_catalog_pln"
+        "index": "vue_storefront_catalog_pl"
       },
       "tax": {
         "sourcePriceIncludesTax": true,
@@ -146,7 +147,7 @@
       "url": "/en",
       "elasticsearch": {
         "host": "/api/catalog",
-        "index": "vue_storefront_catalog_eur"
+        "index": "vue_storefront_catalog_en"
       },
       "tax": {
         "sourcePriceIncludesTax": true,
