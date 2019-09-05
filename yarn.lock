@@ -2069,12 +2069,6 @@
     universal-user-agent "^2.0.0"
     url-template "^2.0.8"
 
-"@samverschueren/stream-to-observable@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@samverschueren/stream-to-observable/-/stream-to-observable-0.3.0.tgz#ecdf48d532c58ea477acfcab80348424f8d0662f"
-  dependencies:
-    any-observable "^0.3.0"
-
 "@shellscape/koa-send@^4.1.0":
   version "4.1.3"
   resolved "https://registry.yarnpkg.com/@shellscape/koa-send/-/koa-send-4.1.3.tgz#1a7c8df21f63487e060b7bfd8ed82e1d3c4ae0b0"
@@ -2730,10 +2724,6 @@ ansi-wrap@0.1.0, ansi-wrap@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/ansi-wrap/-/ansi-wrap-0.1.0.tgz#a82250ddb0015e9a27ca82e82ea603bbfa45efaf"
   integrity sha1-qCJQ3bABXponyoLoLqYDu/pF768=
-
-any-observable@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/any-observable/-/any-observable-0.3.0.tgz#af933475e5806a67d0d7df090dd5e8bef65d119b"
 
 any-promise@^1.0.0, any-promise@^1.1.0:
   version "1.3.0"
@@ -7868,7 +7858,7 @@ inquirer@^3.0.6, inquirer@^3.3.0:
     strip-ansi "^4.0.0"
     through "^2.3.6"
 
-inquirer@^6.2.0, inquirer@^6.2.2, inquirer@^6.3.1:
+inquirer@^6.2.0, inquirer@^6.2.2:
   version "6.3.1"
   resolved "https://registry.yarnpkg.com/inquirer/-/inquirer-6.3.1.tgz#7a413b5e7950811013a3db491c61d1f3b776e8e7"
   dependencies:
@@ -8132,12 +8122,6 @@ is-number@^4.0.0:
 is-obj@^1.0.0, is-obj@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/is-obj/-/is-obj-1.0.1.tgz#3e4729ac1f5fde025cd7d83a896dab9f4f67db0f"
-
-is-observable@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/is-observable/-/is-observable-1.1.0.tgz#b3e986c8f44de950867cab5403f5a3465005975e"
-  dependencies:
-    symbol-observable "^1.1.0"
 
 is-path-cwd@^1.0.0:
   version "1.0.0"
@@ -9239,19 +9223,6 @@ listr-update-renderer@^0.2.0:
     log-update "^1.0.2"
     strip-ansi "^3.0.1"
 
-listr-update-renderer@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/listr-update-renderer/-/listr-update-renderer-0.5.0.tgz#4ea8368548a7b8aecb7e06d8c95cb45ae2ede6a2"
-  dependencies:
-    chalk "^1.1.3"
-    cli-truncate "^0.2.1"
-    elegant-spinner "^1.0.1"
-    figures "^1.7.0"
-    indent-string "^3.0.0"
-    log-symbols "^1.0.2"
-    log-update "^2.3.0"
-    strip-ansi "^3.0.1"
-
 listr-verbose-renderer@^0.4.0:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/listr-verbose-renderer/-/listr-verbose-renderer-0.4.1.tgz#8206f4cf6d52ddc5827e5fd14989e0e965933a35"
@@ -9260,15 +9231,6 @@ listr-verbose-renderer@^0.4.0:
     cli-cursor "^1.0.2"
     date-fns "^1.27.2"
     figures "^1.7.0"
-
-listr-verbose-renderer@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/listr-verbose-renderer/-/listr-verbose-renderer-0.5.0.tgz#f1132167535ea4c1261102b9f28dac7cba1e03db"
-  dependencies:
-    chalk "^2.4.1"
-    cli-cursor "^2.1.0"
-    date-fns "^1.27.2"
-    figures "^2.0.0"
 
 listr@0.12.0:
   version "0.12.0"
@@ -9290,20 +9252,6 @@ listr@0.12.0:
     rxjs "^5.0.0-beta.11"
     stream-to-observable "^0.1.0"
     strip-ansi "^3.0.1"
-
-listr@^0.14.3:
-  version "0.14.3"
-  resolved "https://registry.yarnpkg.com/listr/-/listr-0.14.3.tgz#2fea909604e434be464c50bddba0d496928fa586"
-  dependencies:
-    "@samverschueren/stream-to-observable" "^0.3.0"
-    is-observable "^1.1.0"
-    is-promise "^2.1.0"
-    is-stream "^1.1.0"
-    listr-silent-renderer "^1.1.1"
-    listr-update-renderer "^0.5.0"
-    listr-verbose-renderer "^0.5.0"
-    p-map "^2.0.0"
-    rxjs "^6.3.3"
 
 load-json-file@^1.0.0:
   version "1.1.0"
@@ -10826,10 +10774,6 @@ p-map-series@^1.0.0:
 p-map@^1.1.1, p-map@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/p-map/-/p-map-1.2.0.tgz#e4e94f311eabbc8633a1e79908165fca26241b6b"
-
-p-map@^2.0.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/p-map/-/p-map-2.1.0.tgz#310928feef9c9ecc65b68b17693018a665cea175"
 
 p-pipe@^1.2.0:
   version "1.2.0"
@@ -12568,7 +12512,7 @@ rxjs@^5.0.0-beta.11:
   dependencies:
     symbol-observable "1.0.1"
 
-rxjs@^6.3.3, rxjs@^6.4.0:
+rxjs@^6.4.0:
   version "6.5.1"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.5.1.tgz#f7a005a9386361921b8524f38f54cbf80e5d08f4"
   dependencies:
@@ -12685,19 +12629,6 @@ semver-greatest-satisfied-range@^1.1.0:
   integrity sha1-E+jCZYq5aRywzXEJMkAoDTb3els=
   dependencies:
     sver-compat "^1.5.0"
-
-semver-regex@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/semver-regex/-/semver-regex-1.0.0.tgz#92a4969065f9c70c694753d55248fc68f8f652c9"
-  integrity sha1-kqSWkGX5xwxpR1PVUkj8aPj2Usk=
-
-semver-sort@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/semver-sort/-/semver-sort-0.0.4.tgz#34fdbddc6a6b2b4161398c3c4dba56243bfeaa8b"
-  integrity sha1-NP293GprK0FhOYw8TbpWJDv+qos=
-  dependencies:
-    semver "^5.0.3"
-    semver-regex "^1.0.0"
 
 "semver@2 || 3 || 4 || 5", "semver@2.x || 3.x || 4 || 5", semver@5.*, semver@^5.0.1, semver@^5.0.3, semver@^5.1.0, semver@^5.3, semver@^5.3.0, semver@^5.4.1, semver@^5.5, semver@^5.5.0, semver@^5.5.1, semver@^5.6.0:
   version "5.7.0"
@@ -13405,7 +13336,7 @@ symbol-observable@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.0.1.tgz#8340fc4702c3122df5d22288f88283f513d3fdd4"
 
-symbol-observable@^1.0.2, symbol-observable@^1.1.0:
+symbol-observable@^1.0.2:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
 
