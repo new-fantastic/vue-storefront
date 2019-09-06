@@ -40,6 +40,7 @@ import {
 
 import { productExtend } from "./extended-product";
 import { categoryExtend } from "./extended-category";
+import { cartExtend } from "./extended-cart";
 
 import { FeaturedProducts } from "./featured-products";
 import { CustomPricingRules } from "./custom-pricing-rules";
@@ -74,6 +75,7 @@ extendMappingFallback(forProduct, forCategory, forStaticPage, tap);
 
 extendModule(productExtend);
 extendModule(categoryExtend);
+extendModule(cartExtend);
 
 /**
  * Some of the modules are registered lazily only when components from the module are appearing on current page.
