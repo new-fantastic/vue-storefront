@@ -14950,10 +14950,23 @@ sw-toolbox@^3.4.0:
     path-to-regexp "^1.0.1"
     serviceworker-cache-polyfill "^4.0.0"
 
-sxcss@^1.1.1, sxcss@^1.1.15:
+sxcss@^1.1.1:
   version "1.1.15"
   resolved "https://registry.yarnpkg.com/sxcss/-/sxcss-1.1.15.tgz#9b3ba78865043fd9cfc612b28c6656bd6121a893"
   integrity sha512-Ju0BBs75oHzUxT69Cu4mRB0zQaduoM0daoBJ4zRtnLUPHsei9K4/jenpEEHlDCJwuyqOoZc/uQGafcifFgDubg==
+  dependencies:
+    gulp "^4.0.2"
+    gulp-concat "^2.6.1"
+    gulp-remove-empty-lines "^0.1.0"
+    gulp-strip-css-comments "^2.0.0"
+    gulp-whitespace "^0.1.0"
+    node-sass "^4.12.0"
+    sass-loader "^7.1.0"
+
+sxcss@^1.2.13:
+  version "1.2.13"
+  resolved "https://registry.yarnpkg.com/sxcss/-/sxcss-1.2.13.tgz#0a2332a35a34168599ae6a83d692642f422e74f6"
+  integrity sha512-WzkBlDKtQ1EHEr8MuqVeb00bID59YqUsRtaKIdXjb0jN5A+IhAwkF3TAVZXmv+XHytBHkeNATwP7eN63YFNwfw==
   dependencies:
     gulp "^4.0.2"
     gulp-concat "^2.6.1"
