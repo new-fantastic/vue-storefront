@@ -14963,10 +14963,10 @@ sxcss@^1.1.1:
     node-sass "^4.12.0"
     sass-loader "^7.1.0"
 
-sxcss@^1.2.16:
-  version "1.2.16"
-  resolved "https://registry.yarnpkg.com/sxcss/-/sxcss-1.2.16.tgz#911570ef719949a9680b18a805803435ff2f5343"
-  integrity sha512-HcUsYqfZ77wqGiC6HwlIsWtRpOOX9TgCTU08xnIrVkyHHYUtfh21zkOe8EiRbZ4oS2zmvTPH6o8IkayGYLQAfA==
+sxcss@^1.2.17:
+  version "1.2.17"
+  resolved "https://registry.yarnpkg.com/sxcss/-/sxcss-1.2.17.tgz#4b06f32ed558b6e562b6240bd639d591bcec58b9"
+  integrity sha512-StMXHMSV+DQzRSCo9X9OJYOniUz1Y0ndbzSZ424EcE5IsegJJTjgTQunXWVQGBCh7K7gwM00noebdyDN6Y+Diw==
   dependencies:
     gulp "^4.0.2"
     gulp-concat "^2.6.1"
