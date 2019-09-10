@@ -3,30 +3,29 @@ import ApplyPromotion from "./ApplyPromotion";
 
 export default (product, rules, category = null) => {
   let newProduct = { ...product };
-  if (category) {
-    if (
-      newProduct.hasOwnProperty("category_ids") &&
-      !newProduct.category_ids.includes(category)
-    ) {
-      newProduct.category_ids.push(category);
-    } else {
-      newProduct.category_ids = category;
-    }
-  }
+  // if (category) {
+  //   if (
+  //     newProduct.hasOwnProperty("category_ids") &&
+  //     !newProduct.category_ids.includes(category)
+  //   ) {
+  //     newProduct.category_ids.push(category);
+  //   } else {
+  //     newProduct.category_ids = category;
+  //   }
+  // }
 
   if (
-    newProduct.hasOwnProperty("category") &&
-    Array.isArray(newProduct.category)
+    newProduct.hasOwnProperty("category_ids")
   ) {
-    const ids = newProduct.category.map(v => v.category_id);
+    const ids = newProduct.category_ids
     if (!Array.isArray(newProduct.category_ids)) {
       newProduct.category_ids = [newProduct.category_ids];
     }
-    for (let id of ids) {
-      if (!newProduct.category_ids.includes(id)) {
-        newProduct.category_ids.push(id);
-      }
-    }
+    // for (let id of ids) {
+    //   if (!newProduct.category_ids.includes(id)) {
+    //     newProduct.category_ids.push(id);
+    //   }
+    // }
   }
 
   for (let rule of rules) {

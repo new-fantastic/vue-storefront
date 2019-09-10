@@ -91,7 +91,7 @@ const ProductCondition = (product: any, condition: Condition): boolean => {
 };
 
 const SimplestCompare = (a: any, b: any, operator: string) => {
-  for (let KNOWN_OPERATOR of KNOWN_OPERATORS) {
+  // for (let KNOWN_OPERATOR of KNOWN_OPERATORS) {
     if (operator === "==") {
       if (Array.isArray(a)) {
         // Array A contains value B
@@ -113,7 +113,7 @@ const SimplestCompare = (a: any, b: any, operator: string) => {
       }
       return b.map(v => v + "").includes(a + "");
     }
-  }
+  // }
 };
 
 const FewProductConditions = (
