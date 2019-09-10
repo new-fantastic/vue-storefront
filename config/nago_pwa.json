@@ -264,7 +264,8 @@
         "configurable_options",
         "newin_label",
         "configurable_children.newin_label",
-        "configurable_children.color"
+        "configurable_children.color",
+        "category_ids"
       ],
       "excludeFields": [
         "description",
@@ -328,7 +329,8 @@
         "tier_prices",
         "configurable_options",
         "newin_label",
-        "configurable_children.newin_label"
+        "configurable_children.newin_label",
+        "category_ids"
       ],
       "excludeFields": [
         "description",
