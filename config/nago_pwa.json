@@ -598,13 +598,22 @@
   "shipping": {
     "methods": [
       {
-        "method_title": "DPD Courier",
+        "method_title": "Kurier DHL",
         "method_code": "flatrate",
         "carrier_code": "flatrate",
         "amount": 4,
-        "price_incl_tax": 5,
-        "default": true,
+        "price_incl_tax": 9.90,
+        "default": false,
         "offline": true
+      },
+      {
+        "method_title": "Kurier DHL",
+        "method_code": "bestway",
+        "carrier_code": "tablerate",
+        "amount": 4,
+        "price_incl_tax": 9.90,
+        "default": true,
+        "offline": false
       }
     ]
   },
