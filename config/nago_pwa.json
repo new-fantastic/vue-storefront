@@ -22,7 +22,7 @@
       "static"
     ],
     "invalidateCacheKey": "aeSu7aip",
-    "dynamicConfigReload": false,
+    "dynamicConfigReload": true,
     "dynamicConfigContinueOnError": false,
     "dynamicConfigExclude": [
       "ssr",
@@ -260,6 +260,8 @@
         "configurable_children.media_gallery",
         "configurable_children.news_from_date",
         "configurable_children.news_to_date",
+        "configurable_children.size",
+        "configurable_children.color",
         "media_gallery",
         "configurable_options",
         "newin_label",
@@ -473,6 +475,11 @@
     "waitForPlatformSync": false,
     "setupVariantByAttributeCode": true,
     "endpoint": "https://api.nago.com/api/product",
+    "omitAttributes": [
+      "product_label_primary",
+      "product_label_secondary",
+      "newin_label"
+    ],
     "defaultFilters": [
       "color",
       "size",
@@ -487,24 +494,14 @@
       "category.name": "category.name.keyword"
     },
     "colorMappings": {
-      "Black": "#1d1b1c",
+      "Cloud Grey": "#c0c0c0",
+      "Grey": "#D3D3D3",
+      "Smoke Rose": "#EEB6B7",
       "White": "#ffffff",
-      "White 1": "#f2f3ef",
-      "White 2": "#f7f0e7",
-      "Beige": "#cdb1a5",
-      "Beige Light": "#e9dbd1",
-      "Beige Sandshell": "#c0aa9c",
-      "Grey": "#dad9d8",
-      "Cloud Grey": "#e0d6ca",
-      "Dark Grey": "#827c7b",
-      "Mint": "#bad8c8",
-      "Dark Mint": "91a095",
-      "Coral" :"#fa9484",
-      "Brick": "#ce6f55",
-      "Sandy": "#ffebb5",
-      "Olive": "#876f56",
-      "Smoke Rose": "#f5dad27",
-      "Brandy Rose": "#c1877b"
+      "Brick": "#841f27",
+      "Khaki": "#7F7C5D",
+      "Mint": "#AAF0D1",
+      "White 1": "#f0f0f0"
     },
     "sortByAttributes": {
       "Latest": "updated_at",
@@ -623,7 +620,7 @@
         "amount": 4,
         "price_incl_tax": 9.90,
         "default": true,
-        "offline": false
+        "offline": true
       }
     ]
   },

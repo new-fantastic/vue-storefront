@@ -1,8 +1,10 @@
 import getters from './getters'
+import actions from './actions'
 // import { extendModule } from '@vue-storefront/core/lib/module';
 
 const extendProductVuex = {
-  getters
+  getters,
+  actions
  }
 
  export const productExtend = {
