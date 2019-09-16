@@ -1,3 +1,5 @@
+import config from 'config'
+
 export const divideProduct = (
   product,
   generator = null,
@@ -56,7 +58,16 @@ export const divideProduct = (
       }
       products[curr.color] = baseProduct;
     } else if (!leaveConfigurableChildren) {
+      // console.log(curr.product_label_primary ? curr.product_label_primary : '')
+      if (curr.product_label_primary) {
+        // console.log(curr.name, curr.color, curr.product_label_primary)
+      }
       products[curr.color].configurable_children.push(curr);
+      for (let attr of config.products.omitAttributes) {
+        if (curr[attr] && curr[attr].length) {
+          products[curr.color][attr] = curr[attr]
+        }
+      }
     }
   }
 
