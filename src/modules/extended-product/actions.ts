@@ -43,7 +43,7 @@ export default {
           }
           if (configuration) {
             let selectedVariant = configureProductAsync(context, { product: product, configuration: configuration, selectDefaultVariant: false })
-            Object.assign(product, omit(selectedVariant, ['visibility', config.products.omitAttributes]))
+            Object.assign(product, omit(selectedVariant, ['visibility', ...config.products.omitAttributes]))
           }
           if (product.url_path) {
             rootStore.dispatch('url/registerMapping', {

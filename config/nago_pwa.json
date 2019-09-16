@@ -267,6 +267,8 @@
         "newin_label",
         "configurable_children.newin_label",
         "configurable_children.color",
+        "configurable_children.product_label_primary",
+        "configurable_children.product_label_secondary",
         "category_ids"
       ],
       "excludeFields": [
@@ -323,6 +325,8 @@
         "configurable_children.media_gallery",
         "configurable_children.news_from_date",
         "configurable_children.news_to_date",
+        "configurable_children.product_label_primary",
+        "configurable_children.product_label_secondary",
         "media_gallery",
         "product_links",
         "url_path",
