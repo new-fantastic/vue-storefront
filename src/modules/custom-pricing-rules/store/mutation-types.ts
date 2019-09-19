@@ -1,1 +1,2 @@
-export const SET_RULES = "CPR/SET_RULES";
+export const SET_RULES = 'CPR/SET_RULES';
+export const SET_CATEGORIES = 'CPR/SET_CATEGORIES';

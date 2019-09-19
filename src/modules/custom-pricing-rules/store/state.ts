@@ -1,5 +1,6 @@
-import { CPRState } from "../types/CPRState";
+import { CPRState } from '../types/CPRState';
 
 export const state: CPRState = {
-  rules: []
+  rules: [],
+  categories: []
 };
