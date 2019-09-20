@@ -269,6 +269,7 @@
         "configurable_children.color",
         "configurable_children.product_label_primary",
         "configurable_children.product_label_secondary",
+        "configurable_children.tags",
         "category_ids"
       ],
       "excludeFields": [
@@ -336,6 +337,7 @@
         "configurable_options",
         "newin_label",
         "configurable_children.newin_label",
+        "configurable_children.tags",
         "category_ids"
       ],
       "excludeFields": [
