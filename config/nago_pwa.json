@@ -498,14 +498,24 @@
       "category.name": "category.name.keyword"
     },
     "colorMappings": {
-      "Cloud Grey": "#c0c0c0",
-      "Grey": "#D3D3D3",
-      "Smoke Rose": "#EEB6B7",
-      "White": "#ffffff",
-      "Brick": "#841f27",
-      "Khaki": "#7F7C5D",
-      "Mint": "#AAF0D1",
-      "White 1": "#f0f0f0"
+      "Black": "#1d1b1c",
+      "White": "#f2f3ef",
+      "Creamy White": "#f7f0e7",
+      "Beige": "#cdb1a5",
+      "Beige Light": "#e9dbd1",
+      "Beige Sandshell": "#c0aa9c",
+      "Grey": "#dad9d8",
+      "Cloud Grey": "#e0d6ca",
+      "Dark Grey": "#827c7b",
+      "Mint": "#bad8c8",
+      "Dark Mint": "#91a095",
+      "Coral": "#fa9484",
+      "Brick": "#ce6f55",
+      "Sandy": "#ffebb5",
+      "Khaki": "#876f56",
+      "Smoke Rose": "#f5dad2",
+      "Brandy Rose": "#c48672",
+      "Graphite": "#484754"
     },
     "sortByAttributes": {
       "Latest": "updated_at",
