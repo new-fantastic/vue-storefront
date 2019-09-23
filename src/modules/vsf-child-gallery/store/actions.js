@@ -23,7 +23,7 @@ export const actions = {
       .filter('term', 'type_id', 'simple')
       .build()
 
-    const include_fields = ['sku', 'media_gallery']
+    const include_fields = ['media_gallery', 'color']
     const { elasticsearch } = currentStoreView()
     const apiUrl = config.api.url.substr(-1) === '/' ? config.api.url : config.api.url+'/'
     const baseUrl = `${apiUrl}api/catalog/${elasticsearch.index}/product/_search?_source_include=`
@@ -34,10 +34,10 @@ export const actions = {
 
     const childs = body.hits.hits.map(v => v._source).map(v => ({
       media_gallery: v.media_gallery,
-      sku: v.sku
+      color: v.color
     }))
 
-
+    console.log(childs)
     commit('SAVE_CHILDS', {
       parentSku: product.sku,
       childs
