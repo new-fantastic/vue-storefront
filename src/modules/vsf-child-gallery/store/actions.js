@@ -37,7 +37,6 @@ export const actions = {
       color: v.color
     }))
 
-    console.log(childs)
     commit('SAVE_CHILDS', {
       parentSku: product.sku,
       childs
