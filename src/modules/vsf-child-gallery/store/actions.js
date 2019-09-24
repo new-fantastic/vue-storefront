@@ -1,7 +1,7 @@
 import fetch from 'isomorphic-fetch'
 import config from 'config'
 import builder from 'bodybuilder'
-import { divideProduct } from '../../../themes/nago-theme/mixins/separateByColors'
+import { divideProductNoPlan } from 'src/modules/extended-product/separateByColors'
 import { currentStoreView } from '@vue-storefront/core/lib/multistore';
 
 export const actions = {
@@ -11,14 +11,7 @@ export const actions = {
     if(product.type_id !== 'configurable')
       return
 
-    const fakeGenerator = {
-      next() {
-        return {
-          value: 1
-        }
-      }
-    }
-    const skus = divideProduct(product, fakeGenerator).map(v => v.sku)
+    const skus = divideProductNoPlan(product).map(v => v.sku)
     const query = builder().query('terms', 'sku', skus)
       .filter('term', 'type_id', 'simple')
       .build()
