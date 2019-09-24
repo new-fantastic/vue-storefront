@@ -1,9 +1,7 @@
 import config from 'config'
 
-export const divideProduct = (
+export const divideProductNoPlan = (
   product,
-  generator = null,
-  limit: number = Infinity,
   spread: number = -1,
   leaveConfigurableChildren: Boolean = false
 ) => {
@@ -13,9 +11,9 @@ export const divideProduct = (
 
   if (!product.hasOwnProperty("configurable_options")) {
     // No colors fallback
+
     return {
-      ...product,
-      photo_plan: generator ? generator.next().value : 1
+      ...product
     };
   }
   const colorObj = product.configurable_options.find(
@@ -24,9 +22,9 @@ export const divideProduct = (
 
   if (!colorObj || !colorObj.values) {
     // No colors fallback
+
     return {
-      ...product,
-      photo_plan: generator ? generator.next().value : 1
+      ...product
     };
   }
 
@@ -50,18 +48,14 @@ export const divideProduct = (
         ...product,
         ...curr,
         name: `${product.name.trim()} / ${colorObj.label}`,
-        baseName: product.name.trim(),
-        photo_plan: generator ? generator.next().value : 1
+        baseName: product.name.trim()
       };
       if (!leaveConfigurableChildren) {
         baseProduct.configurable_children = [curr];
       }
       products[curr.color] = baseProduct;
     } else if (!leaveConfigurableChildren) {
-      // console.log(curr.product_label_primary ? curr.product_label_primary : '')
-      if (curr.product_label_primary) {
-        // console.log(curr.name, curr.color, curr.product_label_primary)
-      }
+
       products[curr.color].configurable_children.push(curr);
       for (let attr of config.products.omitAttributes) {
         if (curr[attr] && curr[attr].length) {

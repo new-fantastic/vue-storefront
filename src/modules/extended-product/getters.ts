@@ -1,9 +1,9 @@
-import { divideProduct } from "./separateByColors";
+import { divideProductNoPlan } from "./separateByColors";
 
 export default {
   separatedProducts(state) {
     return state.list.items
-      ? [].concat.apply([], state.list.items.map(v => divideProduct(v)))
+      ? [].concat.apply([], state.list.items.map(v => divideProductNoPlan(v)))
       : [];
   },
 
@@ -13,10 +13,8 @@ export default {
           [],
           state.list.items.map(v => {
             try {
-              const tmp = divideProduct(
+              const tmp = divideProductNoPlan(
                 v,
-                undefined,
-                undefined,
                 undefined,
                 true
               );
