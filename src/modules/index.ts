@@ -26,8 +26,6 @@ import { VsfGoogleTagManager } from "./vsf-google-tag-manager";
 import { VsfFacebookJsSdk } from "./vsf-facebook-js-sdk";
 import { MessengerChat } from "./vsf-messenger-chat";
 
-import { VsfChildGallery } from "./vsf-child-gallery/index.js";
-
 import {
   extendMappingFallback,
   Payload
@@ -109,7 +107,6 @@ export const registerModules: VueStorefrontModule[] = [
   VsfGoogleTagManager,
   VsfFacebookJsSdk,
   MessengerChat,
-  VsfChildGallery,
   FeaturedProducts,
   CustomPricingRules
   // Example
