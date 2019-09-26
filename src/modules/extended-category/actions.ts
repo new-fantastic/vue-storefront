@@ -9,9 +9,9 @@ export default {
     const api = config.api.url;
     let target = null;
     if (storeCode) {
-      target = `${api}ext/sort-order/category/${storeCode}/${categoryId}`;
+      target = `${api.endsWith('/') ? api : api+'/'}api/ext/sort-order/category/${storeCode}/${categoryId}`;
     } else {
-      target = `${api}ext/sort-order/category/${categoryId}`;
+      target = `${api.endsWith('/') ? api : api+'/'}api/ext/sort-order/category/${categoryId}`;
     }
     try {
       let response = await fetch(target);
