@@ -1,8 +1,10 @@
 import mutations from "./mutations";
+import actions from "./actions";
 // import { extendModule } from '@vue-storefront/core/lib/module';
 
 const extendCategoryVuex = {
   mutations,
+  actions,
   state: {
     list: [],
     current: {},
