@@ -44,10 +44,12 @@ export const divideProductNoPlan = (
         );
       }
 
+      const colorLabel = colorObj.label.split(' ').map(label => label.substr(0, 1).toUpperCase() + label.substr(1)).join(' ')
+
       const baseProduct = {
         ...product,
         ...curr,
-        name: `${product.name.trim()} / ${colorObj.label}`,
+        name: `${product.name.trim()} / ${colorLabel}`,
         baseName: product.name.trim()
       };
       if (!leaveConfigurableChildren) {

@@ -262,14 +262,15 @@
         "configurable_children.news_to_date",
         "configurable_children.size",
         "configurable_children.color",
-        "media_gallery",
-        "configurable_options",
-        "newin_label",
         "configurable_children.newin_label",
         "configurable_children.color",
         "configurable_children.product_label_primary",
         "configurable_children.product_label_secondary",
         "configurable_children.tags",
+        "configurable_children.style",
+        "media_gallery",
+        "configurable_options",
+        "newin_label",
         "category_ids"
       ],
       "excludeFields": [
@@ -328,6 +329,9 @@
         "configurable_children.news_to_date",
         "configurable_children.product_label_primary",
         "configurable_children.product_label_secondary",
+        "configurable_children.style",
+        "configurable_children.newin_label",
+        "configurable_children.tags",
         "media_gallery",
         "product_links",
         "url_path",
@@ -336,8 +340,6 @@
         "tier_prices",
         "configurable_options",
         "newin_label",
-        "configurable_children.newin_label",
-        "configurable_children.tags",
         "category_ids"
       ],
       "excludeFields": [
@@ -752,11 +754,5 @@
   "facebookJsSdk": {
     "appId": "488234078415966",
     "pageId": "1597769753863797"
-  },
-  "payu": {
-    "client_id": "1162483",
-    "client_secret": "423f86bcbd108313f5cc2b3740955684",
-    "notifyUrl": "https://abc.pl",
-    "pos_id": "1162483"
   }
 }

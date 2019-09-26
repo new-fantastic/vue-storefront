@@ -7,15 +7,21 @@ import builder from 'bodybuilder'
 export const actions: ActionTree<FeaturedState, any> = {
 
   async loadProducts ({ commit }, skus) {
-    const query = builder().orQuery('terms', 'configurable_children.sku', skus)
-    .build()
-    const query2 = builder().orQuery('terms', 'sku', skus)
-    .build()
-    let response = await Promise.all([quickSearchByQuery({query}), quickSearchByQuery({query: query2})])
+    try {
+      const query = builder()
+      .query('term', 'type_id', 'configurable')
+      .orFilter('terms', 'configurable_children.sku', skus)
+      .orFilter('terms', 'sku', skus)
+      .build()
 
-    commit(types.SET_PRODUCTS, {
-      response: [response[0].items, response[1].items],
-      skus
-    })
+      let { items } = await quickSearchByQuery({query})
+
+      commit(types.SET_PRODUCTS, {
+        response: items,
+        skus
+      })
+    } catch (err) {
+      console.error('Featured Products logic -', err)
+    }
   }
 }
