@@ -438,7 +438,7 @@
     "cmsUrl": "https://checkout.kubotastore.pl/"
   },
   "wordpressCms": {
-    "url": "https://wordpress.kubotastore.pl",
+    "url": "https://wp.kubota.newfantastic.com",
     "lang": "pl",
     "pages": {
       "home": "strona-domowa",
