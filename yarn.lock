@@ -13498,7 +13498,7 @@ regenerator-runtime@^0.11.0, regenerator-runtime@^0.11.1:
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz#be05ad7f9bf7d22e056f9726cee5017fbf19e2e9"
   integrity sha512-MguG95oij0fC3QV3URf4V2SDYGJhJnJGqvIIgdECeODCT98wSWDAJ94SSuVpYQUoTcGUIL6L4yNB7j1DFFHSBg==
 
-regenerator-runtime@^0.12.0:
+regenerator-runtime@^0.12.0, regenerator-runtime@^0.12.1:
   version "0.12.1"
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.12.1.tgz#fa1a71544764c036f8c49b13a08b2594c9f8a0de"
   integrity sha512-odxIc1/vDlo4iZcfXqRYFj0vpXFNoGdKMAUieAlFYO6m/nl5e9KR/beGf41z4a1FI+aQgtjhuaSlDxQ0hmkrHg==
@@ -15917,6 +15917,15 @@ vue-apollo@^3.0.0-beta.19:
     chalk "^2.4.1"
     throttle-debounce "^2.0.0"
 
+vue-carousel@^0.18.0:
+  version "0.18.0"
+  resolved "https://registry.yarnpkg.com/vue-carousel/-/vue-carousel-0.18.0.tgz#478dfcad3abe2ee44c227020b6e60fb8484dc9f1"
+  integrity sha512-a2zxh7QJioDxNMguqcuJ7TPbfgK5bGDaAXIia7NWxPAWsEvNE4ZtHgsGu40L5Aha4uyjmNKXvleB14QAXFoKig==
+  dependencies:
+    global "^4.3.2"
+    regenerator-runtime "^0.12.1"
+    vue "^2.5.17"
+
 vue-carousel@^0.6.9:
   version "0.6.15"
   resolved "https://registry.yarnpkg.com/vue-carousel/-/vue-carousel-0.6.15.tgz#7446e3cb2762d58175d52c83c4052a1aeeae91ea"
@@ -16018,10 +16027,10 @@ vue-no-ssr@^0.2.2:
   resolved "https://registry.yarnpkg.com/vue-no-ssr/-/vue-no-ssr-0.2.2.tgz#e1a0ef0ba39fc54972edd71a2ae11a7988312b19"
   integrity sha512-JRiKLrefDdFCMDkDiOIGXd2kLCeLDVcUIihnMydxGtGlIphOvIyz1HolTAlD4yBYXvpVZest2Im0ku2LBFf1GA==
 
-vue-observe-visibility@^0.4.1:
-  version "0.4.3"
-  resolved "https://registry.yarnpkg.com/vue-observe-visibility/-/vue-observe-visibility-0.4.3.tgz#b2694a83c94b274f566e03a497df51540e2daedc"
-  integrity sha512-YyyO3a5OUkgpmC0NEf+xWJR0jVdFWzVbKRDzUumOVMhfr3+jxXEycYNHCM3rEO5lcj3ZNJpDomZEYEx0Wqqh9A==
+vue-observe-visibility@^0.4.4:
+  version "0.4.4"
+  resolved "https://registry.yarnpkg.com/vue-observe-visibility/-/vue-observe-visibility-0.4.4.tgz#cf3e945bf80c1317a1c32bc516d6cfd4dda8f8fd"
+  integrity sha512-2eDYHgL2MJ2wkkNZnus56D0CG8m80BFLuvEcGnD7rQ9jxFogpXMsM9aM5Md+XT8AmYGYCqVfOVBaWFtVvwbpmw==
 
 vue-offline@^1.0.8:
   version "1.0.204"
@@ -16108,7 +16117,7 @@ vue-template-es2015-compiler@^1.6.0:
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.6.0.tgz#dc42697133302ce3017524356a6c61b7b69b4a18"
   integrity sha512-x3LV3wdmmERhVCYy3quqA57NJW7F3i6faas++pJQWtknWT+n7k30F4TVdHvCLn48peTJFRvCpxs3UuFPqgeELg==
 
-vue@^2.4.2:
+vue@^2.4.2, vue@^2.5.17:
   version "2.6.10"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.10.tgz#a72b1a42a4d82a721ea438d1b6bf55e66195c637"
   integrity sha512-ImThpeNU9HbdZL3utgMCq0oiMzAkt1mcgy3/E6zWC/G6AaQoeuFdsl9nDhTDU3X1R6FK7nsIUuRACVcjI+A2GQ==
