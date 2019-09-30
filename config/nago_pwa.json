@@ -151,7 +151,7 @@
       },
       "tax": {
         "sourcePriceIncludesTax": true,
-        "defaultCountry": "DE",
+        "defaultCountry": "GB",
         "defaultRegion": "",
         "calculateServerSide": true
       },
@@ -472,7 +472,7 @@
     "useShortCatalogUrls": false,
     "useMagentoUrlKeys": true,
     "setFirstVarianAsDefaultInURL": false,
-    "configurableChildrenStockPrefetchStatic": false,
+    "configurableChildrenStockPrefetchStatic": true,
     "configurableChildrenStockPrefetchDynamic": false,
     "configurableChildrenStockPrefetchStaticPrefetchCount": 8,
     "filterUnavailableVariants": false,
@@ -624,21 +624,12 @@
     "methods": [
       {
         "method_title": "Kurier DHL",
-        "method_code": "flatrate",
-        "carrier_code": "flatrate",
-        "amount": 4,
-        "price_incl_tax": 9.90,
-        "default": false,
-        "offline": true
-      },
-      {
-        "method_title": "Kurier DHL",
         "method_code": "bestway",
         "carrier_code": "tablerate",
         "amount": 4,
         "price_incl_tax": 9.90,
         "default": true,
-        "offline": true
+        "offline": false
       }
     ]
   },
