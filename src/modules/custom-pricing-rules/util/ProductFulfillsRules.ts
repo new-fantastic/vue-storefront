@@ -17,7 +17,7 @@ export default (product, rules, category = null) => {
   if (
     newProduct.hasOwnProperty("category_ids")
   ) {
-    const ids = newProduct.category_ids
+    // const ids = newProduct.category_ids
     if (!Array.isArray(newProduct.category_ids)) {
       newProduct.category_ids = [newProduct.category_ids];
     }
