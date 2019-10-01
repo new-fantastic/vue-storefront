@@ -35,7 +35,8 @@ export default (
       price: newPrice - newPriceTax,
       specialPriceInclTax: newPrice,
       specialPriceTax: newPriceTax,
-      special_price: newPrice - newPriceTax
+      special_price: newPrice - newPriceTax,
+      appliedCartRule: true
     };
   }
 };
