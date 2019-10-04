@@ -5,8 +5,8 @@
     "protocol": "http",
     "api": "api",
     "devServiceWorker": false,
-    "useOutputCacheTagging": false,
-    "useOutputCache": false,
+    "useOutputCacheTagging": true,
+    "useOutputCache": true,
     "outputCacheDefaultTtl": 86400,
     "availableCacheTags": [
       "product",
@@ -601,7 +601,7 @@
   },
   "stock": {
     "synchronize": true,
-    "allowOutOfStockInCart": true,
+    "allowOutOfStockInCart": false,
     "endpoint": "https://api.nago.com/api/stock"
   },
   "images": {
