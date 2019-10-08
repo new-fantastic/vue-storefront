@@ -5,8 +5,8 @@
     "protocol": "http",
     "api": "api",
     "devServiceWorker": false,
-    "useOutputCacheTagging": true,
-    "useOutputCache": true,
+    "useOutputCacheTagging": false,
+    "useOutputCache": false,
     "outputCacheDefaultTtl": 86400,
     "availableCacheTags": [
       "product",
