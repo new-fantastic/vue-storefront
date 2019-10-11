@@ -14162,11 +14162,6 @@ vm-browserify@0.0.4:
   dependencies:
     indexof "0.0.1"
 
-vsf-external-checkout@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/vsf-external-checkout/-/vsf-external-checkout-2.0.0.tgz#f379cb45111abbc0a6e8f8688045b2495f0fde3b"
-  integrity sha512-Jf3oUachJcvbZ3RdiUtBQ0J6LhALfNv93lT4WdAnYQox6Mc8z+ZvZUQ9huU7kbt2zhCpwFy0WKy4hQdf/PizKA==
-
 vue-analytics@^5.16.1:
   version "5.16.4"
   resolved "https://registry.yarnpkg.com/vue-analytics/-/vue-analytics-5.16.4.tgz#7f9e197cbc64afac96884a05214b17efaf8e9d09"
