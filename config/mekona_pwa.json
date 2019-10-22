@@ -42,7 +42,7 @@
   "elasticsearch": {
     "httpAuth": "",
     "host": "/api/catalog",
-    "index": "vue_storefront_catalog",
+    "index": "vue_storefront_catalog_pl",
     "min_score": 0.02,
     "csrTimeout": 5000,
     "ssrTimeout": 1000,
@@ -91,60 +91,32 @@
   "storeViews": {
     "multistore": false,
     "commonCache": true,
-    "mapStoreUrlsFor": ["de", "it"],
-    "de": {
-      "storeCode": "de",
+    "mapStoreUrlsFor": ["pl"],
+    "pl": {
+      "storeCode": "pl",
       "disabled": true,
       "storeId": 3,
-      "name": "German Store",
-      "url": "/de",
+      "name": "Polish Store",
+      "url": "/pl",
       "appendStoreCode": true,
       "elasticsearch": {
         "host": "/api/catalog",
-        "index": "vue_storefront_catalog_de"
+        "index": "vue_storefront_catalog_pl"
       },
       "tax": {
         "sourcePriceIncludesTax": false,
-        "defaultCountry": "DE",
+        "defaultCountry": "PL",
         "defaultRegion": "",
         "calculateServerSide": true
       },
       "i18n": {
-        "fullCountryName": "Germany",
-        "fullLanguageName": "German",
-        "defaultLanguage": "DE",
-        "defaultCountry": "DE",
-        "defaultLocale": "de-DE",
-        "currencyCode": "EUR",
-        "currencySign": "EUR",
-        "dateFormat": "HH:mm D-M-YYYY"
-      }
-    },
-    "it": {
-      "storeCode": "it",
-      "disabled": true,
-      "storeId": 4,
-      "name": "Italian Store",
-      "url": "/it",
-      "appendStoreCode": true,
-      "elasticsearch": {
-        "host": "/api/catalog",
-        "index": "vue_storefront_catalog_it"
-      },
-      "tax": {
-        "sourcePriceIncludesTax": false,
-        "defaultCountry": "IT",
-        "defaultRegion": "",
-        "calculateServerSide": true
-      },
-      "i18n": {
-        "fullCountryName": "Italy",
-        "fullLanguageName": "Italian",
-        "defaultCountry": "IT",
-        "defaultLanguage": "IT",
-        "defaultLocale": "it-IT",
-        "currencyCode": "EUR",
-        "currencySign": "EUR",
+        "fullCountryName": "Poland",
+        "fullLanguageName": "Polish",
+        "defaultLanguage": "PL",
+        "defaultCountry": "PL",
+        "defaultLocale": "pl-PL",
+        "currencyCode": "PLN",
+        "currencySign": "PLN",
         "dateFormat": "HH:mm D-M-YYYY"
       }
     }
@@ -370,7 +342,7 @@
   },
   "images": {
     "useExactUrlsNoProxy": false,
-    "baseUrl": "https://demo.vuestorefront.io/img/",
+    "baseUrl": "https://api.mekona.pl/img/",
     "productPlaceholder": "/assets/placeholder.jpg"
   },
   "install": {
@@ -379,7 +351,7 @@
   },
   "demomode": false,
   "tax": {
-    "defaultCountry": "US",
+    "defaultCountry": "PL",
     "defaultRegion": "",
     "sourcePriceIncludesTax": false,
     "calculateServerSide": true
@@ -401,16 +373,16 @@
     "disablePersistentTaskQueue": true
   },
   "i18n": {
-    "defaultCountry": "US",
-    "defaultLanguage": "EN",
+    "defaultCountry": "PL",
+    "defaultLanguage": "PL",
     "availableLocale": ["en-US","de-DE","fr-FR","es-ES","nl-NL", "jp-JP", "ru-RU", "it-IT", "pt-BR", "pl-PL", "cs-CZ"],
     "defaultLocale": "en-US",
     "currencyCode": "USD",
     "currencySign": "$",
     "currencySignPlacement": "preppend",
     "dateFormat": "l LT",
-    "fullCountryName": "United States",
-    "fullLanguageName": "English",
+    "fullCountryName": "Poland",
+    "fullLanguageName": "Polish",
     "bundleAllStoreviewLanguages": true
   },
   "expireHeaders": {
