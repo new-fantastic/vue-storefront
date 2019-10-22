@@ -4,6 +4,58 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.10.4] - 18.10.2019
+
+### Fixed
+- Added try/catch for fetching single product in cart synchronization - @gibkigonzo (#3632)
+- Removed infinite loop when changing checkbox in shipping details - @gibkigonzo (#3656)
+- Remove modifying config by reference in multistore - @gibkigonzo (#3617)
+- Fix displaying same country twice in the in the country switcher - @andrzejewsky (#3587)
+- Remove race condition while loading locale messages - @gibkigonzo (#3602)
+- Fixed special price that can break when you change pages (browser navigation for/back) or just go from category to product page - @resubaka (#3638)
+- Change sku to string when checking products equality - @gibkigonzo (#3606)
+- Fixed problem with losing browser history - @andrzejewsky (#3642)
+- Fixed resolving store code on SSR - @andrzejewsky (#3576)
+- Fixed styles for original price on Wishlist sidebar - @przspa (#3392)
+- Added debounce for updating quantity method in the cart - @andrzejewsky (#3191)
+- Improved scrolling in Safari on iOS devices (sidebars) - @phoenixdev-kl (#3551)
+- Improved cookie and offline badges (z-index, overflow) - @phoenixdev-kl (#3552)
+- Added config to set Cache-Control header for static assets based on mime type - @phoenix-bjoern (#3268)
+- Added catching of errors when ES is down - @qiqqq
+- `localizedRoute()` doesn't return urlDispatcher routes anymore. Use localizedDispatcherRoute instead - @lukeromanowicz (#3548)
+- Fixed hash in dynamically resolved urls causing resolving issues - @lukeromanowicz (#3515)
+- `localizedRoute()` now supports path (and prefers over fullPath) in LocalizedRoute objects - @lukeromanowicz (#3515)
+- Decreased the `localStorage` quota usage + error handling by introducing new config variables: `config.products.disablePersistentProductsCache` to not store products by SKU (by default it's on). Products are cached in ServiceWorker cache anyway so the `product/list` will populate the in-memory cache (`cache.setItem(..., memoryOnly = true)`); `config.seo.disableUrlRoutesPersistentCache` - to not store the url mappings; they're stored in in-memory cache anyway so no additional requests will be made to the backend for url mapping; however it might cause some issues with url routing in the offline mode (when the offline mode PWA installed on homescreen got reloaded, the in-memory cache will be cleared so there won't potentially be the url mappings; however the same like with `product/list` the ServiceWorker cache SHOULD populate url mappings anyway); `config.syncTasks.disablePersistentTaskQueue` to not store the network requests queue in service worker. Currently only the stock-check and user-data changes were using this queue. The only downside it introuces can be related to the offline mode and these tasks will not be re-executed after connectivity established, but just in a case when the page got reloaded while offline (yeah it might happen using ServiceWorker; `syncTasks` can't be re-populated in cache from SW) - @pkarw (#2985)
+- Fixed evaluate detailsLink in the cookie notification - @benjick (#3689)
+
+## Added
+- Added german translations - @schwerdt-ke (3076)
+
+## [1.10.3] - 2019.09.18
+
+### Fixed
+- Broken sidebar menu in mobile view - @przspa (#3549)
+- UrlDispatcher issues with multistore routes - @pkarw (#3568)
+
+## [1.10.2] - 2019.09.06
+
+### Fixed
+- Product image is missing on PDP - @przspa, @NavaneethVijay (#3483)
+- Mounting app when routes are resolved, should completly remove recent SSR errors - patzick (#3499)
+- Fixed `categoriesDynamicPrefetchLevel` that now can be equal to 0 - @pkarw (#3495)
+
+## [1.10.1] - 2019.09.03
+
+### Fixed
+- Invalid Discount code error handled by theme - @grimasod (#3385)
+- Fallback for empty value or no_selection child image - @ngongoll (#3397)
+- `order.order_id` was not assigned in the `orders.directBackendSync` mode - @pkarw (#3398)
+- Hydration problems with UrlDispatcher :rocket: - @patzick (#3412)
+- if condition of quoteId from the `_serverDeleteItem` method on core/modules/cart/store/action.ts - @AshishSuhane (#3415)
+- Router beforeEach hooks running many times - @grimasod (#3443)
+- test:unit:watch with a workaround of a jest problem with template strings - @resubaka (#3450, #3351)
+- changed the theme test path so test in theme are going to work - @resubaka (#3455)
+
 ## [1.10.0] - 2019.08.10
 
 ### Added
@@ -27,9 +79,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - OrderNumber on ThankYouPage - @Flyingmana (#2743)
 
 ### Removed
-- The getter `cart/totals` has ben replaced with `cart/getTotals` - @pkarw (#2522)
-- The getter `cart/coupon` has ben replaced with `cart/getCoupon` - @pkarw (#2522)
-- The getter `cart/totalQuantity` has ben replaced with `cart/getItemsTotalQuantity` - @pkarw (#2522)
+- The getter `cart/totals` has been replaced with `cart/getTotals` - @pkarw (#2522)
+- The getter `cart/coupon` has been replaced with `cart/getCoupon` - @pkarw (#2522)
+- The getter `cart/totalQuantity` has been replaced with `cart/getItemsTotalQuantity` - @pkarw (#2522)
 - The event `cart-before-save` has been removed - @pkarw (#2522)
 - The action `cart/save` has been removed - @pkarw - (#2522)
 - Some deprecated config options: `useShortCatalogUrls` and `setupVariantByAttributeCode` have been removed - @pkarw (#2915)
@@ -75,14 +127,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - No placeholders / no photos for Get Inspire section in offline - @przspa (#3072)
 - Back icon on product page causing inconsistent behavior - @patzick (#3056)
 - Remove static definition of `cashondelivery` in payment module - @danielmaier42 (#2983)
-- Fixed wrong meta description attribute by page overwrite - @przspa (#3091) 
+- Fixed wrong meta description attribute by page overwrite - @przspa (#3091)
 - Fixed the `AddToCart` button behavior in case of synchronization errors - @pkarw (#3150)
 - User token re-validation fixed to use proper HTTP codes - @pkarw (#3151, #3178)
 - Fixed undefined id of color swatches issue for simple product - @vishal-7037 (#3239)
 - Date filter ignoring format param and locales - @grimasod, @patzick (#3102)
 - Problem with placing an order if shipping method is different than default one - @patzick (#3203)
 - Fixed product video embed on PDP - @juho-jaakkola (#3263)
-- Fixed memory leak with loading DayJS in SSR - @lukeromanowicz (#3310) 
+- Fixed memory leak with loading DayJS in SSR - @lukeromanowicz (#3310)
 - Fixed invalid localized routes in SSR content of multistore configuration - @lukeromanowicz (#3262)
 - Fixed startSession which loaded from the wrong place the user when multistore was active - @resubaka (#3322)
 - Login after registration - @patzick (#3343)
@@ -111,8 +163,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Product video - retrieve video id from 'video_id' field (if set) instead of 'id' - @afirlejczyk
 - Webpack config improvement - @yogeshsuhagiya (#2689)
 - BaseSelect input event - @ResuBaka (#2683)
-- Fixed static file handler to immediately return 404 status for missing files - @grimason (#2685)
-- Fixed maxAge Response Header for static files and Content-Type for Service Worker - @grimason (#2686)
+- Fixed static file handler to immediately return 404 status for missing files - @grimasod (#2685)
+- Fixed maxAge Response Header for static files and Content-Type for Service Worker - @grimasod (#2686)
 - Default log verbosity is changed to show only errors - @lromanowicz (#2717)
 - Remembering last search query - @webdiver, @patzick (#2787)
 - Extracted ProductImage component to support faster images loading - @przemyslawspaczek (#2925)

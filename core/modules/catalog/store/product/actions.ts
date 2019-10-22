@@ -2,7 +2,7 @@ import Vue from 'vue'
 import { ActionTree } from 'vuex'
 import * as types from './mutation-types'
 import { formatBreadCrumbRoutes, productThumbnailPath, isServer } from '@vue-storefront/core/helpers'
-import { currentStoreView } from '@vue-storefront/core/lib/multistore'
+import { currentStoreView, localizedDispatcherRoute } from '@vue-storefront/core/lib/multistore'
 import { configureProductAsync,
   doPlatformPricesSync,
   filterOutUnavailableVariants,
@@ -27,6 +27,7 @@ import { Logger } from '@vue-storefront/core/lib/logger';
 import { TaskQueue } from '@vue-storefront/core/lib/sync'
 import toString from 'lodash-es/toString'
 import config from 'config'
+import { formatProductLink } from 'core/modules/url/helpers'
 
 const PRODUCT_REENTER_TIMEOUT = 20000
 
@@ -310,7 +311,7 @@ const actions: ActionTree<ProductState, RootState> = {
           }
           if (product.url_path) {
             rootStore.dispatch('url/registerMapping', {
-              url: product.url_path,
+              url: localizedDispatcherRoute(product.url_path, currentStoreView().storeCode),
               routeData: {
                 params: {
                   'parentSku': product.parentSku,
@@ -340,9 +341,15 @@ const actions: ActionTree<ProductState, RootState> = {
           }
           const cacheKey = entityKeyName(cacheByKey, prod[(cacheByKey === 'sku' && prod['parentSku']) ? 'parentSku' : cacheByKey]) // to avoid caching products by configurable_children.sku
           if (isCacheable) { // store cache only for full loads
-            cache.setItem(cacheKey, prod)
+            cache.setItem(cacheKey, prod, null, config.products.disablePersistentProductsCache)
               .catch((err) => {
                 Logger.error('Cannot store cache for ' + cacheKey, err)()
+                if (
+                  err.name === 'QuotaExceededError' ||
+                  err.name === 'NS_ERROR_DOM_QUOTA_REACHED'
+                ) { // quota exceeded error
+                  cache.clear() // clear products cache if quota exceeded
+                }
               })
           }
           if ((prod.type_id === 'grouped' || prod.type_id === 'bundle') && prefetchGroupProducts && !isServer) {

@@ -5,12 +5,14 @@ import { createApp } from '@vue-storefront/core/app'
 import rootStore from '@vue-storefront/core/store'
 import { registerSyncTaskProcessor } from '@vue-storefront/core/lib/sync/task'
 import i18n from '@vue-storefront/i18n'
-import { prepareStoreView, storeCodeFromRoute, currentStoreView, localizedRoute } from '@vue-storefront/core/lib/multistore'
+import storeCodeFromRoute from '@vue-storefront/core/lib/storeCodeFromRoute'
+import { prepareStoreView, currentStoreView, localizedRoute } from '@vue-storefront/core/lib/multistore'
 import { onNetworkStatusChange } from '@vue-storefront/core/modules/offline-order/helpers/onNetworkStatusChange'
 import '@vue-storefront/core/service-worker/registration' // register the service worker
 import { AsyncDataLoader } from './lib/async-data-loader'
 import { Logger } from '@vue-storefront/core/lib/logger'
 import globalConfig from 'config'
+import { RouterManager } from './lib/router-manager';
 declare var window: any
 
 const invokeClientEntry = async () => {
@@ -23,7 +25,7 @@ const invokeClientEntry = async () => {
     store.replaceState(Object.assign({}, store.state, window.__INITIAL_STATE__, { config: globalConfig }))
   }
 
-  store.dispatch('url/registerDynamicRoutes')
+  await store.dispatch('url/registerDynamicRoutes')
   function _commonErrorHandler (err, reject) {
     if (err.message.indexOf('query returned empty result') > 0) {
       rootStore.dispatch('notification/spawnNotification', {
@@ -60,7 +62,7 @@ const invokeClientEntry = async () => {
       _commonErrorHandler(err, next)
     })
   }
-  router.onReady(() => {
+  router.onReady(async () => {
     router.beforeResolve((to, from, next) => {
       if (!from.name) return next() // do not resolve asyncData on server render - already been done
       if (Vue.prototype.$ssrRequestContext) Vue.prototype.$ssrRequestContext.output.cacheTags = new Set<string>()
@@ -73,8 +75,6 @@ const invokeClientEntry = async () => {
           if (storeCode !== '' && storeCode !== null) {
             if (storeCode !== currentStore.storeCode) {
               (document as any).location = to.path // full reload
-            } else {
-              prepareStoreView(storeCode)
             }
           }
         }
@@ -99,7 +99,14 @@ const invokeClientEntry = async () => {
         }
       }))
     })
-    app.$mount('#app')
+    // Mounting app
+    if (!RouterManager.isRouteDispatched()) {
+      RouterManager.addDispatchCallback(() => {
+        app.$mount('#app')
+      })
+    } else {
+      app.$mount('#app')
+    }
   })
   registerSyncTaskProcessor()
   window.addEventListener('online', () => { onNetworkStatusChange(store) })
