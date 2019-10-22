@@ -401,7 +401,7 @@
     "contactAddress": "contributors@vuestorefront.io",
     "sendConfirmation": true
   },
-  "theme": "vuetique",
+  "theme": "vuetique-theme",
   "analytics": {
     "id": false
   },
