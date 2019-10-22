@@ -18,4 +18,4 @@
 	url = git@github.com:new-fantastic/vsf-payment-payu.git
 [submodule "src/modules/payment-stripe"]
 	path = src/modules/payment-stripe
-	url = git@github.com:develodesign/vsf-payment-stripe.git
+	url = git@github.com:new-fantastic/vsf-payment-stripe.git
