@@ -746,5 +746,9 @@
   "facebookJsSdk": {
     "appId": "488234078415966",
     "pageId": "1597769753863797"
+  },
+  "stripe": {
+    "apiKey": "pk_test_yYSvze7AwoLlJLufbOmxpCRs007cvXnehy",
+    "backend_platform": "magento2"
   }
 }

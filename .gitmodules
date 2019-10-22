@@ -16,3 +16,6 @@
 [submodule "src/modules/payment-payu"]
 	path = src/modules/payment-payu
 	url = git@github.com:new-fantastic/vsf-payment-payu.git
+[submodule "src/modules/payment-stripe"]
+	path = src/modules/payment-stripe
+	url = git@github.com:new-fantastic/vsf-payment-stripe.git
