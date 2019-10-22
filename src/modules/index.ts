@@ -44,6 +44,8 @@ import { FeaturedProducts } from "./featured-products";
 import { CustomPricingRules } from "./custom-pricing-rules";
 import { removeStoreCodeFromRoute, currentStoreView } from "@vue-storefront/core/lib/multistore";
 
+import { Stripe } from './payment-stripe';
+
 import Vue from 'vue'
 import store from '@vue-storefront/core/store'
 
@@ -108,6 +110,7 @@ export const registerModules: VueStorefrontModule[] = [
   VsfFacebookJsSdk,
   MessengerChat,
   FeaturedProducts,
-  CustomPricingRules
+  CustomPricingRules,
+  Stripe
   // Example
 ];
