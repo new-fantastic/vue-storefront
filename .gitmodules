@@ -1,0 +1,3 @@
+[submodule "src/themes/vuetique-theme"]
+	path = src/themes/vuetique-theme
+	url = git@github.com:new-fantastic/mekona-theme.git
