@@ -29,6 +29,26 @@ import { WpJson } from './vsf-wp-json'
 import { CategoryUpsell } from "./category-upsell";
 import { Bundle, extendedCart } from "./bundle";
 
+import { extendMappingFallback, Payload } from 'src/modules/vsf-mapping-fallback'
+import { forProduct, forCategory, tap } from 'src/modules/vsf-mapping-fallback/builtin'
+import config from 'config'
+import fetch from 'isomorphic-fetch'
+
+export const forDemo = async (context, { url, params }: Payload) => {
+
+  return {
+    name: 'static-page',
+    params: {
+      slug: url
+    }
+  }
+}
+
+extendMappingFallback(
+  forProduct, forCategory, forDemo, tap
+)
+
+
 import Vue from "vue";
 
 
