@@ -672,7 +672,7 @@
   },
   "theme": "nago-theme",
   "analytics": {
-    "id": false
+    "id": "UA-127216485-1"
   },
   "hotjar": {
     "id": false
