@@ -738,7 +738,7 @@
   },
   "facebookPixel": {
     "id": "636889190041971",
-    "useParentSku": true
+    "useParentSku": false
   },
   "googleTagManager": {
     "id": "GTM-NVVN94R"

@@ -16,6 +16,9 @@ export const forProduct = async ({ dispatch }, { url, params }: Payload) => {
         slug: product.slug,
         parentSku: product.sku,
         childSku: params['childSku'] ? params['childSku'] : product.sku
+      },
+      meta: {
+        componentName: 'product'
       }
     }
   }
