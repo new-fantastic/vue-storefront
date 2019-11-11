@@ -101,6 +101,10 @@ export function beforeRegistration ({ Vue, config, store, isServer }) {
       // Counting how many Impressions wait to deliver
       EventBus.$on('ga-add-impression', ({ impression }) => {
         state.eventsInQueue++;
+        if (state.eventsInQueue >= 15) {
+          state.eventsInQueue = 0
+          SendAndSetCurrency(ga, Vue.prototype.$ga, 'event', 'Scroll Tracking', 'scroll', window.location.href)
+        }
       })
 
       ScrollStop(() => {
