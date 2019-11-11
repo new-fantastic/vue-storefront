@@ -1,6 +1,6 @@
 import { createModule } from '@vue-storefront/core/lib/module'
 import { beforeRegistration } from './hooks/beforeRegistration'
-import { afterRegistration } from './hooks/afterRegistration'
+import { beforeEach } from './router/beforeEach'
 
 const store = {
   namespaced: true,
@@ -14,5 +14,5 @@ export const GoogleAnalytics = createModule({
   key: KEY,
   store: { modules: [{ key: KEY, module: store }] },
   beforeRegistration,
-  afterRegistration
+  router: { beforeEach }
 })
