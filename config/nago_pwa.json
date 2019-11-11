@@ -671,9 +671,6 @@
     "sendConfirmation": true
   },
   "theme": "nago-theme",
-  "analytics": {
-    "id": "UA-127216485-1"
-  },
   "hotjar": {
     "id": false
   },
@@ -750,5 +747,10 @@
   "stripe": {
     "apiKey": "pk_test_xlBbSoBG3TPi885zxgyriKY000aJYKo74K",
     "backend_platform": "magento2"
+  },
+  "analytics": {
+    "id": "UA-130582452-2",
+    "category": "Apparel & Accessories > Clothing",
+    "defaultBrand": "NAGO"
   }
 }
