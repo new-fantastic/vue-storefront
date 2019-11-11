@@ -8,7 +8,7 @@ import ScrollStop from '../util/ScrollStop'
 import SendAndSetCurrency from '../util/SendAndSetCurrency'
 import InitiateCheckout from '../events/InitiateCheckout'
 import AddProduct from '../events/AddProduct';
-import { optionLabel } from '@vue-storefront/core/modules/catalog/helpers/optionLabel';
+import rootStore from '@vue-storefront/core/store';
 
 declare const ga;
 
@@ -52,32 +52,17 @@ export function beforeRegistration ({ Vue, config, store, isServer }) {
             const ecommerce = Vue.prototype.$ga.ecommerce
       
             order.products.forEach(item => {
-              if (item.isPack) {
-                ecommerce.addProduct({
-                  id: item.sku,
-                  name: item.name,
-                  quantity: item.qty,
-                  price: item.special_price,
-                  variant: item.name,
-                  category: store.state.config.analytics.category,
-                  ...(item.brand ? { brand: item.brand } : { brand: store.state.config.analytics.defaultBrand })
-                })
-              } else {
-                const colorLabel = optionLabel(store.state.attribute, { attributeKey: 'color', optionId: item.color })
-                const tallaLabel = optionLabel(store.state.attribute, { attributeKey: 'talla', optionId: item.talla })
-        
-                ecommerce.addProduct({
-                  id: item.sku,
-                  name: item.name,
-                  quantity: item.qty,
-                  price: item.specialPriceInclTax && item.specialPriceInclTax > 0
-                    ? item.specialPriceInclTax
-                    : item.priceInclTax,
-                  variant: `${colorLabel} ${tallaLabel}`,
-                  category: store.state.config.analytics.category,
-                  ...(item.brand ? { brand: item.brand } : { brand: store.state.config.analytics.defaultBrand })
-                })
-              }
+              
+              ecommerce.addProduct({
+                id: item.sku,
+                name: item.name,
+                quantity: item.qty,
+                price: item.special_price,
+                variant: item.childName,
+                category: rootStore.state.config.analytics.category,
+                ...(item.brand ? { brand: item.brand } : { brand: rootStore.state.config.analytics.defaultBrand })
+              })
+
             })
       
             // We set them in the Checkout.js before placing an order
@@ -87,7 +72,7 @@ export function beforeRegistration ({ Vue, config, store, isServer }) {
       
             ecommerce.setAction('purchase', {
               id: event.confirmation.magentoOrderId,
-              affiliation: 'Jimmy Lion',
+              affiliation: rootStore.state.config.analytics.defaultBrand,
               revenue: total - shipping,
               tax,
               shipping
