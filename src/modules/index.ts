@@ -88,22 +88,22 @@ extendModule({
         key: "product",
         module: {
           actions: {
-            configureBundleAsync(context, product) {
-              if (product.hasOwnProperty("runNow") && product.runNow === true) {
-                return context
-                  .dispatch("setupAssociated", {
-                    product: product,
-                    skipCache: true
-                  })
-                  .then(() => {
-                    context.dispatch("setCurrent", product);
-                  })
-                  .then(() => {
-                    Vue.prototype.$bus.$emit("product-after-setup-associated");
-                  });
-              }
-              return Promise.resolve();
-            },
+            // configureBundleAsync(context, product) {
+            //   if (product.hasOwnProperty("runNow") && product.runNow === true) {
+            //     return context
+            //       .dispatch("setupAssociated", {
+            //         product: product,
+            //         skipCache: true
+            //       })
+            //       .then(() => {
+            //         context.dispatch("setCurrent", product);
+            //       })
+            //       .then(() => {
+            //         Vue.prototype.$bus.$emit("product-after-setup-associated");
+            //       });
+            //   }
+            //   return Promise.resolve();
+            // },
             /**
              * Search ElasticSearch catalog of products using simple text query
              * Use bodybuilder to build the query, aggregations etc: http://bodybuilder.js.org/
@@ -295,6 +295,6 @@ export const registerModules: VueStorefrontModule[] = [
   VsfFacebookJsSdk,
   WpJson,
   CategoryUpsell,
-  Bundle
+  // Bundle
   // Example
 ]

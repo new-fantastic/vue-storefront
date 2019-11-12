@@ -4,6 +4,7 @@ import * as types from './mutation-types'
 import CartState from '../types/CartState'
 import config from 'config'
 import { calcItemsHmac } from '@vue-storefront/core/helpers'
+import productsEquals from './../helpers/productsEquals'
 
 const mutations: MutationTree<CartState> = {
   /**
@@ -11,7 +12,7 @@ const mutations: MutationTree<CartState> = {
    * @param {Object} product data format for products is described in /doc/ElasticSearch data formats.md
    */
   [types.CART_ADD_ITEM] (state, { product }) {
-    const record = state.cartItems.find(p => p.sku === product.sku)
+    const record = state.cartItems.find(p => productsEquals(p, product))
     if (!record) {
       let item = {
         ...product,
@@ -35,16 +36,16 @@ const mutations: MutationTree<CartState> = {
   },
   [types.CART_DEL_ITEM] (state, { product, removeByParentSku = true }) {
     Vue.prototype.$bus.$emit('cart-before-delete', { items: state.cartItems })
-    state.cartItems = state.cartItems.filter(p => p.sku !== product.sku && (p.parentSku !== product.sku || removeByParentSku === false))
+    state.cartItems = state.cartItems.filter(p => !productsEquals(p, product) && (p.parentSku !== product.sku || removeByParentSku === false))
     Vue.prototype.$bus.$emit('cart-after-delete', { items: state.cartItems })
   },
   [types.CART_DEL_NON_CONFIRMED_ITEM] (state, { product, removeByParentSku = true }) {
     Vue.prototype.$bus.$emit('cart-before-delete', { items: state.cartItems })
-    state.cartItems = state.cartItems.filter(p => (p.sku !== product.sku && (p.parentSku !== product.sku || removeByParentSku === false)) || p.server_item_id/* it's confirmed if server_item_id is set */)
+    state.cartItems = state.cartItems.filter(p => (!productsEquals(p, product) && (p.parentSku !== product.sku || removeByParentSku === false)) || p.server_item_id/* it's confirmed if server_item_id is set */)
     Vue.prototype.$bus.$emit('cart-after-delete', { items: state.cartItems })
   },
   [types.CART_UPD_ITEM] (state, { product, qty }) {
-    const record = state.cartItems.find(p => p.sku === product.sku)
+    const record = state.cartItems.find(p => productsEquals(p, product))
 
     if (record) {
       Vue.prototype.$bus.$emit('cart-before-update', { product: record })
@@ -53,7 +54,8 @@ const mutations: MutationTree<CartState> = {
     }
   },
   [types.CART_UPD_ITEM_PROPS] (state, { product }) {
-    let record = state.cartItems.find(p => (p.sku === product.sku || (p.server_item_id && p.server_item_id === product.server_item_id)))
+    let record = state.cartItems.find(p => (productsEquals(p, product) || (p.server_item_id && p.server_item_id === product.server_item_id)))
+    
     if (record) {
       Vue.prototype.$bus.$emit('cart-before-itemchanged', { item: record })
       record = Object.assign(record, product)

@@ -15,6 +15,7 @@ import SearchQuery from '@vue-storefront/core/lib/search/searchQuery'
 import { isServer } from '@vue-storefront/core/helpers'
 import config from 'config'
 import Task from '@vue-storefront/core/lib/sync/types/Task'
+import { optimizeProduct, prepareProductsToAdd, productsEquals } from './../helpers'
 
 const MAX_BYPASS_COUNT = 10
 let _connectBypassCount = 0
@@ -262,8 +263,8 @@ const actions: ActionTree<CartState, RootState> = {
     }
   },
   /** Get one single item from the client's cart */
-  getItem ({ getters }, sku) {
-    return getters.getCartItems.find(p => p.sku === sku)
+  getItem ({ getters }, { product }) {
+    return getters.getCartItems.find(p => productsEquals(p, product))
   },
   goToCheckout () {
     router.push(localizedRoute('/checkout', currentStoreView().storeCode))
@@ -276,7 +277,7 @@ const actions: ActionTree<CartState, RootState> = {
     } else {
       productsToAdd.push(productToAdd)
     }
-    return dispatch('addItems', { productsToAdd: productsToAdd, forceServerSilence })
+    return dispatch('addItems', { productsToAdd: prepareProductsToAdd(productToAdd), forceServerSilence })
   },
   /** add multiple items to the client's cart and execute single sync with the server when needed  @description this method is part of "public" cart API */
   async addItems ({ commit, dispatch, getters }, { productsToAdd, forceServerSilence = false }) {
@@ -313,7 +314,7 @@ const actions: ActionTree<CartState, RootState> = {
           continue
         }
       }
-      const record = getters.getCartItems.find(p => p.sku === product.sku)
+      const record = getters.getCartItems.find(p => productsEquals(p, product))
       const result = await dispatch('stock/queueCheck', { product: product, qty: record ? record.qty + 1 : (product.qty ? product.qty : 1) }, {root: true}) // queueCheck returns control immediately and checks in the background; returning just the cached stock data; we're using it because cart/sync checks the stock anyway; but if cart.synchronize is disabeld or offline mode is enabled then this queued check could be usefull there is also `stock/check` actions that returns the exact values
       product.onlineStockCheckid = result.onlineCheckTaskId // used to get the online check result
       if (result.status === 'volatile') {
@@ -365,7 +366,7 @@ const actions: ActionTree<CartState, RootState> = {
     let product = payload
     if (payload.product) { // new call format since 1.4
       product = payload.product
-      removeByParentSku = payload.removeByParentSku
+      removeByParentSku = !!payload.removeByParentSku && payload.product.type_id !== 'bundle'
     }
     commit(types.CART_DEL_ITEM, { product, removeByParentSku })
     if (getters.isCartSyncEnabled && product.server_item_id) {
@@ -566,7 +567,16 @@ const actions: ActionTree<CartState, RootState> = {
     /** helper - sub method to update the item in the cart */
     const _updateClientItem = async function ({ dispatch }, event, clientItem) {
       if (typeof event.result.item_id !== 'undefined') {
-        await dispatch('updateItem', { product: { server_item_id: event.result.item_id, sku: clientItem.sku, server_cart_id: event.result.quote_id, prev_qty: clientItem.qty } }) // update the server_id reference
+        const product = {
+          server_item_id: event.result.item_id,
+          sku: clientItem.sku,
+          server_cart_id: event.result.quote_id,
+          prev_qty: clientItem.qty,
+          product_option: event.result.product_option,
+          type_id: event.result.product_type
+        }
+
+        await dispatch('updateItem', { product }) // update the server_id reference
         Vue.prototype.$bus.$emit('cart-after-itemchanged', { item: clientItem })
       }
     }
@@ -578,7 +588,7 @@ const actions: ActionTree<CartState, RootState> = {
       if (event.resultCode !== 200) {
         // TODO: add the strategy to configure behaviour if the product is (confirmed) out of the stock
         if (clientItem.server_item_id) {
-          dispatch('getItem', clientItem.sku).then((cartItem) => {
+          dispatch('getItem', clientItem).then((cartItem) => {
             if (cartItem) {
               Logger.log('Restoring qty after error' + clientItem.sku + cartItem.prev_qty, 'cart')()
               if (cartItem.prev_qty > 0) {
@@ -613,7 +623,7 @@ const actions: ActionTree<CartState, RootState> = {
         }
       }
       if (clientItem === null) {
-        const cartItem = await dispatch('getItem', event.result.sku)
+        const cartItem = await dispatch('getItem', event.result)
         if (cartItem) {
           await _updateClientItem({ dispatch }, event, cartItem)
         }
@@ -623,9 +633,7 @@ const actions: ActionTree<CartState, RootState> = {
     }
     for (const clientItem of clientItems) {
       cartHasItems = true
-      const serverItem = serverItems.find((itm) => {
-        return itm.sku === clientItem.sku || itm.sku.indexOf(clientItem.sku + '-') === 0 /* bundle products */
-      })
+      const serverItem = serverItems.find(itm => productsEquals(itm, clientItem))
 
       if (!serverItem) {
         Logger.warn('No server item with sku ' + clientItem.sku + ' on stock.', 'cart')()
@@ -676,16 +684,22 @@ const actions: ActionTree<CartState, RootState> = {
       } else {
         Logger.info('Server and client item with SKU ' + clientItem.sku + ' synced. Updating cart.', 'cart', 'cart')()
         if (!dryRun) {
-          await dispatch('updateItem', { product: { sku: clientItem.sku, server_cart_id: serverItem.quote_id, server_item_id: serverItem.item_id, product_option: serverItem.product_option } })
+          await dispatch('updateItem', {
+            product: {
+              sku: clientItem.sku,
+              server_cart_id: serverItem.quote_id,
+              server_item_id: serverItem.item_id,
+              product_option: serverItem.product_option,
+              type_id: serverItem.product_type
+            }
+          })
         }
       }
     }
 
     for (const serverItem of serverItems) {
       if (serverItem) {
-        const clientItem = clientItems.find((itm) => {
-          return itm.sku === serverItem.sku || serverItem.sku.indexOf(itm.sku + '-') === 0 /* bundle products */
-        })
+        const clientItem = clientItems.find(itm => productsEquals(itm, serverItem))
         if (!clientItem) {
           Logger.info('No client item for' + serverItem.sku, 'cart')()
           diffLog.items.push({ 'party': 'client', 'sku': serverItem.sku, 'status': 'no-item' })

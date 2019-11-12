@@ -139,11 +139,11 @@ const actions: ActionTree<ProductState, RootState> = {
                 pl.product = asocProd
                 pl.product.qty = 1
                 product.price += pl.product.price
-                product.priceInclTax += pl.product.priceInclTax
-                product.tax += pl.product.tax
-              } else {
-                Logger.error('Product link not found', pl.linked_product_sku)()
-              }
+                  product.priceInclTax += pl.product.priceInclTax
+                  product.tax += pl.product.tax
+                } else {
+                  Logger.error('Product link not found', pl.linked_product_sku)()
+                }
             }))
           }
         }
@@ -171,12 +171,12 @@ const actions: ActionTree<ProductState, RootState> = {
                 pl.product = asocProd
                 pl.product.qty = pl.qty
 
-                if (pl.id === defaultOption.id) {
-                  product.price += pl.product.price * pl.product.qty
-                  product.priceInclTax += pl.product.priceInclTax * pl.product.qty
-                  product.tax += pl.product.tax * pl.product.qty
-                }
-              } else {
+                  if (pl.id === defaultOption.id) {
+                    product.price += pl.product.price * pl.product.qty
+                    product.priceInclTax += pl.product.priceInclTax * pl.product.qty
+                    product.tax += pl.product.tax * pl.product.qty
+                  }
+                } else {
                 Logger.error('Product link not found', pl.sku)()
               }
             }))
