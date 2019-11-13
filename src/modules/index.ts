@@ -27,7 +27,7 @@ import { FacebookPixel } from './vsf-facebook-pixel'
 import { VsfFacebookJsSdk } from './vsf-facebook-js-sdk'
 import { WpJson } from './vsf-wp-json'
 import { CategoryUpsell } from "./category-upsell";
-import { extendedCart } from "./bundle";
+// import { extendedCart } from "./bundle";
 
 import { extendMappingFallback, Payload } from 'src/modules/vsf-mapping-fallback'
 import { forProduct, forCategory, tap } from 'src/modules/vsf-mapping-fallback/builtin'
@@ -79,7 +79,7 @@ import { entityKeyName } from '@vue-storefront/core/store/lib/entities'
 import { configureProductAsync, calculateTaxes } from '@vue-storefront/core/modules/catalog/helpers'
 
 
-extendModule(extendedCart);
+// extendModule(extendedCart);
 extendModule({
   key: "catalog",
   store: {
