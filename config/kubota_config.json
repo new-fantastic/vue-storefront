@@ -353,6 +353,7 @@
     }
   },
   "cart": {
+    "mergeSameSkusInBundle": false,
     "bypassCartLoaderForAuthorizedUsers": true,
     "multisiteCommonCart": true,
     "serverMergeByDefault": true,
