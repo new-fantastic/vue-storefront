@@ -88,12 +88,16 @@ extendModule({
         key: "product",
         module: {
           mutations: {
-            [productTypes.CATALOG_UPD_BUNDLE_OPTION] (state, { optionId, optionQty, optionSelections }) {
-              Vue.set(state.current_bundle_options, optionId, {
-                option_id: optionId,
-                option_qty: optionQty,
-                option_selections: optionSelections
-              })
+            [productTypes.CATALOG_UPD_BUNDLE_OPTION] (state, { optionId, optionQty, optionSelections, unset = false }) {
+              if (unset) {
+                Vue.delete(state.current_bundle_options, optionId)
+              } else {
+                Vue.set(state.current_bundle_options, optionId, {
+                  option_id: optionId,
+                  option_qty: optionQty,
+                  option_selections: optionSelections
+                })
+              }
             }
           },
           actions: {
