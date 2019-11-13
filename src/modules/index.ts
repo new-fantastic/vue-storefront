@@ -27,12 +27,12 @@ import { FacebookPixel } from './vsf-facebook-pixel'
 import { VsfFacebookJsSdk } from './vsf-facebook-js-sdk'
 import { WpJson } from './vsf-wp-json'
 import { CategoryUpsell } from "./category-upsell";
-import { Bundle, extendedCart } from "./bundle";
+import { extendedCart } from "./bundle";
 
 import { extendMappingFallback, Payload } from 'src/modules/vsf-mapping-fallback'
 import { forProduct, forCategory, tap } from 'src/modules/vsf-mapping-fallback/builtin'
-import config from 'config'
-import fetch from 'isomorphic-fetch'
+
+import * as productTypes from '@vue-storefront/core/modules/catalog/store/product/mutation-types'
 
 export const forDemo = async (context, { url, params }: Payload) => {
 
@@ -87,6 +87,15 @@ extendModule({
       {
         key: "product",
         module: {
+          mutations: {
+            [productTypes.CATALOG_UPD_BUNDLE_OPTION] (state, { optionId, optionQty, optionSelections }) {
+              Vue.set(state.current_bundle_options, optionId, {
+                option_id: optionId,
+                option_qty: optionQty,
+                option_selections: optionSelections
+              })
+            }
+          },
           actions: {
             configureBundleAsync(context, product) {
               if (product.hasOwnProperty("runNow") && product.runNow === true) {
