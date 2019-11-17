@@ -738,7 +738,8 @@
     "useParentSku": false
   },
   "googleTagManager": {
-    "id": "GTM-NVVN94R"
+    "id": "GTM-NVVN94R",
+    "brand": "NAGO"
   },
   "facebookJsSdk": {
     "appId": "488234078415966",
