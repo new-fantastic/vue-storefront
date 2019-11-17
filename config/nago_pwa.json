@@ -738,7 +738,8 @@
     "useParentSku": false
   },
   "googleTagManager": {
-    "id": "GTM-NVVN94R"
+    "id": "GTM-NVVN94R",
+    "brand": "NAGO"
   },
   "facebookJsSdk": {
     "appId": "488234078415966",
@@ -746,7 +747,8 @@
   },
   "stripe": {
     "apiKey": "pk_test_xlBbSoBG3TPi885zxgyriKY000aJYKo74K",
-    "backend_platform": "magento2"
+    "backend_platform": "magento2",
+    "paymentMethodCode": "stripe_payments"
   },
   "analytics": {
     "id": "UA-127216485-1",
