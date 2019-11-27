@@ -24,7 +24,7 @@ import { RawOutputExample } from './raw-output-example'
 import { InstantCheckout } from './instant-checkout'
 import { OrderHistory } from './order-history'
 import { FacebookPixel } from './vsf-facebook-pixel'
-import { VsfFacebookJsSdk } from './vsf-facebook-js-sdk'
+// import { VsfFacebookJsSdk } from './vsf-facebook-js-sdk'
 import { WpJson } from './vsf-wp-json'
 import { CategoryUpsell } from "./category-upsell";
 // import { extendedCart } from "./bundle";
@@ -305,7 +305,7 @@ export const registerModules: VueStorefrontModule[] = [
   Url,
   OrderHistory,
   FacebookPixel,
-  VsfFacebookJsSdk,
+  // VsfFacebookJsSdk,
   WpJson,
   CategoryUpsell,
   // Bundle
