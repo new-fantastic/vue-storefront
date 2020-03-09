@@ -7,7 +7,7 @@
             <span class="pr5">
               {{ message }}
             </span>
-            <router-link :to="localizedRoute('detailsLink')" :title="detailsLinkText" class="cl-bg-tertiary">
+            <router-link :to="localizedRoute(detailsLink)" :title="detailsLinkText" class="cl-bg-tertiary">
               {{ detailsLinkText }}
             </router-link>
           </div>
@@ -60,7 +60,7 @@ export default {
       this.$store.dispatch('claims/set', {claimCode: 'cookiesAccepted', value: true})
     }
   },
-  created () {
+  mounted () {
     this.$store.dispatch('claims/check', {claimCode: 'cookiesAccepted'}).then((cookieClaim) => {
       if (!cookieClaim) {
         this.isOpen = true
@@ -74,13 +74,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~theme/css/base/global_vars';
 @import '~theme/css/variables/colors';
 @import '~theme/css/helpers/functions/color';
 $color-icon: color(black);
 $bg-icon: color(suva-gray);
+$z-index: map-get($z-index, overlay) - 1;
 
 .cookie {
-  z-index: 2;
+  z-index: $z-index;
   bottom: 0;
 }
 

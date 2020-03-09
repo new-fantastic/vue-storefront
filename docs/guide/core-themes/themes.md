@@ -19,7 +19,7 @@ To do so:
 1. Copy the `default` folder located in `src/themes` and change its name to your new theme's name.
 2. Change the `name` property in your theme's `package.json` file.
 3. Insert this name in the `theme` property of your config file in `config/local.json`.
-4. Run `yarn install` so lerna can detect a new theme.
+4. Run `yarn install` so _lerna_ can detect a new theme.
 5. Start developing your own theme for Vue Storefront!
 
 Only official themes tested and accepted by the community should be in a `master` branch. Please develop your own themes on separate branches and keep them updated with `master` to be sure it works with the newest core.
@@ -29,14 +29,14 @@ Only official themes tested and accepted by the community should be in a `master
 Each theme is a separate Vue.js application with its own dependencies, which can make use of the core or even modify it.
 Below you can find the list of files that are essential for your theme to work:
 
-- `extensions` - theme-specific extension
-  - `index.js` - here you can register your theme-specific extensions
-- `filters` - theme-specific filters (extends `core/filters`)
-  - `index.js` - here you can register your theme-specific filters
+- `assets` - theme-specific assets
+- `components` - theme-specific components
+- `css` - theme-specific css files
+- `helpers` - helper methods
+- `layouts` - layout files
 - `mixins` - theme-specific mixins (extends `core/mixins`)
   - `index.js` - here you can register your theme-specific mixins
 - `pages` - your shop pages
-- `plugins` - theme-specific plugins (extends `core/plugins`, see [Working with plugins](plugins.md)
 - `resource` - theme-specific resources (extends `core/resource`)
 - `router` - theme router
 - `store` - theme-specific stores (extends `core/store`)
